@@ -86,7 +86,12 @@ const Portfolio = () => {
                   <div className="flex flex-col gap-8 text-white m-auto w-1/2">
                     <h1>{item.title}</h1>
                     <div className="relative">
-                      <Image width={400} height={400} src={item.img} />
+                      <Image
+                        width={400}
+                        height={400}
+                        src={item.img}
+                        alt="myimage1"
+                      />
                     </div>
                     <p>{item.desc}</p>
                     <Link href={item.link}>
