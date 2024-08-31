@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="flex justify-between h-[85vh] flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER*/}
         <div className="h-[20vh] lg:h-full lg:w-[40vw] flex items-center justify-center">
-          <h2 className="text-4xl">Let,s Work Together</h2>
+          <h2 className="text-4xl">Lets Work Together</h2>
         </div>
         {/* CONTACT CONTAINER  */}
         <form className="h-[65vh] lg:h-full lg:w-1/2 rounded-3xl  shadow-xl border shadow-black-300/50 flex flex-col justify-center p-16">

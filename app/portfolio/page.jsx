@@ -113,7 +113,7 @@ const Portfolio = () => {
         </div>
 
         <motion.button className="border p-6 rounded-xl text-4xl md:text-6xl bg-black text-white shadow-2xl mt-5 hover:text-black hover:bg-white">
-          <Link href={"/contact"}>Let's Connect</Link>
+          <Link href={"/contact"}>Lets Connect</Link>
         </motion.button>
       </div>
     </div>
