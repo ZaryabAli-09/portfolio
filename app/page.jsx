@@ -26,13 +26,13 @@ const Home = () => {
     visible: { x: "0vw" },
   };
   return (
-    <div className="flex h-[85vh]   flex-col md:flex-row  px-8 sm:px-8 md:px-12 lg:px-20 xl:px-40 ">
+    <div className="flex    flex-col md:flex-row  px-8 sm:px-8 md:px-12 lg:px-20 xl:px-40 ">
       {/* IMAGE CONTAINER  */}
       <div className="h-[45vh]   md:h-[85vh] md:w-1/2 flex items-center justify-center  relative  ">
         {showAvatar ? <Avatar /> : "Avatar loading..."}
       </div>
       {/* TEXT CONATINER  */}
-      <div className="h-[40vh] md:h-[85vh] md:w-1/2   flex flex-col gap-3 justify-center items-center md:items-start">
+      <div className="h-[45vh] md:h-[85vh] md:w-1/2   flex flex-col gap-3 justify-center items-center md:items-start">
         <motion.h2
           variants={headingVariants}
           initial="hidden"
@@ -58,25 +58,35 @@ const Home = () => {
         </motion.p>
         <div className="flex gap-4 ">
           <motion.button
-            className="border p-2 rounded-md bg-black text-white text-sm"
+            className="border w-32 p-2 rounded-md shadow-md text-sm transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50" // Enhanced hover effect
+            // Hover effect to pop up// Added hover effect
             variants={paragraphVariants}
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.8, ease: "easeIn" }}
           >
-            <Link href={"/portfolio"}> View My Work </Link>
+            <Link href="/portfolio">View My Work</Link>
           </motion.button>
-
           <motion.button
             variants={headingVariants}
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.8, ease: "easeIn" }}
-            className="border p-2 rounded-md text-sm"
+            className="border w-32 p-2 rounded-md shadow-md text-sm transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50"
           >
             <Link href={"/contact"}>Contact Me</Link>
           </motion.button>
         </div>
+        <motion.button
+          initial={{ opacity: 0, y: "100px" }}
+          animate={{ opacity: 1, y: "0px" }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
+          className="p-2 w-[17rem] rounded-md shadow-md bg-black text-white text-sm transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50" // Enhanced hover effect
+        >
+          <a href="/resume.pdf" download>
+            Download Resume
+          </a>
+        </motion.button>
       </div>
     </div>
   );

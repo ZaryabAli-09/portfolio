@@ -26,9 +26,9 @@ const Navbar = () => {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.3,
         ease: "easeInOut",
-        staggerChildren: 0.6,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -110,13 +110,13 @@ const Navbar = () => {
       <div className="md:hidden">
         {open ? (
           <ImCross
-            className="text-3xl z-50 relative text-white"
+            className="text-3xl z-50 relative text-white cursor-pointer"
             onClick={handleMenuToggle}
           />
         ) : (
           <GiHamburgerMenu
             onClick={handleMenuToggle}
-            className="text-4xl z-50 relative text-black"
+            className="text-4xl z-50 relative text-black cursor-pointer"
           />
         )}
 
