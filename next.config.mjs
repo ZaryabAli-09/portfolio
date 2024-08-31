@@ -1,15 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  devIndicators: {
-    autoPrerender: false,
-  },
-  images: {
-    remotePatterns: [
-      {
-        hostname: "letsenhance.io",
-      },
-    ],
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
