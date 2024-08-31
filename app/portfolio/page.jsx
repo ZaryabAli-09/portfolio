@@ -91,7 +91,7 @@ const Portfolio = () => {
                 >
                   <div className="flex flex-col gap-8 text-white m-auto w-1/2">
                     <h1
-                      className={`text-white p-2 rounded-lg text-xl md:text-2xl lg:w-[75%]  ${item.color}`}
+                      className={`text-white p-2 rounded-lg text-md sm:text-xl md:text-2xl lg:w-[75%]  ${item.color}`}
                     >
                       {item.title}
                     </h1>
