@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(135deg, #d4fcff, #eae6ff, #ffffff);
+  background: linear-gradient(135deg, #ffffff, #fcd5c0, #ee7635);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 

@@ -9,6 +9,15 @@ import React from "react";
 const items = [
   {
     id: 1,
+    color: "bg-gradient-to-tr from-indigo-500 to-indigo-800",
+    title: "Background Remover AI Web App",
+    desc: "QuickBgRemove is a web app that uses AI to remove backgrounds from images for free. Its intuitive interface makes it easy for users to quickly and accurately isolate subjects from their backgrounds, enhancing image editing efficiency.    ",
+    img: "p7.png",
+    link: "https://quickbgremove.netlify.app",
+    minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
+  },
+  {
+    id: 2,
     color: "bg-gradient-to-tr from-red-500 to-yellow-500",
     title: "Full Stack Notes App",
     desc: "Keep is a full MERN stack application that allows users to save and manage their notes and to-dos online. Seamlessly organize tasks and notes with a user-friendly interface for efficient productivity.",
@@ -17,7 +26,17 @@ const items = [
     minGradient: "bg-gradient-to-tr from-gray-200 to-gray-400", // Minimalistic gradient background
   },
   {
-    id: 2,
+    id: 3,
+    color: "bg-gradient-to-tr from-purple-400 to-blue-500",
+    title: "Full Blog Application With Integrated Admin Panel",
+    desc: "Techscrolls is a full-stack blog app featuring an admin panel for managing content. It allows users to create, edit, and publish posts, while administrators have control over the entire platform, making it easy to manage blog content and user interactions.",
+    img: "p6.png",
+    link: "https://techscrolls.netlify.app",
+    minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
+  },
+
+  {
+    id: 4,
     color: "bg-gradient-to-tr from-blue-900 to-purple-900",
     title: "Modern Digital Agency Web Page",
     desc: "DigitalOctagon is a modern digital agency website built with React and Tailwind CSS. Featuring a sleek design, it utilizes EmailJS for seamless project inquiries and client communication.",
@@ -26,7 +45,7 @@ const items = [
     minGradient: "bg-gradient-to-tr from-gray-300 to-gray-500", // Minimalistic gradient background
   },
   {
-    id: 3,
+    id: 5,
     color: "bg-gradient-to-tr from-green-300 to-green-500",
     title: "AI Landing Page Inspiration",
     desc: "DietMate AI is an inspirational landing page designed for AI SaaS products. It showcases a sleek and modern interface, highlighting the innovative features and benefits of AI-driven solutions for personalized dietary management.",
@@ -35,7 +54,7 @@ const items = [
     minGradient: "bg-gradient-to-tr from-gray-400 to-gray-600", // Minimalistic gradient background
   },
   {
-    id: 4,
+    id: 6,
     color: "bg-gradient-to-tr from-orange-400 to-orange-700",
     title: "Flags Guessing App",
     desc: "GameOfFlags is a flag guessing app built with React and powered by external APIs. It challenges users to identify country flags, offering an engaging and educational experience with a sleek, interactive interface.",
@@ -44,7 +63,7 @@ const items = [
     minGradient: "bg-gradient-to-tr from-gray-500 to-gray-700", // Minimalistic gradient background
   },
   {
-    id: 5,
+    id: 7,
     color: "bg-gradient-to-tr from-blue-400 to-blue-500",
     title: "RealTime Weather App",
     desc: "WeatherSpike is a React application that provides real-time weather data by integrating with third-party APIs. It offers users up-to-date weather information with a responsive and user-friendly interface.",
@@ -80,7 +99,7 @@ const Portfolio = () => {
           </div>
         </div>{" "}
         {/* <ScrollIndicator /> */}
-        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-x-hidden">
+        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x: x }} className="flex ">
             <div className="h-screen w-screen"></div>
             {items.map((item) => {
@@ -97,6 +116,7 @@ const Portfolio = () => {
                     </h1>
                     <div className="relative">
                       <Image
+                        loading="lazy"
                         className="rounded-lg shadow-lg shadow-black border-2 border-black"
                         width={500}
                         height={600}
