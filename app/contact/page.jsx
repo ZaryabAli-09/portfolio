@@ -54,6 +54,7 @@ const Contact = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
+            type="submit" // Set type to submit
             onClick={handleFoemSubmit}
             className="bg-black text-white p-2 mt-6 rounded-md hover:bg-blue-700"
           >
