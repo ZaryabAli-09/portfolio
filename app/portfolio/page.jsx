@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import React from "react";
+// import React from "react";
+import { HeroParallax } from "@/components/ui/hero-parallax";
 
 const items = [
   {
@@ -12,7 +14,8 @@ const items = [
     color: "bg-gradient-to-tr from-indigo-500 to-indigo-800",
     title: "Background Remover AI Web App",
     desc: "QuickBgRemove is a web app that uses AI to remove backgrounds from images for free. Its intuitive interface makes it easy for users to quickly and accurately isolate subjects from their backgrounds, enhancing image editing efficiency.    ",
-    img: "p7.png",
+    thumbnail: "/p7.png",
+
     link: "https://quickbgremove.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
   },
@@ -21,7 +24,7 @@ const items = [
     color: "bg-gradient-to-tr from-red-500 to-yellow-500",
     title: "Full Stack Notes App",
     desc: "Keep is a full MERN stack application that allows users to save and manage their notes and to-dos online. Seamlessly organize tasks and notes with a user-friendly interface for efficient productivity.",
-    img: "p1.png",
+    thumbnail: "/p1.png",
     link: "keepnotesandtodos.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-200 to-gray-400", // Minimalistic gradient background
   },
@@ -30,7 +33,7 @@ const items = [
     color: "bg-gradient-to-tr from-purple-400 to-blue-500",
     title: "Full Blog Application With Integrated Admin Panel",
     desc: "Techscrolls is a full-stack blog app featuring an admin panel for managing content. It allows users to create, edit, and publish posts, while administrators have control over the entire platform, making it easy to manage blog content and user interactions.",
-    img: "p6.png",
+    thumbnail: "/p6.png",
     link: "https://techscrolls.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
   },
@@ -40,7 +43,7 @@ const items = [
     color: "bg-gradient-to-tr from-blue-900 to-purple-900",
     title: "Modern Digital Agency Web Page",
     desc: "DigitalOctagon is a modern digital agency website built with React and Tailwind CSS. Featuring a sleek design, it utilizes EmailJS for seamless project inquiries and client communication.",
-    img: "p2.png",
+    thumbnail: "/p2.png",
     link: "https://digitaloctagon.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-300 to-gray-500", // Minimalistic gradient background
   },
@@ -49,7 +52,7 @@ const items = [
     color: "bg-gradient-to-tr from-green-300 to-green-500",
     title: "AI Landing Page Inspiration",
     desc: "DietMate AI is an inspirational landing page designed for AI SaaS products. It showcases a sleek and modern interface, highlighting the innovative features and benefits of AI-driven solutions for personalized dietary management.",
-    img: "p3.png",
+    thumbnail: "/p3.png",
     link: "https://dietmateui.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-400 to-gray-600", // Minimalistic gradient background
   },
@@ -58,7 +61,7 @@ const items = [
     color: "bg-gradient-to-tr from-orange-400 to-orange-700",
     title: "Flags Guessing App",
     desc: "GameOfFlags is a flag guessing app built with React and powered by external APIs. It challenges users to identify country flags, offering an engaging and educational experience with a sleek, interactive interface.",
-    img: "p4.png",
+    thumbnail: "/p4.png",
     link: "https://game-of-flags.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-500 to-gray-700", // Minimalistic gradient background
   },
@@ -67,81 +70,24 @@ const items = [
     color: "bg-gradient-to-tr from-blue-400 to-blue-500",
     title: "RealTime Weather App",
     desc: "WeatherSpike is a React application that provides real-time weather data by integrating with third-party APIs. It offers users up-to-date weather information with a responsive and user-friendly interface.",
-    img: "p5.png",
+    thumbnail: "/p5.png",
     link: "https://weatherspikebyzaryab.netlify.app",
     minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
   },
 ];
 
 const Portfolio = () => {
-  const ref = useRef();
-  const { scrollYProgress } = useScroll({ target: ref });
-  scrollYProgress;
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", `-${items.length * 100}vw`]
-  );
+  // const ref = useRef();
+  // const { scrollYProgress } = useScroll({ target: ref });
+  // scrollYProgress;
+  // const x = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   ["0%", `-${items.length * 100}vw`]
+  // );
   return (
     <div className="">
-      <div
-        className={"relative"}
-        style={{ height: `${items.length * 100}vh` }}
-        ref={ref}
-      >
-        <div
-          className="h-[85vh] flex items-center justify-center text-center text-8xl
-        "
-        >
-          My Works{" "}
-          <div className="absolute top-52 md:top-96">
-            <ScrollIndicator />
-          </div>
-        </div>{" "}
-        {/* <ScrollIndicator /> */}
-        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
-          <motion.div style={{ x: x }} className="flex ">
-            <div className="h-screen w-screen"></div>
-            {items.map((item) => {
-              return (
-                <div
-                  key={item.id}
-                  className={`h-screen w-screen flex items-center justify-center ng-${item.minGradient}`}
-                >
-                  <div className="flex flex-col gap-8 text-white m-auto w-1/2">
-                    <h1
-                      className={`text-white p-2 rounded-lg text-md sm:text-xl md:text-2xl lg:w-[75%]  ${item.color}`}
-                    >
-                      {item.title}
-                    </h1>
-                    <div className="relative">
-                      <Image
-                        loading="lazy"
-                        className="rounded-lg shadow-lg shadow-black border-2 border-black"
-                        width={500}
-                        height={600}
-                        src={`/${item.img}`}
-                        alt="myimage1"
-                      />
-                    </div>
-                    <p className="text-black text-xs md:text-sm lg:w-[80%]">
-                      {" "}
-                      {item.desc}
-                    </p>
-                    <Link href={item.link}>
-                      <h4
-                        className={`text-white p-2 rounded-lg text-xl font-bold shadow-md shadow-black  w-fit transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50  ${item.color}`}
-                      >
-                        SEE DEMO
-                      </h4>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </div>
+      <HeroParallax products={items} />
       <div className=" h-[100vh] flex items-center justify-center flex-col gap-5 ">
         <div>
           <h1 className="text-center text-6xl md:text-8xl">
@@ -155,6 +101,79 @@ const Portfolio = () => {
         </motion.button>
       </div>
     </div>
+
+    // <div className="">
+    //   <div
+    //     className={"relative"}
+    //     style={{ height: `${items.length * 100}vh` }}
+    //     ref={ref}
+    //   >
+    //     <div
+    //       className="h-[85vh] flex items-center justify-center text-center text-8xl
+    //     "
+    //     >
+    //       My Works{" "}
+    //       <div className="absolute top-52 md:top-96">
+    //         <ScrollIndicator />
+    //       </div>
+    //     </div>{" "}
+    //     {/* <ScrollIndicator /> */}
+    //     <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
+    //       <motion.div style={{ x: x }} className="flex ">
+    //         <div className="h-screen w-screen"></div>
+    //         {items.map((item) => {
+    //           return (
+    //             <div
+    //               key={item.id}
+    //               className={`h-screen w-screen flex items-center justify-center ng-${item.minGradient}`}
+    //             >
+    //               <div className="flex flex-col gap-8 text-white m-auto w-1/2">
+    //                 <h1
+    //                   className={`text-white p-2 rounded-lg text-md sm:text-xl md:text-2xl lg:w-[75%]  ${item.color}`}
+    //                 >
+    //                   {item.title}
+    //                 </h1>
+    //                 <div className="relative">
+    //                   <Image
+    //                     loading="lazy"
+    //                     className="rounded-lg shadow-lg shadow-black border-2 border-black"
+    //                     width={500}
+    //                     height={600}
+    //                     src={`/${item.thumbnail}`}
+    //                     alt="myimage1"
+    //                   />
+    //                 </div>
+    //                 <p className="text-black text-xs md:text-sm lg:w-[80%]">
+    //                   {" "}
+    //                   {item.desc}
+    //                 </p>
+    //                 <Link href={item.link}>
+    //                   <h4
+    //                     className={`text-white p-2 rounded-lg text-xl font-bold shadow-md shadow-black  w-fit transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50  ${item.color}`}
+    //                   >
+    //                     SEE DEMO
+    //                   </h4>
+    //                 </Link>
+    //               </div>
+    //             </div>
+    //           );
+    //         })}
+    //       </motion.div>
+    //     </div>
+    //   </div>
+    //   <div className=" h-[100vh] flex items-center justify-center flex-col gap-5 ">
+    //     <div>
+    //       <h1 className="text-center text-6xl md:text-8xl">
+    //         {" "}
+    //         Do you have projects?
+    //       </h1>
+    //     </div>
+
+    //     <motion.button className="border p-6 rounded-xl text-4xl md:text-6xl bg-black text-white shadow-2xl mt-5 hover:text-black hover:bg-white transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50">
+    //       <Link href={"/contact"}>Lets Connect</Link>
+    //     </motion.button>
+    //   </div>
+    // </div>
   );
 };
 

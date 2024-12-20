@@ -55,7 +55,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <div className="h-[15vh] flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+    <div className="h-[15vh] bg-yellow-400 text-black  flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
       {/* desktop menu  */}
       <div className="hidden md:flex w-1/3 gap-4">
         {links.map((link, i) => (
@@ -110,7 +110,7 @@ const Navbar = () => {
       <div className="md:hidden">
         {open ? (
           <ImCross
-            className="text-3xl z-50 relative text-white cursor-pointer"
+            className="text-3xl z-50 relative cursor-pointer"
             onClick={handleMenuToggle}
           />
         ) : (
