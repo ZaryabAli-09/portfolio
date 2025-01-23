@@ -55,7 +55,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <div className="h-[15vh] bg-yellow-400 text-black  flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+    <div className="h-[11vh] bg-yellow-400  text-black  flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
       {/* desktop menu  */}
       <div className="hidden md:flex w-1/3 gap-4">
         {links.map((link, i) => (
@@ -110,7 +110,7 @@ const Navbar = () => {
       <div className="md:hidden">
         {open ? (
           <ImCross
-            className="text-3xl z-50 relative cursor-pointer"
+            className="text-3xl z-50 relative cursor-pointer text-white"
             onClick={handleMenuToggle}
           />
         ) : (
@@ -126,7 +126,7 @@ const Navbar = () => {
             variants={listbgVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-full bg-black text-white items-center justify-center flex flex-col  text-4xl gap-6 z-10"
+            className="absolute top-0 left-0 w-screen h-full bg-black text-white items-center justify-center flex flex-col  text-4xl gap-6 z-40"
           >
             {links.map((link, i) => (
               <motion.div variants={mobileMenuLinksVariants} key={i}>

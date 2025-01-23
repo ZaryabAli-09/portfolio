@@ -5,31 +5,12 @@ import Avatar from "@/components/Avatar";
 import Link from "next/link";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import Loader from "@/components/Loader";
 
 const Home = () => {
-  const [loading, setLoading] = useState(true); // Initially show loader
-
-  useEffect(() => {
-    // Simulate simultaneous loading
-    const timer = setTimeout(() => {
-      setLoading(false); // Hide loader after content is ready
-    }, 2000); // Set timeout for 2 seconds
-
-    return () => clearTimeout(timer); // Cleanup the timer
-  }, []);
-
   return (
     <>
-      {/* Loader overlay */}
-      {loading && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
-          <Loader />
-        </div>
-      )}
-
       {/* Website content */}
-      <BackgroundBeamsWithCollision className="z-10">
+      <BackgroundBeamsWithCollision className="h-full z-10">
         <div className="flex flex-col md:flex-row px-8 sm:px-8 md:px-12 lg:px-20 xl:px-40">
           {/* IMAGE CONTAINER */}
           <div className="h-[45vh] md:h-[85vh] md:w-1/2 flex items-center justify-center relative">
