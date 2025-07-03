@@ -1,12 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleFoemSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const res = await fetch("/api/send-email", {
@@ -14,53 +20,99 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setEmail("");
-        setMessage("");
-        alert("Email sent successfully!");
-      } else {
-        alert("Failed to send email.");
-      }
+
+      if (!res.ok) throw new Error("Failed to send email");
+
+      setFormData({ email: "", message: "" });
+      toast.success("Message sent successfully!");
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error(error.message || "Something went wrong!");
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <div>
-      <div className="flex justify-between h-[85vh] flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
-        {/* TEXT CONTAINER*/}
-        <div className="h-[20vh] lg:h-full lg:w-[40vw] flex items-center justify-center">
-          <h2 className="text-4xl">Lets Work Together</h2>
-        </div>
-        {/* CONTACT CONTAINER  */}
-        <form className="h-[65vh] lg:h-full lg:w-1/2 rounded-3xl  shadow-xl border shadow-black-300/50 flex flex-col justify-center p-16">
-          <span className="mb-5 font-bold text-3xl">Dear Zaryab Ali,</span>
-          <input
-            type="text"
-            value={message}
-            className="py-6 bg-transparent border-black border-b-2 outline-none px-2 focus:border-blue-700"
-            placeholder="Enter your message here"
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <br />
-          <span className="">My mail address is:</span>
-          <input
-            type="email"
-            value={email}
-            className="py-6 bg-transparent border-black border-b-2 outline-none  focus:border-blue-700"
-            placeholder="Enter your email here"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            type="submit" // Set type to submit
-            onClick={handleFoemSubmit}
-            className="bg-black text-white p-2 mt-6 rounded-md hover:bg-blue-700"
-          >
-            Submit
-          </button>
-        </form>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-8">
+        {/* Text Section */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="lg:w-1/2 flex items-center justify-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Let's <span className="text-amber-400">Work Together</span>
+          </h2>
+        </motion.div>
+
+        {/* Form Section */}
+        <motion.form
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          onSubmit={handleSubmit}
+          className="lg:w-1/2 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 p-8 shadow-lg"
+        >
+          <h3 className="text-2xl font-bold mb-6">Dear Zaryab Ali,</h3>
+
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="message" className="block text-gray-300 mb-2">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all"
+                placeholder="Enter your message here"
+                rows="4"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-gray-300 mb-2">
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all"
+                placeholder="Enter your email here"
+                required
+              />
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
+                isSubmitting
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-amber-500 hover:bg-amber-600 text-gray-900"
+              }`}
+            >
+              {isSubmitting ? "Sending..." : "Submit"}
+            </motion.button>
+          </div>
+        </motion.form>
       </div>
     </div>
   );

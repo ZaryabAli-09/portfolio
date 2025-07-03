@@ -19,16 +19,7 @@ const socialLinks = [
     icon: "/github.png",
     alt: "GitHub",
   },
-  {
-    url: "https://www.facebook.com/profile.php?id=100006969497679&mibextid=ZbWKwL",
-    icon: "/facebook.png",
-    alt: "Facebook",
-  },
-  {
-    url: "https://www.instagram.com/zky_07?igsh=Yng5dms4eTViY2dz",
-    icon: "/instagram.png",
-    alt: "Instagram",
-  },
+
   {
     url: "https://www.linkedin.com/in/zaryab-ali-softdev?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     icon: "/linkedin.png",
@@ -63,7 +54,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <nav className="fixed w-full z-50 bg-gray-900 border-b border-gray-800 shadow-md shadow-black">
+    <nav className="sticky h-full top-0 w-full z-50 bg-gray-900 border-b border-gray-800 shadow-md shadow-black">
       <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-amber-400">

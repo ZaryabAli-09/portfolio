@@ -7,7 +7,7 @@ import { Highlight } from "@/components/ui/hero-highlight";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white  relative">
+    <div className="bg-gradient-to-br from-gray-900 to-black text-white ">
       <div className="container mx-auto px-4 py-12 md:py-24 flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <motion.div
@@ -24,12 +24,28 @@ const Home = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight"
           >
-            Advanced
-            <Highlight className="text-black m-2">Full-Stack</Highlight>{" "}
-            Solutions
+            <motion.span
+              className="block mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Hi, I'm{" "}
+              <Highlight className="text-black my-5">Zaryab Ali</Highlight>
+            </motion.span>
+
+            <motion.span
+              className="block my-5"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              A Passionate{" "}
+              <Highlight className="text-black ">Software Engineer</Highlight>
+            </motion.span>
           </motion.h1>
 
           <motion.p
@@ -38,9 +54,12 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-gray-300 mb-8 text-lg"
           >
-            As a full-stack developer with expertise in the MERN stack, I craft
-            seamless digital experiences by merging advanced frontend and
-            backend technologies.
+            As a Software Engineer specializing in full-stack web development
+            with the MERN stack, I don't just build applications I solve real
+            problems through critical thinking and innovative solutions. My
+            expertise goes beyond implementing requirements to architecting
+            systems backend, optimizing for performance, and bridging technical
+            possibilities with business objectives.
           </motion.p>
 
           <motion.div

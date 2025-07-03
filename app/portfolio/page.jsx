@@ -1,179 +1,153 @@
 "use client";
-import ScrollIndicator from "@/components/ScrollIndicator";
-import { useScroll, motion, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import React from "react";
-// import React from "react";
-import { HeroParallax } from "@/components/ui/hero-parallax";
 
-const items = [
+const projects = [
   {
     id: 1,
-    color: "bg-gradient-to-tr from-indigo-500 to-indigo-800",
-    title: "Background Remover AI Web App",
-    desc: "QuickBgRemove is a web app that uses AI to remove backgrounds from images for free. Its intuitive interface makes it easy for users to quickly and accurately isolate subjects from their backgrounds, enhancing image editing efficiency.    ",
-    thumbnail: "/p7.png",
-
+    title: "Background Remover AI",
+    description:
+      "Web app that uses AI to remove backgrounds from images instantly",
+    image: "/p7.png",
     link: "https://quickbgremove.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
+    tags: ["AI", "React", "Tailwind"],
   },
   {
     id: 2,
-    color: "bg-gradient-to-tr from-red-500 to-yellow-500",
     title: "Full Stack Notes App",
-    desc: "Keep is a full MERN stack application that allows users to save and manage their notes and to-dos online. Seamlessly organize tasks and notes with a user-friendly interface for efficient productivity.",
-    thumbnail: "/p1.png",
-    link: "keepnotesandtodos.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-200 to-gray-400", // Minimalistic gradient background
+    description:
+      "MERN stack application for saving and managing notes and todos",
+    image: "/p1.png",
+    link: "https://keepnotesandtodos.netlify.app",
+    tags: ["MERN", "Full Stack"],
   },
   {
     id: 3,
-    color: "bg-gradient-to-tr from-purple-400 to-blue-500",
-    title: "Full Blog Application With Integrated Admin Panel",
-    desc: "Techscrolls is a full-stack blog app featuring an admin panel for managing content. It allows users to create, edit, and publish posts, while administrators have control over the entire platform, making it easy to manage blog content and user interactions.",
-    thumbnail: "/p6.png",
+    title: "Blog with Admin Panel",
+    description: "Complete blog platform with content management system",
+    image: "/p6.png",
     link: "https://techscrolls.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
+    tags: ["CMS", "React", "Node"],
   },
-
   {
     id: 4,
-    color: "bg-gradient-to-tr from-blue-900 to-purple-900",
-    title: "Modern Digital Agency Web Page",
-    desc: "DigitalOctagon is a modern digital agency website built with React and Tailwind CSS. Featuring a sleek design, it utilizes EmailJS for seamless project inquiries and client communication.",
-    thumbnail: "/p2.png",
+    title: "Digital Agency Website",
+    description: "Modern agency site with contact form integration",
+    image: "/p2.png",
     link: "https://digitaloctagon.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-300 to-gray-500", // Minimalistic gradient background
+    tags: ["React", "Tailwind"],
   },
   {
     id: 5,
-    color: "bg-gradient-to-tr from-green-300 to-green-500",
-    title: "AI Landing Page Inspiration",
-    desc: "DietMate AI is an inspirational landing page designed for AI SaaS products. It showcases a sleek and modern interface, highlighting the innovative features and benefits of AI-driven solutions for personalized dietary management.",
-    thumbnail: "/p3.png",
+    title: "AI Landing Page",
+    description: "Inspirational design for AI SaaS products",
+    image: "/p3.png",
     link: "https://dietmateui.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-400 to-gray-600", // Minimalistic gradient background
+    tags: ["UI/UX", "Landing Page"],
   },
   {
     id: 6,
-    color: "bg-gradient-to-tr from-orange-400 to-orange-700",
-    title: "Flags Guessing App",
-    desc: "GameOfFlags is a flag guessing app built with React and powered by external APIs. It challenges users to identify country flags, offering an engaging and educational experience with a sleek, interactive interface.",
-    thumbnail: "/p4.png",
+    title: "Flags Guessing Game",
+    description: "Interactive game to learn world flags",
+    image: "/p4.png",
     link: "https://game-of-flags.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-500 to-gray-700", // Minimalistic gradient background
+    tags: ["Game", "API"],
   },
   {
     id: 7,
-    color: "bg-gradient-to-tr from-blue-400 to-blue-500",
-    title: "RealTime Weather App",
-    desc: "WeatherSpike is a React application that provides real-time weather data by integrating with third-party APIs. It offers users up-to-date weather information with a responsive and user-friendly interface.",
-    thumbnail: "/p5.png",
+    title: "Weather App",
+    description: "Real-time weather information",
+    image: "/p5.png",
     link: "https://weatherspikebyzaryab.netlify.app",
-    minGradient: "bg-gradient-to-tr from-gray-600 to-gray-800", // Minimalistic gradient background
+    tags: ["API", "React"],
   },
 ];
 
-const Portfolio = () => {
-  // const ref = useRef();
-  // const { scrollYProgress } = useScroll({ target: ref });
-  // scrollYProgress;
-  // const x = useTransform(
-  //   scrollYProgress,
-  //   [0, 1],
-  //   ["0%", `-${items.length * 100}vw`]
-  // );
+const ProjectCard = ({ project }) => {
   return (
-    <div className="">
-      <HeroParallax products={items} />
-      <div className=" h-[100vh] flex items-center justify-center flex-col gap-5 ">
-        <div>
-          <h1 className="text-center text-6xl md:text-8xl">
-            {" "}
-            Do you have projects?
-          </h1>
+    <motion.div
+      whileHover={{ y: -10 }}
+      className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 shadow-lg"
+    >
+      <div className="relative h-48">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+        <p className="text-gray-300 mb-4">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 bg-gray-800 rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
+        <Link
+          href={project.link}
+          target="_blank"
+          className="inline-block px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
+        >
+          View Project
+        </Link>
+      </div>
+    </motion.div>
+  );
+};
 
-        <motion.button className="border p-6 rounded-xl text-4xl md:text-6xl bg-black text-white shadow-2xl mt-5 hover:text-black hover:bg-white transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50">
-          <Link href={"/contact"}>Lets Connect</Link>
-        </motion.button>
+const Portfolio = () => {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      {/* Hero Section */}
+      <div className="container mx-auto px-4 py-20 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-6xl font-bold mb-6"
+        >
+          My <span className="text-amber-400">Projects</span>
+        </motion.h1>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          Here are some of my recent works. Each project showcases different
+          skills and technologies.
+        </p>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="container mx-auto px-4 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-gray-900 py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Have a project in mind?
+          </h2>
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Let's discuss how I can help bring your ideas to life.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-4 bg-amber-500 text-gray-900 text-xl font-bold rounded-lg hover:bg-amber-600 transition-colors"
+          >
+            Get In Touch
+          </Link>
+        </div>
       </div>
     </div>
-
-    // <div className="">
-    //   <div
-    //     className={"relative"}
-    //     style={{ height: `${items.length * 100}vh` }}
-    //     ref={ref}
-    //   >
-    //     <div
-    //       className="h-[85vh] flex items-center justify-center text-center text-8xl
-    //     "
-    //     >
-    //       My Works{" "}
-    //       <div className="absolute top-52 md:top-96">
-    //         <ScrollIndicator />
-    //       </div>
-    //     </div>{" "}
-    //     {/* <ScrollIndicator /> */}
-    //     <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
-    //       <motion.div style={{ x: x }} className="flex ">
-    //         <div className="h-screen w-screen"></div>
-    //         {items.map((item) => {
-    //           return (
-    //             <div
-    //               key={item.id}
-    //               className={`h-screen w-screen flex items-center justify-center ng-${item.minGradient}`}
-    //             >
-    //               <div className="flex flex-col gap-8 text-white m-auto w-1/2">
-    //                 <h1
-    //                   className={`text-white p-2 rounded-lg text-md sm:text-xl md:text-2xl lg:w-[75%]  ${item.color}`}
-    //                 >
-    //                   {item.title}
-    //                 </h1>
-    //                 <div className="relative">
-    //                   <Image
-    //                     loading="lazy"
-    //                     className="rounded-lg shadow-lg shadow-black border-2 border-black"
-    //                     width={500}
-    //                     height={600}
-    //                     src={`/${item.thumbnail}`}
-    //                     alt="myimage1"
-    //                   />
-    //                 </div>
-    //                 <p className="text-black text-xs md:text-sm lg:w-[80%]">
-    //                   {" "}
-    //                   {item.desc}
-    //                 </p>
-    //                 <Link href={item.link}>
-    //                   <h4
-    //                     className={`text-white p-2 rounded-lg text-xl font-bold shadow-md shadow-black  w-fit transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50  ${item.color}`}
-    //                   >
-    //                     SEE DEMO
-    //                   </h4>
-    //                 </Link>
-    //               </div>
-    //             </div>
-    //           );
-    //         })}
-    //       </motion.div>
-    //     </div>
-    //   </div>
-    //   <div className=" h-[100vh] flex items-center justify-center flex-col gap-5 ">
-    //     <div>
-    //       <h1 className="text-center text-6xl md:text-8xl">
-    //         {" "}
-    //         Do you have projects?
-    //       </h1>
-    //     </div>
-
-    //     <motion.button className="border p-6 rounded-xl text-4xl md:text-6xl bg-black text-white shadow-2xl mt-5 hover:text-black hover:bg-white transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/50">
-    //       <Link href={"/contact"}>Lets Connect</Link>
-    //     </motion.button>
-    //   </div>
-    // </div>
   );
 };
 
