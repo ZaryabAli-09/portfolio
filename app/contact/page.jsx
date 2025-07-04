@@ -51,7 +51,7 @@ const Contact = () => {
           className="lg:w-1/2 flex items-center justify-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold">
-            Let's <span className="text-amber-400">Work Together</span>
+            Lets <span className="text-amber-400">Work Together</span>
           </h2>
         </motion.div>
 

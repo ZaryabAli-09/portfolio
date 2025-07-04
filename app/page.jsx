@@ -33,7 +33,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Hi, I'm{" "}
+              Hi, Iam{" "}
               <Highlight className="text-black my-5">Zaryab Ali</Highlight>
             </motion.span>
 
@@ -55,7 +55,7 @@ const Home = () => {
             className="text-gray-300 mb-8 text-lg"
           >
             As a Software Engineer specializing in full-stack web development
-            with the MERN stack, I don't just build applications I solve real
+            with the MERN stack, I dont just build applications I solve real
             problems through critical thinking and innovative solutions. My
             expertise goes beyond implementing requirements to architecting
             systems backend, optimizing for performance, and bridging technical

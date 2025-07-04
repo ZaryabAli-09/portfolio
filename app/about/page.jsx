@@ -116,7 +116,7 @@ const About = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  I'm Zaryab Ali, a passionate Full-Stack Developer specializing
+                  Iam Zaryab Ali, a passionate Full-Stack Developer specializing
                   in the MERN stack, currently completing my Software
                   Engineering degree at Iqra National University, Peshawar.
                   Hailing from Katlang, Mardan, I combine technical expertise

@@ -137,7 +137,7 @@ const Portfolio = () => {
             Have a project in mind?
           </h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's discuss how I can help bring your ideas to life.
+            Lets discuss how I can help bring your ideas to life.
           </p>
           <Link
             href="/contact"
