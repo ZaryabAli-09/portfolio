@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { MdPushPin } from "react-icons/md";
 
 const projects = [
   {
@@ -120,6 +121,35 @@ const Portfolio = () => {
           skills and technologies.
         </p>
       </div>
+
+      <section className="w-full md:w-[70%] lg:w-[60%]  mx-auto  mb-20 border border-gray-800 rounded-lg pt-10 p-6 bg-gray-900 shadow-lg relative">
+        <MdPushPin className="absolute left-2 top-2 text-2xl text-red-600 animate-pulse" />
+        <div className="">
+          <img
+            src="/wearly.png"
+            alt=""
+            className="rounded-lg overflow-hidden"
+          />
+        </div>
+        <h3 className="text-xl font-bold my-2">
+          WEARLY - A Multi-Vendor Ecommerce Fashion Marketplace
+        </h3>
+        <p className="text-gray-300  mb-4">
+          {" "}
+          My recent and Final Year Project (FYP) at university is a
+          comprehensive full-stack web and a basic native mobile application.
+          Developed using the MERN stack (MongoDB, Express.js, React.js,
+          Node.js) and React Native, the platform is titled as WEARLY.
+        </p>
+        <h3></h3>
+        <p></p>
+        <Link
+          href={"/wearly"}
+          className="inline-block w-full text-center px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
+        >
+          View Project
+        </Link>{" "}
+      </section>
 
       {/* Projects Grid */}
       <div className="container mx-auto px-4 pb-20">
