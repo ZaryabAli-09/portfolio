@@ -88,7 +88,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <a
-              href="/resume.pdf"
+              href="/Zaryab's CV (Software Engineer).pdf"
               download
               className="inline-block px-6 py-2 border border-white hover:bg-white hover:text-gray-900 rounded transition-colors"
             >
