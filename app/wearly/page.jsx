@@ -74,7 +74,7 @@ const ProjectPanels = () => {
         "Customer chat interface",
       ],
       image: "/seller.png",
-      link: "https://sellerwearlypk.netlify.app",
+      link: "https://sellerwearlypk.netlify.app/",
       tags: [
         "React",
         "Redux",
