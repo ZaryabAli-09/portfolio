@@ -125,10 +125,12 @@ const Portfolio = () => {
       <section className="w-full md:w-[70%] lg:w-[60%]  mx-auto  mb-20 border border-gray-800 rounded-lg pt-10 p-6 bg-gray-900 shadow-lg relative">
         <MdPushPin className="absolute left-2 top-2 text-2xl text-red-600 animate-pulse" />
         <div className="">
-          <img
+          <Image
             src="/wearly.png"
             alt=""
-            className="rounded-lg overflow-hidden"
+            width={800}
+            height={400}
+            className="rounded-lg object-cover overflow-hidden"
           />
         </div>
         <h3 className="text-xl font-bold my-2">
