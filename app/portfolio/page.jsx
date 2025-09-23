@@ -106,7 +106,7 @@ const Portfolio = () => {
           My <span className="text-amber-400">Projects</span>
         </motion.h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          A showcase of my best work — spanning UI/UX, full-stack apps, and
+          A showcase of my best work spanning UI/UX, full-stack apps, and
           advanced AI integrations.
         </p>
       </div>
@@ -124,14 +124,14 @@ const Portfolio = () => {
           />
         </div>
         <h3 className="text-xl font-bold my-2">
-          SmartStyler - AI Powered Multi-Vendor Fashion Marketplace
+          SmartStyler - Multi-Vendor Fashion Marketplace
         </h3>
         <p className="text-gray-300 mb-4">
           My Final Year Project (FYP) and most ambitious build to date.
           SmartStyler is a MERN + React Native platform combining e-commerce
           with fashion AI. It features a reel-based product browsing experience,
           intelligent ML-driven recommendations, and a smart chatbot for
-          seamless customer support — merging innovation with style.
+          seamless customer support merging innovation with style.
         </p>
         <Link
           href={"/smartstyler"}
