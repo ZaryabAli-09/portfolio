@@ -106,8 +106,8 @@ const Portfolio = () => {
           My <span className="text-amber-400">Projects</span>
         </motion.h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          A showcase of my best work spanning UI/UX, full-stack apps, and
-          advanced AI integrations.
+          A showcase of my work spanning UI/UX, full-stack apps, and advanced AI
+          integrations.
         </p>
       </div>
 
