@@ -10,7 +10,6 @@ const About = () => {
     offset: ["start start", "end end"],
   });
 
-  // Transform scroll progress for different animations
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
   const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 
@@ -18,55 +17,49 @@ const About = () => {
     {
       title: "Core Technologies",
       skills: [
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 80 },
-        { name: "React.js", level: 95 },
-        { name: "Next.js", level: 90 },
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 80 },
-        { name: "MongoDB", level: 75 },
+        "JavaScript",
+        "TypeScript",
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
       ],
       color: "from-amber-500 to-orange-500",
     },
     {
       title: "Frontend Expertise",
       skills: [
-        { name: "HTML5 & CSS3", level: 95 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "Framer Motion", level: 85 },
-        { name: "Three.js", level: 70 },
-        { name: "Material UI", level: 80 },
-        { name: "Bootstrap", level: 75 },
+        "HTML5 & CSS3",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Three.js",
+        "Material UI",
+        "Bootstrap",
       ],
       color: "from-blue-500 to-indigo-600",
     },
     {
       title: "DevOps & Deployment",
       skills: [
-        { name: "Git & GitHub", level: 85 },
-        { name: "Vercel", level: 80 },
-        { name: "Netlify", level: 75 },
-        { name: "AWS EC2", level: 70 },
-        { name: "CI/CD Pipelines", level: 70 },
+        "Git & GitHub",
+        "Vercel",
+        "Netlify",
+        "AWS EC2",
+        "CI/CD Pipelines",
       ],
       color: "from-green-500 to-teal-600",
     },
     {
       title: "Design & CMS",
-      skills: [
-        { name: "Figma", level: 75 },
-        { name: "Adobe Illustrator", level: 70 },
-        { name: "Canva", level: 80 },
-        { name: "WordPress", level: 75 },
-        { name: "Elementor", level: 70 },
-      ],
+      skills: ["Figma", "Adobe Illustrator", "Canva", "WordPress", "Elementor"],
       color: "from-purple-500 to-pink-500",
     },
   ];
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
-      {/* Sticky Scroll Indicator */}
+      {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 h-1 bg-amber-400 z-50"
         style={{ scaleX: scrollYProgress }}
@@ -80,7 +73,7 @@ const About = () => {
           style={{ scale: scaleProgress, opacity: opacityProgress }}
           className="max-w-6xl mx-auto"
         >
-          {/* Biography Section */}
+          {/* Bio */}
           <section className="mb-32">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,11 +86,11 @@ const About = () => {
                   src="/zaryab.png"
                   width={320}
                   height={320}
-                  className="rounded-full border-4 border-amber-400 shadow-xl group-hover:shadow-amber-400/30 transition-all duration-300"
+                  className="rounded-full border-4 border-amber-400 shadow-xl"
                   alt="Zaryab Ali"
-                  priority
+                  // priority
                 />
-                <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-amber-400/50 group-hover:scale-105 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-full border-4 border-transparent " />
               </div>
 
               <div className="lg:w-2/3">
@@ -116,12 +109,12 @@ const About = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  Iam Zaryab Ali, a passionate Full-Stack Developer specializing
-                  in the MERN stack, currently completing my Software
-                  Engineering degree at Iqra National University, Peshawar.
-                  Hailing from Katlang, Mardan, I combine technical expertise
-                  with creative problem-solving to deliver exceptional digital
-                  experiences.
+                  I am Zaryab Ali, a passionate Full-Stack Developer
+                  specializing in the MERN stack, currently completing my
+                  Software Engineering degree at Iqra National University,
+                  Peshawar. Hailing from Katlang, Mardan, I combine technical
+                  expertise with creative problem-solving to deliver exceptional
+                  digital experiences.
                 </motion.p>
 
                 <motion.p
@@ -140,7 +133,7 @@ const About = () => {
             </motion.div>
           </section>
 
-          {/* Skills Section */}
+          {/* Skills */}
           <section className="mb-32">
             <motion.h2
               className="text-4xl font-bold mb-16 text-center"
@@ -167,28 +160,20 @@ const About = () => {
                   >
                     {category.title}
                   </h3>
-                  <div className="space-y-4">
+                  <ul className="space-y-2 text-gray-300">
                     {category.skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between mb-1">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-gray-400">{skill.level}%</span>
-                        </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2">
-                          <div
-                            className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
-                      </div>
+                      <li key={skill} className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
+                        {skill}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </motion.div>
               ))}
             </div>
           </section>
 
-          {/* Education Section */}
+          {/* Education */}
           <section>
             <motion.div
               initial={{ opacity: 0 }}
@@ -217,7 +202,6 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  {/* Bachelor's Degree */}
                   <div>
                     <h4 className="text-xl font-bold">
                       Bachelor of Software Engineering
@@ -226,14 +210,8 @@ const About = () => {
                       Iqra National University, Peshawar
                     </p>
                     <p className="text-gray-400">2020 - 2025 (Expected)</p>
-                    <p className="mt-2 text-gray-300">
-                      Software Engineering with coursework in Web Technologies,
-                      Database Systems, Software Architecture, Programming,
-                      Requirements Engineering, and more.
-                    </p>
                   </div>
 
-                  {/* F.Sc */}
                   <div className="mt-6 border-t border-gray-700 pt-6">
                     <h4 className="text-xl font-bold">F.Sc</h4>
                     <p className="text-gray-300">
@@ -242,7 +220,6 @@ const About = () => {
                     <p className="text-gray-400">2019 - 2021</p>
                   </div>
 
-                  {/* Matriculation */}
                   <div className="mt-6">
                     <h4 className="text-xl font-bold">
                       Matriculation (Science)

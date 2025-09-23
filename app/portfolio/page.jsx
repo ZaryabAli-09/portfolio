@@ -4,21 +4,43 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdPushPin } from "react-icons/md";
 
-const projects = [
+// Organized Projects
+const landingPageProjects = [
+  {
+    id: 1,
+    title: "Digital Agency Website",
+    description:
+      "Modern agency site with a sleek UI and contact form integration.",
+    image: "/p2.png",
+    link: "https://digitaloctagon.netlify.app",
+    tags: ["React", "Tailwind"],
+  },
+  {
+    id: 2,
+    title: "DietMate UI",
+    description:
+      "A clean, responsive landing page concept for a nutrition and diet platform.",
+    image: "/p3.png",
+    link: "https://dietmateui.netlify.app",
+    tags: ["UI/UX", "Landing Page"],
+  },
+];
+
+const fullStackProjects = [
   {
     id: 1,
     title: "Background Remover AI",
     description:
-      "Web app that uses AI to remove backgrounds from images instantly",
+      "An AI-powered full-stack web app that instantly removes image backgrounds with high accuracy.",
     image: "/p7.png",
     link: "https://quickbgremove.netlify.app",
-    tags: ["AI", "React", "Tailwind"],
+    tags: ["AI", "React", "Tailwind", "Node"],
   },
   {
     id: 2,
     title: "Full Stack Notes App",
     description:
-      "MERN stack application for saving and managing notes and todos",
+      "MERN stack app to save, manage, and organize your notes and todos efficiently.",
     image: "/p1.png",
     link: "https://keepnotesandtodos.netlify.app",
     tags: ["MERN", "Full Stack"],
@@ -26,83 +48,50 @@ const projects = [
   {
     id: 3,
     title: "Blog with Admin Panel",
-    description: "Complete blog platform with content management system",
+    description:
+      "Full-stack blog platform with admin panel for content management.",
     image: "/p6.png",
     link: "https://techscrolls.netlify.app",
     tags: ["CMS", "React", "Node"],
   },
-  {
-    id: 4,
-    title: "Digital Agency Website",
-    description: "Modern agency site with contact form integration",
-    image: "/p2.png",
-    link: "https://digitaloctagon.netlify.app",
-    tags: ["React", "Tailwind"],
-  },
-  {
-    id: 5,
-    title: "AI Landing Page",
-    description: "Inspirational design for AI SaaS products",
-    image: "/p3.png",
-    link: "https://dietmateui.netlify.app",
-    tags: ["UI/UX", "Landing Page"],
-  },
-  {
-    id: 6,
-    title: "Flags Guessing Game",
-    description: "Interactive game to learn world flags",
-    image: "/p4.png",
-    link: "https://game-of-flags.netlify.app",
-    tags: ["Game", "API"],
-  },
-  {
-    id: 7,
-    title: "Weather App",
-    description: "Real-time weather information",
-    image: "/p5.png",
-    link: "https://weatherspikebyzaryab.netlify.app",
-    tags: ["API", "React"],
-  },
 ];
 
-const ProjectCard = ({ project }) => {
-  return (
-    <motion.div
-      whileHover={{ y: -10 }}
-      className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 shadow-lg"
-    >
-      <div className="relative h-48">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover"
-        />
+const ProjectCard = ({ project }) => (
+  <motion.div
+    whileHover={{ y: -10 }}
+    className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 shadow-lg"
+  >
+    <div className="relative h-48">
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className="object-cover"
+      />
+    </div>
+    <div className="p-6">
+      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+      <p className="text-gray-300 mb-4">{project.description}</p>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="px-3 py-1 bg-gray-800 rounded-full text-sm"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-gray-800 rounded-full text-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <Link
-          href={project.link}
-          target="_blank"
-          className="inline-block px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
-        >
-          View Project
-        </Link>
-      </div>
-    </motion.div>
-  );
-};
+      <Link
+        href={project.link}
+        target="_blank"
+        className="inline-block px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
+      >
+        View Project
+      </Link>
+    </div>
+  </motion.div>
+);
 
 const Portfolio = () => {
   return (
@@ -117,46 +106,58 @@ const Portfolio = () => {
           My <span className="text-amber-400">Projects</span>
         </motion.h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          Here are some of my recent works. Each project showcases different
-          skills and technologies.
+          A showcase of my best work — spanning UI/UX, full-stack apps, and
+          advanced AI integrations.
         </p>
       </div>
 
-      <section className="w-full md:w-[70%] lg:w-[60%]  mx-auto  mb-20 border border-gray-800 rounded-lg pt-10 p-6 bg-gray-900 shadow-lg relative">
+      {/* Featured Project */}
+      <section className="w-full md:w-[70%] lg:w-[60%] mx-auto mb-20 border border-gray-800 rounded-lg pt-10 p-6 bg-gray-900 shadow-lg relative">
         <MdPushPin className="absolute left-2 top-2 text-2xl text-red-600 animate-pulse" />
-        <div className="">
+        <div>
           <Image
-            src="/wearly.png"
-            alt=""
+            src="/buyer.png"
+            alt="SmartStyler"
             width={800}
             height={400}
             className="rounded-lg object-cover overflow-hidden"
           />
         </div>
         <h3 className="text-xl font-bold my-2">
-          WEARLY - A Multi-Vendor Ecommerce Fashion Marketplace
+          SmartStyler - AI Powered Multi-Vendor Fashion Marketplace
         </h3>
-        <p className="text-gray-300  mb-4">
-          {" "}
-          My recent and Final Year Project (FYP) at university is a
-          comprehensive full-stack web and a basic native mobile application.
-          Developed using the MERN stack (MongoDB, Express.js, React.js,
-          Node.js) and React Native, the platform is titled as WEARLY.
+        <p className="text-gray-300 mb-4">
+          My Final Year Project (FYP) and most ambitious build to date.
+          SmartStyler is a MERN + React Native platform combining e-commerce
+          with fashion AI. It features a reel-based product browsing experience,
+          intelligent ML-driven recommendations, and a smart chatbot for
+          seamless customer support — merging innovation with style.
         </p>
-        <h3></h3>
-        <p></p>
         <Link
-          href={"/wearly"}
+          href={"/smartstyler"}
           className="inline-block w-full text-center px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
         >
           View Project
-        </Link>{" "}
+        </Link>
       </section>
-
-      {/* Projects Grid */}
+      {/* Full Stack Projects */}
       <div className="container mx-auto px-4 pb-20">
+        <h2 className="text-2xl font-bold mb-6 text-amber-400">
+          Full Stack Applications
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {fullStackProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+      {/* Landing Page Projects */}
+      <div className="container mx-auto px-4 pb-20">
+        <h2 className="text-2xl font-bold mb-6 text-amber-400">
+          Landing Pages
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {landingPageProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
@@ -169,7 +170,7 @@ const Portfolio = () => {
             Have a project in mind?
           </h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Lets discuss how I can help bring your ideas to life.
+            Let's discuss how I can help bring your ideas to life.
           </p>
           <Link
             href="/contact"

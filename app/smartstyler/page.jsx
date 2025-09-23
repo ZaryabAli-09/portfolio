@@ -42,7 +42,7 @@ const ProjectPanels = () => {
         "Secure checkout (Stripe/COD)",
       ],
       image: "/buyer.png",
-      link: "https://wearlypk.netlify.app",
+      link: "https://smartstyler.netlify.app",
       tags: [
         "React",
         "Redux",
@@ -74,7 +74,7 @@ const ProjectPanels = () => {
         "Customer chat interface",
       ],
       image: "/seller.png",
-      link: "https://sellerwearlypk.netlify.app/",
+      link: "https://sellersmartstyler.netlify.app",
       tags: [
         "React",
         "Redux",
@@ -106,7 +106,7 @@ const ProjectPanels = () => {
         "System configuration",
       ],
       image: "/admin.png",
-      link: "https://adminwearlypk.netlify.app",
+      link: "https://adminsmartstyler.netlify.app",
       tags: [
         "React",
         "Redux",
@@ -127,7 +127,10 @@ const ProjectPanels = () => {
 
   const downloadThesis = () => {
     // Replace with actual PDF path
-    window.open("/wearly-thesis.pdf", "_blank");
+    window.open(
+      "/SmartStyler Integrated AI Chatbot and Reels Based Recommendation in Fashion E-Commerce.pdf",
+      "_blank"
+    );
   };
 
   const containerVariants = {
@@ -166,10 +169,11 @@ const ProjectPanels = () => {
         >
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-400 leading-tight">
-              WEARLY
+              SmartStyler
             </h1>
             <p className="text-lg text-gray-300 mt-2">
-              Multivendor E-Commerce Platform
+              Multivendor E-Commerce Marketplace with reels based browsing ,
+              smart chatbot and ML based recommendation
             </p>
           </div>
           <motion.button
@@ -313,6 +317,7 @@ const ProjectPanels = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   target="_blank"
+                  href={panel.link}
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-lg"
                 >
@@ -390,12 +395,15 @@ const ProjectPanels = () => {
                 Project Overview
               </h3>
               <p className="text-gray-600 mb-6">
-                WEARLY is a full-stack multivendor e-commerce platform built
-                with the MERN stack (MongoDB, Express.js, React.js, Node.js) and
-                React Native for mobile. The platform serves as a
+                SmartStyler is a full-stack multivendor e-commerce platform
+                built with the MERN stack (MongoDB, Express.js, React.js,
+                Node.js) and React Native for mobile. The platform serves as a
                 fashion-focused marketplace connecting buyers, sellers, and
                 administrators through three specialized interfaces with
-                real-time features and secure payment processing.
+                real-time features and secure payment processing. What makes our
+                platform unique is that it offers a user-friendly reel based
+                product browsing advanced ml based recommendation system and a
+                smart chatbot for seamless customer support.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
