@@ -26,6 +26,36 @@ const landingPageProjects = [
   },
 ];
 
+const ecommerceProjects = [
+  {
+    id: 1,
+    title: "Easy Rent Now - Vacation Rental Platform",
+    description:
+      "A full-featured Airbnb-like vacation rental platform with interactive maps, booking calendar, property filters, and host management system.",
+    image: "/easy-rent-now-1.png",
+    link: "https://easy-rent-now-vacation-rental-platf.vercel.app",
+    tags: ["Next.js", "React", "Tailwind", "Maps API"],
+  },
+  {
+    id: 2,
+    title: "Sync Vibes - Headphone eCommerce",
+    description:
+      "Modern e-commerce platform for premium wireless headphones with product showcase, pricing tiers, and secure checkout experience.",
+    image: "/sync-vibes-1.png",
+    link: "https://sync-vibes.vercel.app",
+    tags: ["React", "Tailwind", "eCommerce"],
+  },
+  {
+    id: 3,
+    title: "Caffio - Coffee Shop Website",
+    description:
+      "Beautiful coffee shop website featuring product listings, menu showcase, and sleek design with smooth animations.",
+    image: "/caffio-1.png",
+    link: "https://caffio1x.vercel.app",
+    tags: ["React", "Tailwind", "UI/UX"],
+  },
+];
+
 const fullStackProjects = [
   {
     id: 1,
@@ -140,6 +170,19 @@ const Portfolio = () => {
           View Project
         </Link>
       </section>
+
+      {/* eCommerce & Service Platforms */}
+      <div className="container mx-auto px-4 pb-20">
+        <h2 className="text-2xl font-bold mb-6 text-amber-400">
+          eCommerce & Service Platforms
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {ecommerceProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+
       {/* Full Stack Projects */}
       <div className="container mx-auto px-4 pb-20">
         <h2 className="text-2xl font-bold mb-6 text-amber-400">
