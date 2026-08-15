@@ -7,7 +7,7 @@ import { Highlight } from "@/components/ui/hero-highlight";
 
 const Hero = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-black text-white ">
+    <div className="bg-gradient-to-br  from-gray-900 to-black text-white ">
       <div className="container mx-auto px-4 py-12 md:py-24 flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <motion.div
@@ -25,16 +25,16 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl lg:text-4xl font-bold mb-8 leading-tight"
+            className="text-3xl md:text-4xl lg:text-4xl mb-8 leading-tight"
           >
             <motion.span
-              className="block mb-4"
+              className="block mb-4 "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
               Hi, Iam{" "}
-              <Highlight className="text-black my-5">Zaryab Ali</Highlight>
+              <Highlight className="font-secondary text-black my-5">Zaryab Ali</Highlight>
             </motion.span>
 
             <motion.span
@@ -44,7 +44,9 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
             >
               A Passionate{" "}
-              <Highlight className="text-black ">Software Engineer</Highlight>
+              <Highlight className="text-black font-extrabold text-6xl">
+                Software Engineer
+              </Highlight>
             </motion.span>
           </motion.h1>
 

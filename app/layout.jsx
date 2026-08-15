@@ -1,10 +1,11 @@
-import { Inter } from "next/font/google";
+import { Nunito, Caveat } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/TransitionProvider";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"], variable: "--font-primary" });
+const caveat = Caveat({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-secondary" });
 
 export const metadata = {
   title: "Zaryab_Dev.",
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body className={inter.className}>
+      <body className={`${nunito.variable} ${caveat.variable} font-primary`}>
         <Toaster position="bottom-center" reverseOrder={true} />
         <Navbar />
         <TransitionProvider>{children}</TransitionProvider>
