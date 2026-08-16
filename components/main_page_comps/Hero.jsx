@@ -1,13 +1,7 @@
 "use client";
 import Image from "next/image";
-import {
-  FiArrowUpRight,
-  FiMail,
-  FiGithub,
-  FiLinkedin,
-  FiInstagram,
-} from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
+import { FiArrowUpRight, FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { SiClaudecode } from "react-icons/si";
 import Button from "@/components/common/Button";
 
 const socialLinks = [
@@ -26,7 +20,10 @@ const Hero = () => {
         {/* Text Section */}
         <div>
           <p className="flex items-center gap-2 font-secondary text-highlight text-2xl mb-3">
-            <span aria-hidden="true">✳️</span> Hey, I&apos;m
+            <span>
+              <SiClaudecode className="text-xl" />
+            </span>{" "}
+            Hey, I&apos;m
           </p>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] mb-6">
@@ -55,6 +52,24 @@ const Hero = () => {
                   style={{ animationDelay: "0.3s" }}
                 />
               </svg>
+              <svg
+                className="absolute left-0 -bottom-1 w-full h-2 overflow-visible"
+                viewBox="0 0 100 10"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <line
+                  x1="3"
+                  y1="7"
+                  x2="99"
+                  y2="6"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  pathLength="1"
+                  className="draw-in stroke-highlight"
+                  style={{ animationDelay: "0.5" }}
+                />
+              </svg>
             </span>{" "}
             who&apos;s been shipping software since{" "}
             <span className="relative inline-block px-2">
@@ -75,12 +90,31 @@ const Hero = () => {
                   strokeWidth="2.5"
                   pathLength="1"
                   className="draw-in"
-                  style={{ animationDelay: "1s" }}
+                  style={{ animationDelay: "2s" }}
+                />
+              </svg>
+              <svg
+                className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] overflow-visible translate-x-[3px] translate-y-[2px]"
+                viewBox="0 0 100 50"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="50"
+                  cy="25"
+                  rx="47"
+                  ry="21"
+                  fill="none"
+                  stroke="#E4572E"
+                  strokeWidth="2.5"
+                  pathLength="1"
+                  className="draw-in"
+                  style={{ animationDelay: "1.2s" }}
                 />
               </svg>
             </span>
-            . I build web &amp; mobile products, APIs and developer tooling and
-            love turning ideas into shipped products.
+            <br />I build web &amp; mobile products, APIs and developer tooling
+            and love turning ideas into shipped products.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -119,7 +153,7 @@ const Hero = () => {
             {/* curly arrow pointing at the photo */}
             <svg
               viewBox="0 0 80 60"
-              className="hidden md:block absolute -left-16 top-1/2 w-16 h-12 text-highlight"
+              className="hidden md:block absolute -left-16 bottom-10 w-16 h-12 text-blue-500"
               fill="none"
               aria-hidden="true"
             >
@@ -138,18 +172,26 @@ const Hero = () => {
               />
             </svg>
 
-            {/* framed photo */}
-            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[4/5] border-[10px] border-gray-900 bg-gray-100 overflow-hidden shadow-xl rounded-full">
-              <Image
-                src="/zaryab.png"
-                alt="Zaryab Ali"
-                fill
-                priority
-                className="object-cover"
-              />
+            {/* outer frame (border + gap + shadow) */}
+            <div
+              className="relative w-[200px] sm:w-[240px] md:w-[250px] aspect-[4/5] rounded-2xl border-2 border-gray-900 bg-white p-2 rotate-[-2deg]"
+              style={{
+                boxShadow: "10px 12px 0px rgba(0,0,0,0.9)",
+              }}
+            >
+              {/* inner photo, separated from border by the parent's padding */}
+              <div className="relative w-full h-full rounded-xl overflow-hidden">
+                <Image
+                  src="/zaryab.png"
+                  alt="Zaryab Ali"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
             </div>
 
-            <span className="absolute -bottom-2 -right-4 font-secondary text-highlight text-2xl rotate-[-6deg]">
+            <span className="absolute -bottom-3 -right-6 font-secondary text-orange-500 text-2xl rotate-[-6deg]">
               that&apos;s me 👋
             </span>
           </div>
