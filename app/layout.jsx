@@ -2,10 +2,19 @@ import { Nunito, Caveat } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/TransitionProvider";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 
-const nunito = Nunito({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"], variable: "--font-primary" });
-const caveat = Caveat({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-secondary" });
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-primary",
+});
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-secondary",
+});
 
 export const metadata = {
   title: "Zaryab_Dev.",
@@ -23,6 +32,7 @@ export default function RootLayout({ children }) {
         <Toaster position="bottom-center" reverseOrder={true} />
         <Navbar />
         <TransitionProvider>{children}</TransitionProvider>
+        <Footer />
       </body>
     </html>
   );
