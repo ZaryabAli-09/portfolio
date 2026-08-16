@@ -17,8 +17,6 @@ const socialLinks = [
     icon: FiLinkedin,
     alt: "LinkedIn",
   },
-  { url: "https://x.com", icon: FaXTwitter, alt: "X" },
-  { url: "https://instagram.com", icon: FiInstagram, alt: "Instagram" },
 ];
 
 const Hero = () => {
@@ -27,17 +25,17 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-8 items-center">
         {/* Text Section */}
         <div>
-          <p className="flex items-center gap-2 font-secondary text-secondary text-2xl mb-3">
+          <p className="flex items-center gap-2 font-secondary text-highlight text-2xl mb-3">
             <span aria-hidden="true">✳️</span> Hey, I&apos;m
           </p>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 leading-[1.05] mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] mb-6">
             Zaryab Ali
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-xl">
+          <p className="text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
             A{" "}
-            <span className="relative inline-block font-semibold text-gray-900">
+            <span className="relative inline-block font-semibold ">
               full-stack MERN developer
               <svg
                 className="absolute left-0 -bottom-1 w-full h-2 overflow-visible"
@@ -46,15 +44,14 @@ const Hero = () => {
                 aria-hidden="true"
               >
                 <line
-                  x1="1"
-                  y1="6"
+                  x1="3"
+                  y1="10"
                   x2="99"
                   y2="6"
-                  stroke="#B08968"
                   strokeWidth="3"
                   strokeLinecap="round"
                   pathLength="1"
-                  className="draw-in"
+                  className="draw-in stroke-highlight"
                   style={{ animationDelay: "0.3s" }}
                 />
               </svg>
@@ -82,8 +79,8 @@ const Hero = () => {
                 />
               </svg>
             </span>
-            . I build web &amp; mobile products, APIs and developer tooling —
-            and love turning ideas into shipped products.
+            . I build web &amp; mobile products, APIs and developer tooling and
+            love turning ideas into shipped products.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -99,7 +96,7 @@ const Hero = () => {
               Get in touch
             </Button>
 
-            <div className="flex items-center gap-5 ml-1">
+            <div className="flex items-center gap-4 ">
               {socialLinks.map((social) => (
                 <a
                   key={social.alt}
@@ -107,7 +104,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.alt}
-                  className="text-gray-900 hover:text-secondary transition-colors"
+                  className="text-heading p-3 border-2 border-transparent hover:border-heading hover:bg-primary rounded-full transition-all hover:scale-110"
                 >
                   <social.icon className="w-6 h-6" />
                 </a>
@@ -122,7 +119,7 @@ const Hero = () => {
             {/* curly arrow pointing at the photo */}
             <svg
               viewBox="0 0 80 60"
-              className="hidden md:block absolute -left-16 top-1/2 w-16 h-12 text-secondary"
+              className="hidden md:block absolute -left-16 top-1/2 w-16 h-12 text-highlight"
               fill="none"
               aria-hidden="true"
             >
@@ -141,11 +138,8 @@ const Hero = () => {
               />
             </svg>
 
-            {/* framed photo — border radius jiggles gently, image itself stays put */}
-            <div
-              className="jiggle-border relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[4/5] border-[10px] border-gray-900 bg-gray-100 overflow-hidden shadow-xl"
-              style={{ borderRadius: "34px 20px 40px 18px" }}
-            >
+            {/* framed photo */}
+            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[4/5] border-[10px] border-gray-900 bg-gray-100 overflow-hidden shadow-xl rounded-full">
               <Image
                 src="/zaryab.png"
                 alt="Zaryab Ali"
@@ -155,11 +149,7 @@ const Hero = () => {
               />
             </div>
 
-            {/* monitor-style stand */}
-            <div className="mx-auto w-2/5 h-4 bg-gray-900 rounded-b-md" />
-            <div className="mx-auto w-3/5 h-2 bg-gray-900 rounded-b-md" />
-
-            <span className="absolute -bottom-2 -right-4 font-secondary text-secondary text-2xl rotate-[-6deg]">
+            <span className="absolute -bottom-2 -right-4 font-secondary text-highlight text-2xl rotate-[-6deg]">
               that&apos;s me 👋
             </span>
           </div>

@@ -4,8 +4,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const variantStyles = {
-  primary: "bg-gray-900 text-primary border-2 border-gray-900",
-  outline: "bg-primary text-gray-900 border-2 border-gray-900",
+  primary: "bg-gray-900 border-2 border-gray-900 text-white",
+  outline: "bg-primary  border-2 border-gray-900",
 };
 
 /**
@@ -27,7 +27,7 @@ const Button = ({
   ...props
 }) => {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-base",
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md  text-base font-bold",
     "shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827]",
     "hover:translate-x-[2px] hover:translate-y-[2px]",
     "active:shadow-none active:translate-x-[4px] active:translate-y-[4px]",

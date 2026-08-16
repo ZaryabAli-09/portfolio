@@ -25,6 +25,18 @@ body {
 body {
   font-family: var(--font-primary);
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #211e1a;
+}
+
+body {
+  color: #464545;
+}
 
 @keyframes fillBar {
   from {
