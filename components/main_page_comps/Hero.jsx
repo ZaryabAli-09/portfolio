@@ -1,105 +1,171 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import Avatar from "@/components/Avatar";
-import Link from "next/link";
-import { Highlight } from "@/components/ui/hero-highlight";
+import Image from "next/image";
+import {
+  FiArrowUpRight,
+  FiMail,
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+} from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
+import Button from "@/components/common/Button";
+
+const socialLinks = [
+  { url: "https://github.com/ZaryabAli-09", icon: FiGithub, alt: "GitHub" },
+  {
+    url: "https://www.linkedin.com/in/zaryab-ali-softdev",
+    icon: FiLinkedin,
+    alt: "LinkedIn",
+  },
+  { url: "https://x.com", icon: FaXTwitter, alt: "X" },
+  { url: "https://instagram.com", icon: FiInstagram, alt: "Instagram" },
+];
 
 const Hero = () => {
   return (
-    <div className="bg-gradient-to-br  from-gray-900 to-black text-white ">
-      <div className="container mx-auto px-4 py-12 md:py-24 flex flex-col md:flex-row items-center">
-        {/* Image Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="h-[45vh] md:h-[85vh] md:w-1/2 flex items-center justify-center relative"
-        >
-          <Avatar />
-        </motion.div>
-
+    <section id="home" className="relative w-full bg-primary bg-dotted">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-8 items-center">
         {/* Text Section */}
-        <div className="w-full md:w-1/2">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl lg:text-4xl mb-8 leading-tight"
-          >
-            <motion.span
-              className="block mb-4 "
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              Hi, Iam{" "}
-              <Highlight className="font-secondary text-black my-5">Zaryab Ali</Highlight>
-            </motion.span>
+        <div>
+          <p className="flex items-center gap-2 font-secondary text-secondary text-2xl mb-3">
+            <span aria-hidden="true">✳️</span> Hey, I&apos;m
+          </p>
 
-            <motion.span
-              className="block my-5"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              A Passionate{" "}
-              <Highlight className="text-black font-extrabold text-6xl">
-                Software Engineer
-              </Highlight>
-            </motion.span>
-          </motion.h1>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 leading-[1.05] mb-6">
+            Zaryab Ali
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-gray-300 mb-8 text-lg"
-          >
-            As a Software Engineer specializing in full-stack web development
-            with the MERN stack, I dont just build applications I solve real
-            problems through critical thinking and innovative solutions. My
-            expertise goes beyond implementing requirements to architecting
-            systems backend, optimizing for performance, and bridging technical
-            possibilities with business objectives.
-          </motion.p>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-xl">
+            A{" "}
+            <span className="relative inline-block font-semibold text-gray-900">
+              full-stack MERN developer
+              <svg
+                className="absolute left-0 -bottom-1 w-full h-2 overflow-visible"
+                viewBox="0 0 100 10"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <line
+                  x1="1"
+                  y1="6"
+                  x2="99"
+                  y2="6"
+                  stroke="#B08968"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  pathLength="1"
+                  className="draw-in"
+                  style={{ animationDelay: "0.3s" }}
+                />
+              </svg>
+            </span>{" "}
+            who&apos;s been shipping software since{" "}
+            <span className="relative inline-block px-2">
+              <span className="relative z-10">2017</span>
+              <svg
+                className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] overflow-visible"
+                viewBox="0 0 100 50"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="50"
+                  cy="25"
+                  rx="47"
+                  ry="21"
+                  fill="none"
+                  stroke="#E4572E"
+                  strokeWidth="2.5"
+                  pathLength="1"
+                  className="draw-in"
+                  style={{ animationDelay: "1s" }}
+                />
+              </svg>
+            </span>
+            . I build web &amp; mobile products, APIs and developer tooling —
+            and love turning ideas into shipped products.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-wrap gap-4 mb-8"
-          >
-            <Link
-              href="/portfolio"
-              className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium rounded transition-colors"
+          <div className="flex flex-wrap items-center gap-4">
+            <Button variant="primary" href="#work" icon={FiArrowUpRight}>
+              See my work
+            </Button>
+            <Button
+              variant="outline"
+              href="#contact"
+              icon={FiMail}
+              iconPosition="left"
             >
-              View My Work
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 font-medium rounded transition-colors"
-            >
-              Contact Me
-            </Link>
-          </motion.div>
+              Get in touch
+            </Button>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <a
-              href="/Zaryab's CV (Software Engineer).pdf"
-              download
-              className="inline-block px-6 py-2 border border-white hover:bg-white hover:text-gray-900 rounded transition-colors"
+            <div className="flex items-center gap-5 ml-1">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.alt}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.alt}
+                  className="text-gray-900 hover:text-secondary transition-colors"
+                >
+                  <social.icon className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        <div className="relative flex justify-center md:justify-end">
+          <div className="relative">
+            {/* curly arrow pointing at the photo */}
+            <svg
+              viewBox="0 0 80 60"
+              className="hidden md:block absolute -left-16 top-1/2 w-16 h-12 text-secondary"
+              fill="none"
+              aria-hidden="true"
             >
-              Download Resume
-            </a>
-          </motion.div>
+              <path
+                d="M70 5C55 5 20 15 15 40C13 48 18 53 25 50"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M14 40L25 50L18 58"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+
+            {/* framed photo — border radius jiggles gently, image itself stays put */}
+            <div
+              className="jiggle-border relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[4/5] border-[10px] border-gray-900 bg-gray-100 overflow-hidden shadow-xl"
+              style={{ borderRadius: "34px 20px 40px 18px" }}
+            >
+              <Image
+                src="/zaryab.png"
+                alt="Zaryab Ali"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+
+            {/* monitor-style stand */}
+            <div className="mx-auto w-2/5 h-4 bg-gray-900 rounded-b-md" />
+            <div className="mx-auto w-3/5 h-2 bg-gray-900 rounded-b-md" />
+
+            <span className="absolute -bottom-2 -right-4 font-secondary text-secondary text-2xl rotate-[-6deg]">
+              that&apos;s me 👋
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

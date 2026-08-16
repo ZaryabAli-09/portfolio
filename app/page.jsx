@@ -5,12 +5,12 @@ import Work from "@/components/main_page_comps/Work";
 
 const Main = () => {
   return (
-    <>
+    <main>
       <Hero />
       <About />
       <Work />
       <Contact />
-    </>
+    </main>
   );
 };
 

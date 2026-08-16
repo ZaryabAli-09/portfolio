@@ -15,6 +15,11 @@ module.exports = {
         primary: ["var(--font-primary)"],
         secondary: ["var(--font-secondary)"],
       },
+      colors: {
+        primary: "#fbf9f4",
+        secondary: "#B08968",
+        highlight: "#2F6BD6",
+      },
     },
   },
   plugins: [],

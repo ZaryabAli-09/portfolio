@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
 html,
 body {
   margin: 0;
@@ -28,6 +33,51 @@ body {
   to {
     width: 100%;
   }
+}
+
+/* Dotted canvas background used behind the hero */
+.bg-dotted {
+  background-image: radial-gradient(
+    circle,
+    rgba(17, 24, 39, 0.16) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 22px 22px;
+}
+
+/* Hand-drawn "draw itself in" effect for the underline / circle doodles.
+   Works on any stroked SVG shape when it has pathLength="1" set, since the
+   dash length is then always exactly 1 regardless of the shape's real size. */
+@keyframes draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.draw-in {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-in 1s ease-out forwards;
+}
+
+/* Subtle "jiggle" on the photo frame's border only — corner radii drift
+   slightly over time, nothing else moves, so it stays cheap and light. */
+@keyframes border-jiggle {
+  0%,
+  100% {
+    border-radius: 34px 20px 40px 18px;
+  }
+  25% {
+    border-radius: 20px 40px 18px 34px;
+  }
+  50% {
+    border-radius: 40px 18px 34px 20px;
+  }
+  75% {
+    border-radius: 18px 34px 20px 40px;
+  }
+}
+.jiggle-border {
+  animation: border-jiggle 9s ease-in-out infinite;
 }
 
 /* For webkit-based browsers (Chrome, Edge, Safari) */
