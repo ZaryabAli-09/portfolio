@@ -1,229 +1,157 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MdPushPin } from "react-icons/md";
+import { FiArrowUpRight } from "react-icons/fi";
+import { cn } from "@/lib/utils";
+import { PROJECTS, SOCIAL_LINKS } from "@/lib/constants";
 
-// Organized Projects
-const landingPageProjects = [
-  {
-    id: 1,
-    title: "Digital Agency Website",
-    description:
-      "Modern agency site with a sleek UI and contact form integration.",
-    image: "/p2.png",
-    link: "https://digitaloctagon.netlify.app",
-    tags: ["React", "Tailwind"],
-  },
-  {
-    id: 2,
-    title: "DietMate UI",
-    description:
-      "A clean, responsive landing page concept for a nutrition and diet platform.",
-    image: "/p3.png",
-    link: "https://dietmateui.netlify.app",
-    tags: ["UI/UX", "Landing Page"],
-  },
+// Small "pinned" rotation, alternating per card, same treatment as the
+// toolbox cards and the hero photo frame.
+const ROTATIONS = ["-rotate-[0.5deg]", "rotate-[0.5deg]", "-rotate-[0.3deg]"];
+
+const FILTERS = [
+  { key: "all", label: "All" },
+  { key: "work", label: "At work" },
+  { key: "side", label: "On the side" },
 ];
 
-const ecommerceProjects = [
-  {
-    id: 1,
-    title: "Easy Rent Now - Vacation Rental Platform",
-    description:
-      "A full-featured Airbnb-like vacation rental platform with interactive maps, booking calendar, property filters, and host management system.",
-    image: "/easy-rent-now-1.png",
-    link: "https://easy-rent-now-vacation-rental-platf.vercel.app",
-    tags: ["Next.js", "React", "Tailwind", "Maps API"],
-  },
-  {
-    id: 2,
-    title: "Sync Vibes - Headphone eCommerce Landing",
-    description:
-      "Modern e-commerce platform for premium wireless headphones with product showcase, pricing tiers, and secure checkout experience.",
-    image: "/sync-vibes-1.png",
-    link: "https://sync-vibes.vercel.app",
-    tags: ["Nextjs", "Tailwind", "eCommerce Landing"],
-  },
-  {
-    id: 3,
-    title: "Caffio - Coffee Shop Website",
-    description:
-      "Beautiful coffee shop website featuring product listings, menu showcase, and sleek design with smooth animations.",
-    image: "/caffio-1.png",
-    link: "https://caffio1x.vercel.app",
-    tags: ["React", "Tailwind", "UI/UX"],
-  },
-];
+const ProjectCard = ({ project, rotation }) => {
+  const isExternal = project.link?.startsWith("http");
 
-const fullStackProjects = [
-  {
-    id: 1,
-    title: "Background Remover AI",
-    description:
-      "An AI-powered full-stack web app that instantly removes image backgrounds with high accuracy.",
-    image: "/p7.png",
-    link: "https://quickbgremove.netlify.app",
-    tags: ["AI", "React", "Tailwind", "Node"],
-  },
-  {
-    id: 2,
-    title: "Full Stack Notes App",
-    description:
-      "MERN stack app to save, manage, and organize your notes and todos efficiently.",
-    image: "/p1.png",
-    link: "https://keepnotesandtodos.netlify.app",
-    tags: ["MERN", "Full Stack"],
-  },
-  {
-    id: 3,
-    title: "Blog with Admin Panel",
-    description:
-      "Full-stack blog platform with admin panel for content management.",
-    image: "/p6.png",
-    link: "https://techscrolls.netlify.app",
-    tags: ["CMS", "React", "Node"],
-  },
-];
-
-const ProjectCard = ({ project }) => (
-  <motion.div
-    whileHover={{ y: -10 }}
-    className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 shadow-lg"
-  >
-    <div className="relative h-48">
-      <Image
-        src={project.image}
-        alt={project.title}
-        fill
-        className="object-cover"
-      />
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-      <p className="text-gray-300 mb-4">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 bg-gray-800 rounded-full text-sm"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <Link
-        href={project.link}
-        target="_blank"
-        className="inline-block px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
-      >
-        View Project
-      </Link>
-    </div>
-  </motion.div>
-);
-
-const Work = () => {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 py-20 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
-        >
-          My <span className="text-amber-400">Projects</span>
-        </motion.h1>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          A showcase of my work spanning UI/UX, full-stack apps, and advanced AI
-          integrations.
-        </p>
+    <div
+      className={cn(
+        "flex flex-col bg-primary border-2 border-heading rounded-2xl overflow-hidden shadow-[6px_6px_0_0_#111827]",
+        rotation,
+      )}
+    >
+      <div className="relative h-48 w-full border-b-2 border-heading bg-gray-100">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover"
+        />
       </div>
 
-      {/* Featured Project */}
-      <section className="w-full md:w-[70%] lg:w-[60%] mx-auto mb-20 border border-gray-800 rounded-lg pt-10 p-6 bg-gray-900 shadow-lg relative">
-        <MdPushPin className="absolute left-2 top-2 text-2xl text-red-600 animate-pulse" />
-        <div>
-          <Image
-            src="/buyer.png"
-            alt="SmartStyler"
-            width={800}
-            height={400}
-            className="rounded-lg object-cover overflow-hidden"
-          />
-        </div>
-        <h3 className="text-xl font-bold my-2">
-          SmartStyler - Multi-Vendor Fashion Marketplace
-        </h3>
-        <p className="text-gray-300 mb-4">
-          My Final Year Project (FYP) and most ambitious build to date.
-          SmartStyler is a MERN + React Native platform combining e-commerce
-          with fashion AI. It features a reel-based product browsing experience,
-          intelligent ML-driven recommendations, and a smart chatbot for
-          seamless customer support merging innovation with style.
-        </p>
-        <Link
-          href={"/smartstyler"}
-          className="inline-block w-full text-center px-4 py-2 bg-amber-500 text-gray-900 rounded-md font-medium hover:bg-amber-600 transition-colors"
-        >
-          View Project
-        </Link>
-      </section>
-
-      {/* eCommerce & Service Platforms */}
-      <div className="container mx-auto px-4 pb-20">
-        <h2 className="text-2xl font-bold mb-6 text-amber-400">
-          eCommerce Landing & Service Platforms
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ecommerceProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </div>
-
-      {/* Full Stack Projects */}
-      <div className="container mx-auto px-4 pb-20">
-        <h2 className="text-2xl font-bold mb-6 text-amber-400">
-          Full Stack Applications
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {fullStackProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </div>
-      {/* Landing Page Projects */}
-      <div className="container mx-auto px-4 pb-20">
-        <h2 className="text-2xl font-bold mb-6 text-amber-400">
-          Landing Pages
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {landingPageProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-gray-900 py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Have a project in mind?
-          </h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss how I can help bring your ideas to life.
-          </p>
+      <div className="flex flex-col flex-1 p-6">
+        <div className="flex items-start justify-between gap-3 mb-1">
+          <h3 className="text-lg font-bold text-heading leading-snug">
+            {project.title}
+          </h3>
           <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-amber-500 text-gray-900 text-xl font-bold rounded-lg hover:bg-amber-600 transition-colors"
+            href={project.link}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            aria-label={`Open ${project.title}`}
+            className="shrink-0 mt-1 text-heading hover:text-highlight transition-colors"
           >
-            Get In Touch
+            <FiArrowUpRight className="w-5 h-5" />
           </Link>
         </div>
+
+        <p className="font-secondary text-highlight text-lg mb-3">
+          {project.role} · {project.period}
+        </p>
+
+        <p className="text-description text-sm leading-relaxed mb-5">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="font-mono text-xs text-heading border-2 border-heading rounded-full px-3 py-1"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
+  );
+};
+
+const Work = () => {
+  const [active, setActive] = useState("all");
+
+  const counts = {
+    all: PROJECTS.length,
+    work: PROJECTS.filter((p) => p.category === "work").length,
+    side: PROJECTS.filter((p) => p.category === "side").length,
+  };
+
+  const filtered =
+    active === "all" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
+
+  const githubUrl = SOCIAL_LINKS.find((s) => s.alt === "GitHub")?.url;
+
+  return (
+    <section
+      id="work"
+      className="w-full bg-primary bg-dotted border-b-2 border-dashed border-gray-300"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
+        <p className="font-secondary text-highlight text-xl mb-2">
+          selected work
+        </p>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-heading mb-10 leading-tight">
+          Things I&apos;ve built
+        </h2>
+
+        {/* Filter tabs */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          {FILTERS.map((f) => (
+            <button
+              key={f.key}
+              type="button"
+              onClick={() => setActive(f.key)}
+              className={cn(
+                "px-4 py-2 rounded-full border-2 border-heading text-sm font-bold transition-colors",
+                active === f.key
+                  ? "bg-heading text-primary"
+                  : "bg-primary text-heading hover:bg-heading/5",
+              )}
+            >
+              {f.label} ({counts[f.key]})
+            </button>
+          ))}
+        </div>
+
+        {/* Project grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filtered.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              rotation={ROTATIONS[i % ROTATIONS.length]}
+            />
+          ))}
+        </div>
+
+        {/* See all */}
+        {githubUrl && (
+          <div className="flex justify-center mt-14">
+            <Link
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-base font-bold bg-primary border-2 border-heading
+                shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827]
+                hover:translate-x-[2px] hover:translate-y-[2px]
+                active:shadow-none active:translate-x-[4px] active:translate-y-[4px]
+                transition-all duration-150 ease-out"
+            >
+              See all {PROJECTS.length} projects
+              <FiArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 

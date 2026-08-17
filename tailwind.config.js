@@ -21,6 +21,8 @@ module.exports = {
         highlight: "#2F6BD6",
         description: "#4A463E",
         heading: "#211e1a",
+        accent: "#E4572E",
+        success: "#3F7D4F",
       },
     },
   },

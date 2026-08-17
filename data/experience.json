@@ -1,0 +1,64 @@
+[
+  {
+    "id": "6pm-media",
+    "company": "6pm Media",
+    "role": "Backend Development Intern",
+    "employmentType": "Internship",
+    "location": "Saddar Bazar, Peshawar",
+    "duration": "3 months",
+    "logo": null,
+    "bullets": [
+      "Learned backend development from the ground up using Node.js",
+      "Worked on a course platform and LMS website",
+      "Gained exposure to game development workflows, since the software house's primary focus was game development"
+    ],
+    "order": 0
+  },
+  {
+    "id": "elexoft",
+    "company": "Elexoft",
+    "role": "Full Stack Software Engineer",
+    "employmentType": "Full-time",
+    "location": "New City Phase 2, Wah Cantt City Center",
+    "duration": "1+ years",
+    "logo": null,
+    "bullets": [
+      "Developed on WIZBAY.com, a multivendor marketplace built for a client operating across Europe, for about a month",
+      "Shifted to building CONN-1, a middleware engine written from scratch that lists products from third-party dropshipping APIs into the marketplace",
+      "Gained exposure to advanced technologies including BullMQ, Kafka, microservices architecture, and EKS deployment",
+      "Owned the project end-to-end — from development to DevOps — delivering it solo in about 6 months",
+      "Later rebuilt the Elexoft company website with an advanced custom-built CMS"
+    ],
+    "order": 1
+  },
+  {
+    "id": "smile-lounge",
+    "company": "Smile Lounge Dental Care",
+    "role": "Web Developer & Marketing Consultant",
+    "employmentType": "Part-time",
+    "location": "Remote",
+    "duration": "2 months",
+    "logo": null,
+    "bullets": [
+      "Built and launched their website",
+      "Set up and managed their Linktree",
+      "Managed Meta Ads campaigns",
+      "Consulted on ads strategy"
+    ],
+    "order": 2
+  },
+  {
+    "id": "apricoica",
+    "company": "Apricoica",
+    "role": "Web & SEO Consultant",
+    "employmentType": "Freelance",
+    "location": "Remote",
+    "duration": "Ongoing",
+    "logo": null,
+    "bullets": [
+      "Helped a leading western wear eCommerce business enhance their website UI",
+      "Defined and implemented an SEO strategy to improve online visibility"
+    ],
+    "order": 4
+  }
+]

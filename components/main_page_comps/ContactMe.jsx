@@ -1,6 +1,7 @@
 "use client";
 
-import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { useState } from "react";
+import { FiMail, FiGithub, FiLinkedin, FiCopy, FiCheck } from "react-icons/fi";
 import Button from "@/components/common/Button";
 import { SOCIAL_LINKS, EMAIL } from "@/lib/constants";
 
@@ -10,6 +11,18 @@ const ICONS = {
 };
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -59,14 +72,40 @@ const Contact = () => {
           reach me is email — or find me on any of the usual places.
         </p>
 
-        <Button
-          variant="primary"
-          href={`mailto:${EMAIL}`}
-          icon={FiMail}
-          iconPosition="left"
-        >
-          {EMAIL}
-        </Button>
+        <div className="inline-flex items-stretch gap-2">
+          <Button
+            variant="primary"
+            href={`mailto:${EMAIL}`}
+            icon={FiMail}
+            iconPosition="left"
+          >
+            {EMAIL}
+          </Button>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            aria-label="Copy email address"
+            title={copied ? "Copied!" : "Copy email"}
+            className="inline-flex items-center justify-center w-12 rounded-md bg-primary border-2 border-gray-900
+              shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827]
+              hover:translate-x-[2px] hover:translate-y-[2px]
+              active:shadow-none active:translate-x-[4px] active:translate-y-[4px]
+              transition-all duration-150 ease-out"
+          >
+            {copied ? (
+              <FiCheck className="w-4 h-4 text-success" />
+            ) : (
+              <FiCopy className="w-4 h-4 text-heading" />
+            )}
+          </button>
+        </div>
+
+        {copied && (
+          <p className="font-secondary text-success text-lg mt-2">
+            Copied to clipboard!
+          </p>
+        )}
 
         <div className="flex items-center justify-center gap-4 mt-8">
           {SOCIAL_LINKS.map((social) => {
