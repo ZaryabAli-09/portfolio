@@ -13,12 +13,12 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full bg-primary border-t-2 border-dashed border-gray-300"
+      className="w-full bg-dotted border-b-2 border-dashed border-gray-300"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 text-center">
         <p className="font-secondary text-highlight text-xl mb-2">say hello</p>
 
-        <h2 className="text-4xl md:text-5xl font-extrabold text-heading mb-6 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-heading  leading-tight">
           Got something{" "}
           <span className="relative inline-block">
             <span className="relative z-10">worth building?</span>

@@ -15,7 +15,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-primary border-t-2 border-heading">
+    <footer className="w-full bg-primary border border-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* wavy divider */}
         <svg
