@@ -3,19 +3,23 @@
 import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin, FiCopy, FiCheck } from "react-icons/fi";
 import Button from "@/components/common/Button";
-import { SOCIAL_LINKS, EMAIL } from "@/lib/constants";
 
 const ICONS = {
   GitHub: FiGithub,
   LinkedIn: FiLinkedin,
 };
 
-const Contact = () => {
+const Contact = ({ siteSettings }) => {
   const [copied, setCopied] = useState(false);
+  const email = siteSettings?.email || "zaryabkhan248@gmail.com";
+  const socialLinks = (siteSettings?.socialLinks || []).map((link) => ({
+    ...link,
+    alt: link.label,
+  }));
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(EMAIL);
+      await navigator.clipboard.writeText(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -75,11 +79,11 @@ const Contact = () => {
         <div className="inline-flex items-stretch gap-2">
           <Button
             variant="primary"
-            href={`mailto:${EMAIL}`}
+            href={`mailto:${email}`}
             icon={FiMail}
             iconPosition="left"
           >
-            {EMAIL}
+            {email}
           </Button>
 
           <button
@@ -108,7 +112,7 @@ const Contact = () => {
         )}
 
         <div className="flex items-center justify-center gap-4 mt-8">
-          {SOCIAL_LINKS.map((social) => {
+          {socialLinks.map((social) => {
             const Icon = ICONS[social.alt];
             return (
               <a

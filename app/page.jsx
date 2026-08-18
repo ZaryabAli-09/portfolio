@@ -4,8 +4,11 @@ import Experience from "@/components/main_page_comps/Experience";
 import Hero from "@/components/main_page_comps/Hero";
 import Toolbox from "@/components/main_page_comps/Toolbox";
 import Work from "@/components/main_page_comps/Work";
+import { readSiteSettings } from "@/lib/contentStore";
 
-const Main = () => {
+const Main = async () => {
+  const siteSettings = await readSiteSettings();
+
   return (
     <main>
       <Hero />
@@ -13,7 +16,7 @@ const Main = () => {
       <Experience />
       <Toolbox />
       <Work />
-      <Contact />
+      <Contact siteSettings={siteSettings} />
     </main>
   );
 };

@@ -11,8 +11,10 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ siteSettings = {} }) => {
   const [open, setOpen] = useState(false);
+  const name = siteSettings.name || "Zaryab Ali";
+  const role = siteSettings.role || "Full Stack Software Engineer";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -35,9 +37,9 @@ const Navbar = () => {
             />
           </div>
           <div className="leading-tight">
-            <p className="font-bold text-gray-900">Zaryab Ali</p>
+            <p className="font-bold text-gray-900">{name}</p>
             <p className="font-secondary text-highlight text-base -mt-0.5">
-              Full Stack Software Engineer
+              {role}
             </p>
           </div>
         </Link>

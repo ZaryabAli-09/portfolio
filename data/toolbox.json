@@ -1,0 +1,74 @@
+[
+  {
+    "id": "niche",
+    "title": "Niche",
+    "tags": [
+      "Mapbox",
+      "BabylonJS",
+      "Unity 3D",
+      "3D Web (legacy)"
+    ],
+    "order": 0
+  },
+  {
+    "id": "past-life",
+    "title": "A past life",
+    "tags": [
+      "Ruby",
+      "PHP",
+      "Rust",
+      "C++",
+      "C#",
+      "Bash",
+      "Inno Setup"
+    ],
+    "order": 1
+  },
+  {
+    "id": "languages",
+    "title": "Languages & Frameworks",
+    "tags": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "React Native",
+      "Python"
+    ],
+    "order": 2
+  },
+  {
+    "id": "backend",
+    "title": "Backend & Auth",
+    "tags": [
+      "PostgreSQL",
+      "Supabase",
+      "Auth0",
+      "Azure Functions",
+      "Stripe"
+    ],
+    "order": 3
+  },
+  {
+    "id": "platform-ai",
+    "title": "Platform & AI",
+    "tags": [
+      "Monorepos",
+      "MCP",
+      "TanStack",
+      "Expo",
+      "OpenAI"
+    ],
+    "order": 4
+  },
+  {
+    "id": "leadership",
+    "title": "Leading",
+    "tags": [
+      "Leadership",
+      "Mentorship",
+      "Problem Solving",
+      "Communication"
+    ],
+    "order": 5
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "name": "Zaryab Khan",
+  "role": "Full-stack Software Engineer",
+  "heroDescription": "A full-stack software engineer who's been shipping software since 2021 and loves turning ideas into production-ready web and mobile products.",
+  "aboutTitle": "Full-stack by trade, curious by nature.",
+  "aboutParagraphs": [
+    "I'm a full-stack developer finishing my Software Engineering degree at Iqra National University, Peshawar. I started writing code in 2021 and have been building with JavaScript, React and the MERN stack ever since.",
+    "These days I focus on Next.js, React and Node.js — building clean, production-ready web and mobile products. I've worked as a backend-focused engineer at a software house, taken on freelance full-stack and AI-integration projects, and led my own final year project: a multi-vendor fashion marketplace with real-time chat, AI recommendations and a React Native mobile app.",
+    "Outside of coursework and client work, I like exploring new tools in the JS ecosystem, tightening up my Figma-to-code workflow, and shipping small side projects just to keep learning."
+  ],
+  "email": "zaryabkhan248@gmail.com",
+  "socialLinks": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/ZaryabAli-09"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/zaryab-ali-softdev"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
-"use client";
 import Image from "next/image";
 import { FiArrowUpRight, FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
 import { SiClaudecode } from "react-icons/si";
 import Button from "@/components/common/Button";
+import { readSiteSettings } from "@/lib/contentStore";
 
 const socialLinks = [
   { url: "https://github.com/ZaryabAli-09", icon: FiGithub, alt: "GitHub" },
@@ -13,7 +13,12 @@ const socialLinks = [
   },
 ];
 
-const Hero = () => {
+const Hero = async () => {
+  const siteSettings = await readSiteSettings();
+  const name = siteSettings.name || "Zaryab Ali";
+  const role = siteSettings.role || "full-stack MERN developer";
+  const heroDescription = siteSettings.heroDescription || "A full-stack MERN developer who loves shipping software.";
+
   return (
     <section id="home" className="relative w-full bg-primary bg-dotted">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-8 items-center">
@@ -27,13 +32,13 @@ const Hero = () => {
           </p>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] mb-6">
-            Zaryab Ali
+            {name}
           </h1>
 
           <p className="text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
             A{" "}
             <span className="relative inline-block font-semibold ">
-              full-stack MERN developer
+              {role}
               <svg
                 className="absolute left-0 -bottom-1 w-full h-2 overflow-visible"
                 viewBox="0 0 100 10"
@@ -113,8 +118,7 @@ const Hero = () => {
                 />
               </svg>
             </span>
-            <br />I build web &amp; mobile products, APIs and developer tooling
-            and love turning ideas into shipped products.
+            <br />{heroDescription}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

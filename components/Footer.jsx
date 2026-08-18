@@ -1,5 +1,4 @@
 import { FiGithub, FiLinkedin } from "react-icons/fi";
-import { SOCIAL_LINKS } from "@/lib/constants";
 
 const ICONS = {
   GitHub: FiGithub,
@@ -13,7 +12,12 @@ const footerLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const Footer = () => {
+const Footer = ({ siteSettings = {} }) => {
+  const socialLinks = (siteSettings.socialLinks || []).map((link) => ({
+    ...link,
+    alt: link.label,
+  }));
+
   return (
     <footer className="w-full bg-primary border border-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -58,7 +62,7 @@ const Footer = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              {SOCIAL_LINKS.map((social) => {
+              {socialLinks.map((social) => {
                 const Icon = ICONS[social.alt];
                 return (
                   <a

@@ -1,7 +1,5 @@
-import { TOOLBOX } from "@/lib/constants";
+import { readToolbox } from "@/lib/contentStore";
 
-// Alternate a tiny rotation on cards for the hand-drawn, "pinned to a board"
-// feel used across the rest of the site (see Hero/About).
 const ROTATIONS = [
   "-rotate-[0.6deg]",
   "rotate-[0.6deg]",
@@ -16,14 +14,14 @@ const ToolboxCard = ({ category, rotation }) => (
     className={`bg-primary border-2 border-heading rounded-2xl p-6 shadow-[6px_6px_0_0_#111827] ${rotation}`}
   >
     <div className="flex items-center gap-3 mb-5">
-      <span className={`w-2.5 h-2.5 rounded-full ${category.dot}`} />
+      <span className="w-2.5 h-2.5 rounded-full bg-accent" />
       <h3 className="font-secondary text-2xl text-heading">{category.title}</h3>
     </div>
 
     <div className="flex flex-wrap gap-2">
-      {category.items.map((item) => (
+      {category.tags?.map((item) => (
         <span
-          key={item}
+          key={`${category.id}-${item}`}
           className="font-mono text-sm text-heading border-2 border-heading rounded-full px-3 py-1 bg-primary"
         >
           {item}
@@ -33,7 +31,9 @@ const ToolboxCard = ({ category, rotation }) => (
   </div>
 );
 
-const Toolbox = () => {
+const Toolbox = async () => {
+  const toolbox = await readToolbox();
+
   return (
     <section
       id="toolbox"
@@ -48,9 +48,9 @@ const Toolbox = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TOOLBOX.map((category, i) => (
+          {toolbox.map((category, i) => (
             <ToolboxCard
-              key={category.title}
+              key={category.id}
               category={category}
               rotation={ROTATIONS[i % ROTATIONS.length]}
             />
