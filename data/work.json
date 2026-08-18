@@ -7,12 +7,7 @@
     "description": "My most ambitious build to date. A MERN + React Native platform combining e-commerce with fashion AI - reel-based product browsing, ML-driven recommendations, and a smart support chatbot.",
     "image": "/buyer.png",
     "link": "/smartstyler",
-    "tags": [
-      "MERN",
-      "React Native",
-      "AI",
-      "Chatbot"
-    ],
+    "tags": ["MERN", "React Native", "AI", "Chatbot"],
     "category": "side",
     "order": 0
   },
@@ -24,12 +19,7 @@
     "description": "A full-featured Airbnb-like vacation rental platform with interactive maps, a booking calendar, property filters, and a host management system.",
     "image": "/easy-rent-now-1.png",
     "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
-    "tags": [
-      "Next.js",
-      "React",
-      "Tailwind",
-      "Maps API"
-    ],
+    "tags": ["Next.js", "React", "Tailwind", "Maps API"],
     "category": "work",
     "order": 1
   },
@@ -41,11 +31,7 @@
     "description": "Modern e-commerce landing page for premium wireless headphones with a product showcase, pricing tiers, and a secure checkout experience.",
     "image": "/sync-vibes-1.png",
     "link": "https://sync-vibes.vercel.app",
-    "tags": [
-      "Next.js",
-      "Tailwind",
-      "eCommerce"
-    ],
+    "tags": ["Next.js", "Tailwind", "eCommerce"],
     "category": "work",
     "order": 2
   },
@@ -57,11 +43,7 @@
     "description": "Beautiful coffee shop website featuring product listings, a menu showcase, and a sleek design with smooth animations.",
     "image": "/caffio-1.png",
     "link": "https://caffio1x.vercel.app",
-    "tags": [
-      "React",
-      "Tailwind",
-      "UI/UX"
-    ],
+    "tags": ["React", "Tailwind", "UI/UX"],
     "category": "work",
     "order": 3
   },
@@ -73,12 +55,7 @@
     "description": "An AI-powered full-stack web app that instantly removes image backgrounds with high accuracy.",
     "image": "/p7.png",
     "link": "https://quickbgremove.netlify.app",
-    "tags": [
-      "AI",
-      "React",
-      "Tailwind",
-      "Node"
-    ],
+    "tags": ["AI", "React", "Tailwind", "Node"],
     "category": "side",
     "order": 4
   },
@@ -90,10 +67,7 @@
     "description": "MERN stack app to save, manage, and organize your notes and todos efficiently.",
     "image": "/p1.png",
     "link": "https://keepnotesandtodos.netlify.app",
-    "tags": [
-      "MERN",
-      "Full Stack"
-    ],
+    "tags": ["MERN", "Full Stack"],
     "category": "side",
     "order": 5
   },
@@ -105,11 +79,7 @@
     "description": "Full-stack blog platform with an admin panel for content management.",
     "image": "/p6.png",
     "link": "https://techscrolls.netlify.app",
-    "tags": [
-      "CMS",
-      "React",
-      "Node"
-    ],
+    "tags": ["CMS", "React", "Node"],
     "category": "side",
     "order": 6
   },
@@ -121,10 +91,7 @@
     "description": "Modern agency site with a sleek UI and contact form integration.",
     "image": "/p2.png",
     "link": "https://digitaloctagon.netlify.app",
-    "tags": [
-      "React",
-      "Tailwind"
-    ],
+    "tags": ["React", "Tailwind"],
     "category": "work",
     "order": 7
   },
@@ -136,10 +103,7 @@
     "description": "A clean, responsive landing page concept for a nutrition and diet platform.",
     "image": "/p3.png",
     "link": "https://dietmateui.netlify.app",
-    "tags": [
-      "UI/UX",
-      "Landing Page"
-    ],
+    "tags": ["UI/UX", "Landing Page"],
     "category": "work",
     "order": 8
   },
@@ -151,14 +115,7 @@
     "description": "asdasasd",
     "image": "/asd.png",
     "link": "sadsad",
-    "tags": [
-      "a.a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a"
-    ],
+    "tags": ["a.a", "a", "a", "a", "a", "a"],
     "category": "work",
     "order": 9
   }

@@ -128,7 +128,7 @@ const ProjectPanels = () => {
     // Replace with actual PDF path
     window.open(
       "/SmartStyler Integrated AI Chatbot and Reels Based Recommendation in Fashion E-Commerce.pdf",
-      "_blank"
+      "_blank",
     );
   };
 
@@ -232,8 +232,8 @@ const ProjectPanels = () => {
                     {panel.id === 1
                       ? "Buyer"
                       : panel.id === 2
-                      ? "Seller"
-                      : "Admin"}
+                        ? "Seller"
+                        : "Admin"}
                   </span>
                 </div>
                 <p className="text-gray-600 mb-4">{panel.description}</p>

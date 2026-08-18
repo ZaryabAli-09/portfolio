@@ -84,7 +84,9 @@ const ToolboxDashboard = ({ initialData = [] }) => {
       setItems(
         (data.items || payload).map((item) => ({
           ...item,
-          tags: Array.isArray(item.tags) ? item.tags.join(", ") : item.tags || "",
+          tags: Array.isArray(item.tags)
+            ? item.tags.join(", ")
+            : item.tags || "",
         })),
       );
       toast.success("Toolbox saved.");
