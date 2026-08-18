@@ -89,8 +89,12 @@ const ToolboxDashboard = ({ initialData = [] }) => {
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <p className="font-secondary text-highlight text-xl">admin · toolbox</p>
-          <h2 className="text-3xl font-extrabold text-heading">Manage toolbox cards</h2>
+          <p className="font-secondary text-highlight text-xl">
+            admin · toolbox
+          </p>
+          <h2 className="text-3xl font-extrabold text-heading">
+            Manage toolbox cards
+          </h2>
         </div>
         <button
           type="button"

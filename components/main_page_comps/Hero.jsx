@@ -17,7 +17,9 @@ const Hero = async () => {
   const siteSettings = await readSiteSettings();
   const name = siteSettings.name || "Zaryab Ali";
   const role = siteSettings.role || "full-stack MERN developer";
-  const heroDescription = siteSettings.heroDescription || "A full-stack MERN developer who loves shipping software.";
+  const heroDescription =
+    siteSettings.heroDescription ||
+    "A full-stack MERN developer who loves shipping software.";
 
   return (
     <section id="home" className="relative w-full bg-primary bg-dotted">
@@ -118,7 +120,8 @@ const Hero = async () => {
                 />
               </svg>
             </span>
-            <br />{heroDescription}
+            <br />
+            {heroDescription}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

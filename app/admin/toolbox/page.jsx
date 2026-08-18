@@ -16,5 +16,11 @@ export default async function AdminToolboxPage() {
   }
 
   const toolbox = await readToolbox();
-  return <main className="min-h-screen bg-primary bg-dotted px-4 py-16"><div className="mx-auto max-w-5xl"><ToolboxDashboard initialData={toolbox} /></div></main>;
+  return (
+    <main className="min-h-screen bg-primary bg-dotted px-4 py-16">
+      <div className="mx-auto max-w-5xl">
+        <ToolboxDashboard initialData={toolbox} />
+      </div>
+    </main>
+  );
 }

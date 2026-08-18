@@ -19,6 +19,9 @@ export async function POST(req) {
     revalidatePath("/admin");
     return Response.json(saved, { status: 200 });
   } catch (error) {
-    return Response.json({ message: "Failed to save settings.", error: error.message }, { status: 500 });
+    return Response.json(
+      { message: "Failed to save settings.", error: error.message },
+      { status: 500 },
+    );
   }
 }

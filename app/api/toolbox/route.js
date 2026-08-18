@@ -15,13 +15,19 @@ export async function POST(req) {
   try {
     const { items } = await req.json();
     if (!Array.isArray(items)) {
-      return Response.json({ message: "Items must be an array." }, { status: 400 });
+      return Response.json(
+        { message: "Items must be an array." },
+        { status: 400 },
+      );
     }
 
     const saved = await writeToolbox(items);
     revalidatePath("/");
     return Response.json({ items: saved }, { status: 200 });
   } catch (error) {
-    return Response.json({ message: "Failed to save toolbox.", error: error.message }, { status: 500 });
+    return Response.json(
+      { message: "Failed to save toolbox.", error: error.message },
+      { status: 500 },
+    );
   }
 }
