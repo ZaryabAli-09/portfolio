@@ -1,0 +1,165 @@
+[
+  {
+    "id": "smartstyler",
+    "title": "SmartStyler - Multi-Vendor Fashion Marketplace",
+    "role": "Creator & Lead Engineer",
+    "period": "Final Year Project",
+    "description": "My most ambitious build to date. A MERN + React Native platform combining e-commerce with fashion AI - reel-based product browsing, ML-driven recommendations, and a smart support chatbot.",
+    "image": "/buyer.png",
+    "link": "/smartstyler",
+    "tags": [
+      "MERN",
+      "React Native",
+      "AI",
+      "Chatbot"
+    ],
+    "category": "side",
+    "order": 0
+  },
+  {
+    "id": "easy-rent-now",
+    "title": "Easy Rent Now - Vacation Rental Platform",
+    "role": "Creator & Developer",
+    "period": "Freelance",
+    "description": "A full-featured Airbnb-like vacation rental platform with interactive maps, a booking calendar, property filters, and a host management system.",
+    "image": "/easy-rent-now-1.png",
+    "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
+    "tags": [
+      "Next.js",
+      "React",
+      "Tailwind",
+      "Maps API"
+    ],
+    "category": "work",
+    "order": 1
+  },
+  {
+    "id": "sync-vibes",
+    "title": "Sync Vibes - Headphone eCommerce Landing",
+    "role": "Creator & Developer",
+    "period": "Freelance",
+    "description": "Modern e-commerce landing page for premium wireless headphones with a product showcase, pricing tiers, and a secure checkout experience.",
+    "image": "/sync-vibes-1.png",
+    "link": "https://sync-vibes.vercel.app",
+    "tags": [
+      "Next.js",
+      "Tailwind",
+      "eCommerce"
+    ],
+    "category": "work",
+    "order": 2
+  },
+  {
+    "id": "caffio",
+    "title": "Caffio - Coffee Shop Website",
+    "role": "Creator & Developer",
+    "period": "Freelance",
+    "description": "Beautiful coffee shop website featuring product listings, a menu showcase, and a sleek design with smooth animations.",
+    "image": "/caffio-1.png",
+    "link": "https://caffio1x.vercel.app",
+    "tags": [
+      "React",
+      "Tailwind",
+      "UI/UX"
+    ],
+    "category": "work",
+    "order": 3
+  },
+  {
+    "id": "bg-remover",
+    "title": "Background Remover AI",
+    "role": "Creator & Developer",
+    "period": "Personal Project",
+    "description": "An AI-powered full-stack web app that instantly removes image backgrounds with high accuracy.",
+    "image": "/p7.png",
+    "link": "https://quickbgremove.netlify.app",
+    "tags": [
+      "AI",
+      "React",
+      "Tailwind",
+      "Node"
+    ],
+    "category": "side",
+    "order": 4
+  },
+  {
+    "id": "notes-app",
+    "title": "Full Stack Notes App",
+    "role": "Creator & Developer",
+    "period": "Personal Project",
+    "description": "MERN stack app to save, manage, and organize your notes and todos efficiently.",
+    "image": "/p1.png",
+    "link": "https://keepnotesandtodos.netlify.app",
+    "tags": [
+      "MERN",
+      "Full Stack"
+    ],
+    "category": "side",
+    "order": 5
+  },
+  {
+    "id": "blog-admin",
+    "title": "Blog with Admin Panel",
+    "role": "Creator & Developer",
+    "period": "Personal Project",
+    "description": "Full-stack blog platform with an admin panel for content management.",
+    "image": "/p6.png",
+    "link": "https://techscrolls.netlify.app",
+    "tags": [
+      "CMS",
+      "React",
+      "Node"
+    ],
+    "category": "side",
+    "order": 6
+  },
+  {
+    "id": "digital-agency",
+    "title": "Digital Agency Website",
+    "role": "Creator & Developer",
+    "period": "Freelance",
+    "description": "Modern agency site with a sleek UI and contact form integration.",
+    "image": "/p2.png",
+    "link": "https://digitaloctagon.netlify.app",
+    "tags": [
+      "React",
+      "Tailwind"
+    ],
+    "category": "work",
+    "order": 7
+  },
+  {
+    "id": "dietmate",
+    "title": "DietMate UI",
+    "role": "Creator & Developer",
+    "period": "Freelance",
+    "description": "A clean, responsive landing page concept for a nutrition and diet platform.",
+    "image": "/p3.png",
+    "link": "https://dietmateui.netlify.app",
+    "tags": [
+      "UI/UX",
+      "Landing Page"
+    ],
+    "category": "work",
+    "order": 8
+  },
+  {
+    "id": "e6602bd5-b539-4e60-aefa-d2837aae1e4a",
+    "title": "asdsa",
+    "role": "sadasd",
+    "period": "sdadsa",
+    "description": "asdasasd",
+    "image": "/asd.png",
+    "link": "sadsad",
+    "tags": [
+      "a.a",
+      "a",
+      "a",
+      "a",
+      "a",
+      "a"
+    ],
+    "category": "work",
+    "order": 9
+  }
+]

@@ -7,7 +7,12 @@ import toast from "react-hot-toast";
 const emptyGroup = () => ({ id: crypto.randomUUID(), title: "", tags: "" });
 
 const ToolboxDashboard = ({ initialData = [] }) => {
-  const [items, setItems] = useState(initialData);
+  const [items, setItems] = useState(
+    initialData.map((item) => ({
+      ...item,
+      tags: Array.isArray(item.tags) ? item.tags.join(", ") : item.tags || "",
+    })),
+  );
   const [saving, setSaving] = useState(false);
 
   const updateItem = (index, field, value) => {
@@ -58,7 +63,7 @@ const ToolboxDashboard = ({ initialData = [] }) => {
         ...item,
         id: item.id || crypto.randomUUID(),
         title: item.title.trim(),
-        tags: item.tags
+        tags: (Array.isArray(item.tags) ? item.tags.join(",") : item.tags || "")
           .split(",")
           .map((tag) => tag.trim())
           .filter(Boolean),
@@ -76,7 +81,12 @@ const ToolboxDashboard = ({ initialData = [] }) => {
         return;
       }
 
-      setItems(data.items || payload);
+      setItems(
+        (data.items || payload).map((item) => ({
+          ...item,
+          tags: Array.isArray(item.tags) ? item.tags.join(", ") : item.tags || "",
+        })),
+      );
       toast.success("Toolbox saved.");
     } catch {
       toast.error("Failed to save toolbox.");

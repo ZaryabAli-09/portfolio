@@ -5,9 +5,14 @@ import Hero from "@/components/main_page_comps/Hero";
 import Toolbox from "@/components/main_page_comps/Toolbox";
 import Work from "@/components/main_page_comps/Work";
 import { readSiteSettings } from "@/lib/contentStore";
+import { readProjects } from "@/lib/workStore";
 
 const Main = async () => {
   const siteSettings = await readSiteSettings();
+  const projects = await readProjects();
+  const githubUrl =
+    siteSettings.socialLinks?.find((link) => link.label === "GitHub")?.url ||
+    "";
 
   return (
     <main>
@@ -15,7 +20,7 @@ const Main = async () => {
       <About />
       <Experience />
       <Toolbox />
-      <Work />
+      <Work initialData={projects} githubUrl={githubUrl} />
       <Contact siteSettings={siteSettings} />
     </main>
   );

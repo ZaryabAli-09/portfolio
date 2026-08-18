@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import { cn } from "@/lib/utils";
-import { PROJECTS, SOCIAL_LINKS } from "@/lib/constants";
 
 // Small "pinned" rotation, alternating per card, same treatment as the
 // toolbox cards and the hero photo frame.
@@ -75,19 +74,19 @@ const ProjectCard = ({ project, rotation }) => {
   );
 };
 
-const Work = () => {
+const Work = ({ initialData = [], githubUrl = "" }) => {
   const [active, setActive] = useState("all");
 
   const counts = {
-    all: PROJECTS.length,
-    work: PROJECTS.filter((p) => p.category === "work").length,
-    side: PROJECTS.filter((p) => p.category === "side").length,
+    all: initialData.length,
+    work: initialData.filter((p) => p.category === "work").length,
+    side: initialData.filter((p) => p.category === "side").length,
   };
 
   const filtered =
-    active === "all" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
-
-  const githubUrl = SOCIAL_LINKS.find((s) => s.alt === "GitHub")?.url;
+    active === "all"
+      ? initialData
+      : initialData.filter((p) => p.category === active);
 
   return (
     <section
@@ -132,6 +131,12 @@ const Work = () => {
           ))}
         </div>
 
+        {filtered.length === 0 && (
+          <div className="rounded-2xl border-2 border-dashed border-heading bg-primary p-8 text-center text-description">
+            No projects found in this section yet.
+          </div>
+        )}
+
         {/* See all */}
         {githubUrl && (
           <div className="flex justify-center mt-14">
@@ -145,7 +150,7 @@ const Work = () => {
                 active:shadow-none active:translate-x-[4px] active:translate-y-[4px]
                 transition-all duration-150 ease-out"
             >
-              See all {PROJECTS.length} projects
+              See all {initialData.length} projects
               <FiArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

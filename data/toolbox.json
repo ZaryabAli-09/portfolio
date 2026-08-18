@@ -2,37 +2,83 @@
   {
     "id": "niche",
     "title": "Niche",
-    "tags": ["Mapbox", "BabylonJS", "Unity 3D", "3D Web (legacy)"],
+    "tags": [
+      "Mapbox",
+      "BabylonJS",
+      "Unity 3D",
+      "3D Web (legacy)"
+    ],
     "order": 0
   },
   {
     "id": "past-life",
     "title": "A past life",
-    "tags": ["Ruby", "PHP", "Rust", "C++", "C#", "Bash", "Inno Setup"],
+    "tags": [
+      "Ruby",
+      "PHP",
+      "Rust",
+      "C++",
+      "C#",
+      "Bash",
+      "Inno Setup"
+    ],
     "order": 1
   },
   {
     "id": "languages",
     "title": "Languages & Frameworks",
-    "tags": ["TypeScript", "React", "Next.js", "React Native", "Python"],
+    "tags": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "React Native",
+      "Python"
+    ],
     "order": 2
   },
   {
     "id": "backend",
     "title": "Backend & Auth",
-    "tags": ["PostgreSQL", "Supabase", "Auth0", "Azure Functions", "Stripe"],
+    "tags": [
+      "PostgreSQL",
+      "Supabase",
+      "Auth0",
+      "Azure Functions",
+      "Stripe"
+    ],
     "order": 3
   },
   {
     "id": "platform-ai",
     "title": "Platform & AI",
-    "tags": ["Monorepos", "MCP", "TanStack", "Expo", "OpenAI"],
+    "tags": [
+      "Monorepos",
+      "MCP",
+      "TanStack",
+      "Expo",
+      "OpenAI"
+    ],
     "order": 4
   },
   {
     "id": "leadership",
     "title": "Leading",
-    "tags": ["Leadership", "Mentorship", "Problem Solving", "Communication"],
+    "tags": [
+      "Leadership",
+      "Mentorship",
+      "Problem Solving",
+      "Communication"
+    ],
     "order": 5
+  },
+  {
+    "id": "cec61669-1d14-4a5b-84e4-cfb7743750f3",
+    "title": "asdasd",
+    "tags": [
+      "asd",
+      "fgh",
+      "f f"
+    ],
+    "order": 6
   }
 ]
