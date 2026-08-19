@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { FiPlus, FiEdit2, FiTrash2 } from "react-icons/fi";
+import { useState, useEffect, useRef } from "react";
+import { FiPlus, FiEdit2, FiTrash2, FiUpload, FiX } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 const EMPTY = {
@@ -19,8 +19,12 @@ const WorkDashboard = ({ initialData = [] }) => {
   const [projects, setProjects] = useState(initialData);
   const [mode, setMode] = useState(null); // null | "add" | { edit: project }
   const [fields, setFields] = useState(EMPTY);
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [removeImage, setRemoveImage] = useState(false);
   const [saving, setSaving] = useState(false);
   const [deletingId, setDeletingId] = useState(null);
+  const formRef = useRef(null);
 
   const hydrateFields = (project) => ({
     title: project?.title || "",
@@ -35,13 +39,26 @@ const WorkDashboard = ({ initialData = [] }) => {
 
   const openAdd = () => {
     setFields(EMPTY);
+    setImageFile(null);
+    setImagePreview(null);
+    setRemoveImage(false);
     setMode("add");
   };
 
   const openEdit = (project) => {
     setFields(hydrateFields(project));
+    setImageFile(null);
+    setImagePreview(project?.image || null);
+    setRemoveImage(false);
     setMode({ edit: project });
   };
+
+  // Scroll the form into view whenever we open add/edit.
+  useEffect(() => {
+    if (mode) {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [mode]);
 
   const refresh = async () => {
     const res = await fetch("/api/work", { cache: "no-store" });
@@ -49,6 +66,20 @@ const WorkDashboard = ({ initialData = [] }) => {
       const data = await res.json();
       setProjects(data);
     }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImageFile(file);
+    setRemoveImage(false);
+    setImagePreview(URL.createObjectURL(file));
+  };
+
+  const handleRemoveImage = () => {
+    setImageFile(null);
+    setImagePreview(null);
+    setRemoveImage(true);
   };
 
   const handleSave = async () => {
@@ -59,26 +90,30 @@ const WorkDashboard = ({ initialData = [] }) => {
 
     setSaving(true);
     try {
-      const payload = {
-        ...fields,
-        title: fields.title.trim(),
-        role: fields.role.trim(),
-        period: fields.period.trim(),
-        description: fields.description.trim(),
-        image: fields.image.trim(),
-        link: fields.link.trim(),
-        tags: fields.tags
-          .split(",")
-          .map((item) => item.trim())
-          .filter(Boolean),
-      };
+      const formData = new FormData();
+      formData.append("title", fields.title.trim());
+      formData.append("role", fields.role.trim());
+      formData.append("period", fields.period.trim());
+      formData.append("description", fields.description.trim());
+      formData.append("link", fields.link.trim());
+      formData.append("category", fields.category);
+      formData.append(
+        "tags",
+        JSON.stringify(
+          fields.tags
+            .split(",")
+            .map((item) => item.trim())
+            .filter(Boolean),
+        ),
+      );
+      if (imageFile) formData.append("image", imageFile);
+      if (mode?.edit && removeImage) formData.append("removeImage", "true");
 
       const isEdit = Boolean(mode?.edit);
       const url = isEdit ? `/api/work/${mode.edit.id}` : "/api/work";
       const res = await fetch(url, {
         method: isEdit ? "PUT" : "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       const data = await res.json();
@@ -90,6 +125,9 @@ const WorkDashboard = ({ initialData = [] }) => {
       toast.success(isEdit ? "Project updated." : "Project added.");
       setMode(null);
       setFields(EMPTY);
+      setImageFile(null);
+      setImagePreview(null);
+      setRemoveImage(false);
       await refresh();
     } catch {
       toast.error("Failed to save project.");
@@ -140,10 +178,57 @@ const WorkDashboard = ({ initialData = [] }) => {
       </div>
 
       {mode && (
-        <div className="rounded-2xl border-2 border-heading bg-primary p-5 shadow-[4px_4px_0_0_#111827] space-y-3">
+        <div
+          ref={formRef}
+          className="rounded-2xl border-2 border-heading bg-primary p-5 shadow-[4px_4px_0_0_#111827] space-y-3"
+        >
           <h3 className="text-lg font-extrabold text-heading">
             {mode === "add" ? "Add project" : "Edit project"}
           </h3>
+
+          {/* Image */}
+          <div>
+            <label className="block text-sm font-bold text-heading mb-2">
+              Project image
+            </label>
+            <div className="flex items-center gap-4">
+              <div className="relative w-20 h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden">
+                {imagePreview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={imagePreview}
+                    alt="Image preview"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-description text-xs">
+                    No image
+                  </div>
+                )}
+              </div>
+
+              <label className="inline-flex items-center gap-2 px-4 py-2 rounded-md border-2 border-heading bg-primary text-sm font-bold cursor-pointer hover:bg-heading/5 transition-colors">
+                <FiUpload className="w-4 h-4" />
+                Upload
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </label>
+
+              {imagePreview && (
+                <button
+                  type="button"
+                  onClick={handleRemoveImage}
+                  className="inline-flex items-center gap-1 text-sm text-accent font-bold"
+                >
+                  <FiX className="w-4 h-4" /> Remove
+                </button>
+              )}
+            </div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-3">
             <input
@@ -178,14 +263,6 @@ const WorkDashboard = ({ initialData = [] }) => {
               value={fields.period}
               onChange={(e) =>
                 setFields((f) => ({ ...f, period: e.target.value }))
-              }
-            />
-            <input
-              className="md:col-span-2 w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
-              placeholder="Image path (/image.png)"
-              value={fields.image}
-              onChange={(e) =>
-                setFields((f) => ({ ...f, image: e.target.value }))
               }
             />
             <input
@@ -230,7 +307,12 @@ const WorkDashboard = ({ initialData = [] }) => {
             </button>
             <button
               type="button"
-              onClick={() => setMode(null)}
+              onClick={() => {
+                setMode(null);
+                setImageFile(null);
+                setImagePreview(null);
+                setRemoveImage(false);
+              }}
               className="px-5 py-2.5 rounded-md font-bold bg-primary border-2 border-heading"
             >
               Cancel

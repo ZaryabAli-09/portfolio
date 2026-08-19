@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { isAuthenticated } from "@/lib/auth";
-import { readProjects, createProject } from "@/lib/workStore";
+import { readProjects, createProject, saveImage } from "@/lib/workStore";
 
 export async function GET() {
   const projects = await readProjects();
@@ -13,12 +13,33 @@ export async function POST(req) {
   }
 
   try {
-    const body = await req.json();
-    if (!body?.title?.trim()) {
+    const form = await req.formData();
+
+    const title = form.get("title")?.toString().trim();
+    if (!title) {
       return Response.json({ message: "Title is required." }, { status: 400 });
     }
 
-    const created = await createProject(body);
+    const tagsRaw = form.get("tags")?.toString() || "[]";
+    const tags = JSON.parse(tagsRaw).filter((t) => t?.trim());
+
+    let image = "";
+    const file = form.get("image");
+    if (file && typeof file === "object" && file.size > 0) {
+      image = await saveImage(file);
+    }
+
+    const created = await createProject({
+      title,
+      role: form.get("role")?.toString().trim() || "",
+      period: form.get("period")?.toString().trim() || "",
+      description: form.get("description")?.toString().trim() || "",
+      link: form.get("link")?.toString().trim() || "",
+      category: form.get("category")?.toString() || "work",
+      tags,
+      image,
+    });
+
     revalidatePath("/");
     revalidatePath("/admin/work");
     return Response.json(created, { status: 201 });

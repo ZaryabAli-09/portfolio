@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 const ICONS = {
@@ -13,6 +15,11 @@ const footerLinks = [
 ];
 
 const Footer = ({ siteSettings = {} }) => {
+  const pathname = usePathname();
+
+  // Hide the public footer inside the admin area.
+  if (pathname?.startsWith("/admin")) return null;
+
   const socialLinks = (siteSettings.socialLinks || []).map((link) => ({
     ...link,
     alt: link.label,

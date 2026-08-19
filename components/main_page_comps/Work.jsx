@@ -27,12 +27,20 @@ const ProjectCard = ({ project, rotation }) => {
       )}
     >
       <div className="relative h-48 w-full border-b-2 border-heading bg-gray-100">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-highlight/20 to-secondary/20">
+            <span className="font-secondary text-highlight text-lg">
+              {project.title}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col flex-1 p-6">

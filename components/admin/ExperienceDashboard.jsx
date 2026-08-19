@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   FiPlus,
@@ -9,7 +8,6 @@ import {
   FiTrash2,
   FiArrowUp,
   FiArrowDown,
-  FiLogOut,
 } from "react-icons/fi";
 import toast from "react-hot-toast";
 import ExperienceForm from "./ExperienceForm";
@@ -23,10 +21,17 @@ const initials = (name = "") =>
     .join("");
 
 const ExperienceDashboard = ({ initialData }) => {
-  const router = useRouter();
   const [list, setList] = useState(initialData);
   const [mode, setMode] = useState(null); // null | "add" | { editing: entry }
   const [deletingId, setDeletingId] = useState(null);
+  const formRef = useRef(null);
+
+  // Scroll the form into view whenever we open add/edit.
+  useEffect(() => {
+    if (mode) {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [mode]);
 
   const refresh = async () => {
     const res = await fetch("/api/experience", { cache: "no-store" });
@@ -80,12 +85,6 @@ const ExperienceDashboard = ({ initialData }) => {
     }
   };
 
-  const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.push("/");
-    router.refresh();
-  };
-
   return (
     <div className="min-h-screen bg-primary bg-dotted">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
@@ -93,30 +92,15 @@ const ExperienceDashboard = ({ initialData }) => {
           <p className="font-secondary text-highlight text-xl">
             admin · experience
           </p>
-          <button
-            onClick={handleLogout}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-heading hover:text-accent transition-colors"
-          >
-            <FiLogOut className="w-4 h-4" /> Log out
-          </button>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-heading mb-10">
           Manage experience
         </h1>
 
-        {mode === "add" && (
-          <div className="mb-10">
+        {(mode === "add" || mode?.editing) && (
+          <div ref={formRef} className="mb-10">
             <ExperienceForm
-              onDone={handleDone}
-              onCancel={() => setMode(null)}
-            />
-          </div>
-        )}
-
-        {mode?.editing && (
-          <div className="mb-10">
-            <ExperienceForm
-              entry={mode.editing}
+              entry={mode?.editing}
               onDone={handleDone}
               onCancel={() => setMode(null)}
             />

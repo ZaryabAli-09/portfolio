@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
@@ -12,6 +13,7 @@ const navLinks = [
 ];
 
 const Navbar = ({ siteSettings = {} }) => {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const name = siteSettings.name || "Zaryab Ali";
   const role = siteSettings.role || "Full Stack Software Engineer";
@@ -22,6 +24,9 @@ const Navbar = ({ siteSettings = {} }) => {
       document.body.style.overflow = "auto";
     };
   }, [open]);
+
+  // Hide the public nav inside the admin area (admin layout has its own header).
+  if (pathname?.startsWith("/admin")) return null;
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-primary border-b-2 border-black opacity-95">
