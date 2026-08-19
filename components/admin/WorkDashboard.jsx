@@ -248,6 +248,8 @@ const WorkDashboard = ({ initialData = [] }) => {
             >
               <option value="work">At work</option>
               <option value="side">On the side</option>
+              <option value="learning">Initial Learning</option>
+              <option value="fyp">FYP Research</option>
             </select>
             <input
               className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
@@ -340,7 +342,13 @@ const WorkDashboard = ({ initialData = [] }) => {
                   {project.role} {project.period ? `· ${project.period}` : ""}
                 </p>
                 <p className="text-sm text-description mt-1">
-                  {project.category === "side" ? "On the side" : "At work"}
+                  {project.category === "learning"
+                    ? "Initial Learning"
+                    : project.category === "fyp"
+                      ? "FYP Research"
+                      : project.category === "side"
+                        ? "On the side"
+                        : "At work"}
                 </p>
               </div>
               <div className="flex items-center gap-2">

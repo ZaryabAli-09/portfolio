@@ -27,18 +27,13 @@ const ProjectPanels = () => {
       id: 1,
       title: "User Web App",
       description:
-        "The primary shopping interface for customers with AI-powered chatbot, secure chat system and seamless purchasing",
+        "The shopping side for customers with AI-powered chatbot and secure chat systems.",
       features: [
-        "Product browsing with filters",
-        "Real time chat with sellers",
-        "Easy to navigate product categories",
-        "AI chatbot customer support",
-        "User authentication and profiles",
-        "Browsing History",
-        "Order history and management",
+        "Product browsing,categories & wishlist",
+        "Authentication, profiles & order management",
+        "Seller chat & AI customer support",
         "Real-time order tracking",
-        "Wishlist management",
-        "Secure checkout (Stripe/COD)",
+        "Secure Stripe & COD checkout",
       ],
       image: "/buyer.png",
       link: "https://smartstyler.netlify.app",
@@ -154,7 +149,7 @@ const ProjectPanels = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-primary bg-dotted py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -164,13 +159,13 @@ const ProjectPanels = () => {
         {/* Title and Download Button */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6"
+          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
         >
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-400 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-heading leading-tight">
               SmartStyler
             </h1>
-            <p className="text-lg text-gray-300 mt-2">
+            <p className="text-lg text-description mt-2">
               Multivendor E-Commerce Marketplace with reels based browsing ,
               smart chatbot and ML based recommendation
             </p>
@@ -179,7 +174,7 @@ const ProjectPanels = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={downloadThesis}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl"
+            className="bg-heading text-primary border-2 border-heading rounded-md font-bold py-3 px-6 inline-flex items-center gap-2 shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-150 ease-out"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -203,16 +198,16 @@ const ProjectPanels = () => {
         {/* Panels Grid */}
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {panels.map((panel) => (
             <motion.div
               key={panel.id}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200 transition-all hover:shadow-2xl hover:border-amber-400"
+              className="bg-primary rounded-2xl shadow-[6px_6px_0_0_#111827] overflow-hidden border-2 border-heading transition-all"
             >
-              <div className="h-64 sm:h-72 relative overflow-hidden bg-gray-100">
+              <div className="h-48 relative overflow-hidden bg-gray-100">
                 <Image
                   src={panel.image}
                   alt={panel.title}
@@ -225,10 +220,10 @@ const ProjectPanels = () => {
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h2 className="text-xl font-bold text-gray-800">
+                  <h2 className="text-xl font-bold text-heading">
                     {panel.title}
                   </h2>
-                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  <span className="bg-heading text-primary text-xs font-semibold px-2.5 py-0.5 rounded">
                     {panel.id === 1
                       ? "Buyer"
                       : panel.id === 2
@@ -236,12 +231,12 @@ const ProjectPanels = () => {
                         : "Admin"}
                   </span>
                 </div>
-                <p className="text-gray-600 mb-4">{panel.description}</p>
+                <p className="text-description mb-4">{panel.description}</p>
 
                 <div className="mb-4">
-                  <h3 className="font-medium text-gray-700 mb-2 flex items-center">
+                  <h3 className="font-medium text-heading mb-2 flex items-center">
                     <svg
-                      className="w-5 h-5 text-blue-500 mr-1"
+                      className="w-5 h-5 text-highlight mr-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -259,7 +254,7 @@ const ProjectPanels = () => {
                     {panel.features.slice(0, 5).map((feature, index) => (
                       <li key={index} className="flex items-start">
                         <svg
-                          className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                          className="h-5 w-5 text-highlight mr-2 mt-0.5 flex-shrink-0"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -271,12 +266,12 @@ const ProjectPanels = () => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-description">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   {panel.features.length > 5 && (
-                    <div className="mt-2 text-sm text-gray-500 flex items-center">
+                    <div className="mt-2 text-sm text-description flex items-center">
                       <svg
                         className="w-4 h-4 mr-1"
                         fill="none"
@@ -299,26 +294,25 @@ const ProjectPanels = () => {
                   {panel.tags.slice(0, 5).map((tag, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded"
+                      className="px-3 py-1 bg-primary text-heading text-xs font-mono font-medium rounded-full border-2 border-heading"
                     >
                       {tag}
                     </span>
                   ))}
                   {panel.tags.length > 5 && (
-                    <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">
+                    <span className="px-2 py-1 bg-primary text-description text-xs font-medium rounded-full border-2 border-heading">
                       +{panel.tags.length - 5}
                     </span>
                   )}
                 </div>
 
-                {/* <Link href={panel.link} passHref> */}
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   target="_blank"
                   href={panel.link}
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-lg"
+                  className="inline-flex items-center justify-center w-full bg-heading text-primary font-bold py-2 px-4 rounded-md border-2 border-heading shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-150 ease-out"
                 >
                   View Live Demo
                   <svg
@@ -335,7 +329,6 @@ const ProjectPanels = () => {
                     />
                   </svg>
                 </motion.a>
-                {/* </Link> */}
               </div>
             </motion.div>
           ))}
@@ -344,11 +337,11 @@ const ProjectPanels = () => {
         {/* Tech Stack and Project Summary */}
         <motion.div
           variants={itemVariants}
-          className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-200 shadow-lg"
+          className="bg-primary rounded-2xl p-8 border-2 border-heading shadow-[6px_6px_0_0_#111827]"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <h2 className="text-2xl font-bold text-heading mb-6 flex items-center">
             <svg
-              className="w-6 h-6 text-blue-600 mr-2"
+              className="w-6 h-6 text-highlight mr-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -365,20 +358,20 @@ const ProjectPanels = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-4">
+              <h3 className="text-xl font-semibold text-heading mb-4">
                 Tech Stack
               </h3>
               <div className="space-y-4">
                 {Object.entries(techStack).map(([category, technologies]) => (
                   <div key={category}>
-                    <h4 className="font-medium text-gray-600 capitalize mb-2">
+                    <h4 className="font-medium text-description capitalize mb-2">
                       {category}:
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-white text-gray-700 text-sm font-medium rounded-full shadow-sm border border-gray-200"
+                          className="px-3 py-1 bg-primary text-heading text-sm font-mono font-medium rounded-full border-2 border-heading"
                         >
                           {tech}
                         </span>
@@ -390,10 +383,10 @@ const ProjectPanels = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-4">
+              <h3 className="text-xl font-semibold text-heading mb-4">
                 Project Overview
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-description mb-6">
                 SmartStyler is a full-stack multivendor e-commerce platform
                 built with the MERN stack (MongoDB, Express.js, React.js,
                 Node.js) and React Native for mobile. The platform serves as a
@@ -405,21 +398,21 @@ const ProjectPanels = () => {
                 smart chatbot for seamless customer support.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="text-2xl font-bold text-blue-600">3</div>
-                  <div className="text-sm text-gray-500">Interfaces</div>
+                <div className="bg-primary p-4 rounded-xl border-2 border-heading">
+                  <div className="text-2xl font-bold text-highlight">3</div>
+                  <div className="text-sm text-description">Interfaces</div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="text-2xl font-bold text-purple-600">15+</div>
-                  <div className="text-sm text-gray-500">Key Features</div>
+                <div className="bg-primary p-4 rounded-xl border-2 border-heading">
+                  <div className="text-2xl font-bold text-accent">15+</div>
+                  <div className="text-sm text-description">Key Features</div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="text-2xl font-bold text-green-600">10+</div>
-                  <div className="text-sm text-gray-500">Integrations</div>
+                <div className="bg-primary p-4 rounded-xl border-2 border-heading">
+                  <div className="text-2xl font-bold text-secondary">10+</div>
+                  <div className="text-sm text-description">Integrations</div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="text-2xl font-bold text-amber-600">2</div>
-                  <div className="text-sm text-gray-500">
+                <div className="bg-primary p-4 rounded-xl border-2 border-heading">
+                  <div className="text-2xl font-bold text-heading">2</div>
+                  <div className="text-sm text-description">
                     Deployment Services
                   </div>
                 </div>
@@ -431,7 +424,7 @@ const ProjectPanels = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={downloadThesis}
-            className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-8 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl mt-6"
+            className="w-full md:w-auto bg-heading text-primary font-bold py-3 px-8 rounded-md inline-flex items-center justify-center gap-2 border-2 border-heading shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-150 ease-out mt-6"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

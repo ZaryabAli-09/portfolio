@@ -14,7 +14,16 @@ const FILTERS = [
   { key: "all", label: "All" },
   { key: "work", label: "At work" },
   { key: "side", label: "On the side" },
+  { key: "learning", label: "Initial Learning" },
+  { key: "fyp", label: "FYP Research" },
 ];
+
+const CATEGORY_LABELS = {
+  work: "At work",
+  side: "On the side",
+  learning: "Initial Learning",
+  fyp: "FYP Research",
+};
 
 const ProjectCard = ({ project, rotation }) => {
   const isExternal = project.link?.startsWith("http");
@@ -61,6 +70,9 @@ const ProjectCard = ({ project, rotation }) => {
 
         <p className="font-secondary text-highlight text-lg mb-3">
           {project.role} · {project.period}
+        </p>
+        <p className="text-description text-sm mb-3">
+          {CATEGORY_LABELS[project.category] || "At work"}
         </p>
 
         <p className="text-description text-sm leading-relaxed mb-5">
