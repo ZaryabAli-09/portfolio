@@ -17,9 +17,6 @@ const Hero = async () => {
   const siteSettings = await readSiteSettings();
   const name = siteSettings.name || "Zaryab Ali";
   const role = siteSettings.role || "full-stack MERN developer";
-  const heroDescription =
-    siteSettings.heroDescription ||
-    "A full-stack MERN developer who loves shipping software.";
 
   return (
     <section id="home" className="relative w-full bg-primary bg-dotted">
@@ -78,9 +75,10 @@ const Hero = async () => {
                 />
               </svg>
             </span>{" "}
-            who&apos;s been shipping software since{" "}
+            with 1.5+ years of professional experience, building
+            production-ready web, mobile, AI, and cloud solutions since{" "}
             <span className="relative inline-block px-2">
-              <span className="relative z-10">2017</span>
+              <span className="relative z-10">2021.</span>
               <svg
                 className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] overflow-visible"
                 viewBox="0 0 100 50"
@@ -121,7 +119,6 @@ const Hero = async () => {
               </svg>
             </span>
             <br />
-            {heroDescription}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

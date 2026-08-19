@@ -2,121 +2,146 @@
   {
     "id": "smartstyler",
     "title": "SmartStyler - Multi-Vendor Fashion Marketplace",
-    "role": "Creator & Lead Engineer",
+    "role": "Researcher & CoreEngineer",
     "period": "Final Year Project",
-    "description": "My most ambitious build to date. A MERN + React Native platform combining e-commerce with fashion AI - reel-based product browsing, ML-driven recommendations, and a smart support chatbot.",
-    "image": "/buyer.png",
+    "description": "My most ambitious research and build to date. A MERN + React Native platform combining e-commerce with fashion AI - reel-based product browsing, ML-driven recommendations, and a smart support chatbot.",
+    "image": "/uploads/work/b157d0ea-537b-4b1f-bd8b-048d73ec52ef.webp",
     "link": "/smartstyler",
-    "tags": ["MERN", "React Native", "AI", "Chatbot"],
-    "category": "side",
+    "tags": [
+      "MERN",
+      "React Native",
+      "ML Based Recommendation",
+      "Chatbot"
+    ],
+    "category": "work",
     "order": 0
   },
   {
     "id": "easy-rent-now",
     "title": "Easy Rent Now - Vacation Rental Platform",
-    "role": "Creator & Developer",
-    "period": "Freelance",
-    "description": "A full-featured Airbnb-like vacation rental platform with interactive maps, a booking calendar, property filters, and a host management system.",
-    "image": "/easy-rent-now-1.png",
+    "role": "Developer",
+    "period": "Learning Project",
+    "description": "An Airbnb-like vacation rental platform with interactive maps, a booking calendar, property filters, and a host management system.",
+    "image": "/uploads/work/8ae89867-6b1b-4ffa-9f96-60681157b8c3.webp",
     "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
-    "tags": ["Next.js", "React", "Tailwind", "Maps API"],
-    "category": "work",
+    "tags": [
+      "Next.js",
+      "React",
+      "Tailwind",
+      "Maps API"
+    ],
+    "category": "side",
     "order": 1
   },
   {
     "id": "sync-vibes",
-    "title": "Sync Vibes - Headphone eCommerce Landing",
-    "role": "Creator & Developer",
-    "period": "Freelance",
-    "description": "Modern e-commerce landing page for premium wireless headphones with a product showcase, pricing tiers, and a secure checkout experience.",
-    "image": "/sync-vibes-1.png",
+    "title": "Sync Vibes - GSAP Animated Landing Page",
+    "role": "Developer",
+    "period": "Learning",
+    "description": "GSAP-animated landing page with immersive visuals, smooth transitions, and an engaging interactive experience.",
+    "image": "/uploads/work/ef374d75-56f0-41c3-ae4f-61d21e7baf51.webp",
     "link": "https://sync-vibes.vercel.app",
-    "tags": ["Next.js", "Tailwind", "eCommerce"],
+    "tags": [
+      "Next.js",
+      "Tailwind",
+      "GSAP"
+    ],
     "category": "work",
     "order": 2
   },
   {
     "id": "caffio",
-    "title": "Caffio - Coffee Shop Website",
-    "role": "Creator & Developer",
-    "period": "Freelance",
-    "description": "Beautiful coffee shop website featuring product listings, a menu showcase, and a sleek design with smooth animations.",
-    "image": "/caffio-1.png",
+    "title": "Caffio - Modern Coffee Shop Landing Page",
+    "role": "Developer",
+    "period": "Learning",
+    "description": "Modern coffee shop landing page with a warm aesthetic, smooth animations, and an engaging user experience.",
+    "image": "/uploads/work/c5533634-d123-4c32-bc04-2ff69155f425.webp",
     "link": "https://caffio1x.vercel.app",
-    "tags": ["React", "Tailwind", "UI/UX"],
-    "category": "work",
+    "tags": [
+      "Next.js",
+      "Tailwind",
+      "UI/UX"
+    ],
+    "category": "learning",
     "order": 3
   },
   {
     "id": "bg-remover",
-    "title": "Background Remover AI",
+    "title": "QuickBG - AI Background Remover & Image Editor",
     "role": "Creator & Developer",
     "period": "Personal Project",
-    "description": "An AI-powered full-stack web app that instantly removes image backgrounds with high accuracy.",
-    "image": "/p7.png",
+    "description": "AI-powered full-stack app for fast, accurate background removal and seamless image editing.",
+    "image": "/uploads/work/f1986b5a-2c03-43cb-bd55-7cde60e6382f.webp",
     "link": "https://quickbgremove.netlify.app",
-    "tags": ["AI", "React", "Tailwind", "Node"],
+    "tags": [
+      "React",
+      "Tailwind",
+      "Node",
+      "IMGLY API self hosted",
+      "Oracle VPS"
+    ],
     "category": "side",
     "order": 4
   },
   {
     "id": "notes-app",
     "title": "Full Stack Notes App",
-    "role": "Creator & Developer",
-    "period": "Personal Project",
+    "role": "Developer",
+    "period": "Learning",
     "description": "MERN stack app to save, manage, and organize your notes and todos efficiently.",
-    "image": "/p1.png",
+    "image": "/uploads/work/392becca-0963-4e73-a27c-64851f497a50.webp",
     "link": "https://keepnotesandtodos.netlify.app",
-    "tags": ["MERN", "Full Stack"],
-    "category": "side",
+    "tags": [
+      "MERN",
+      "Full Stack"
+    ],
+    "category": "work",
     "order": 5
   },
   {
     "id": "blog-admin",
-    "title": "Blog with Admin Panel",
-    "role": "Creator & Developer",
+    "title": "Mern Stack Blog with Admin Panel",
+    "role": "Developer",
     "period": "Personal Project",
     "description": "Full-stack blog platform with an admin panel for content management.",
-    "image": "/p6.png",
+    "image": "/uploads/work/0bacb740-cd94-476f-ba38-cc3ab37477a5.webp",
     "link": "https://techscrolls.netlify.app",
-    "tags": ["CMS", "React", "Node"],
-    "category": "side",
+    "tags": [
+      "CMS",
+      "React",
+      "Node"
+    ],
+    "category": "learning",
     "order": 6
   },
   {
     "id": "digital-agency",
     "title": "Digital Agency Website",
-    "role": "Creator & Developer",
-    "period": "Freelance",
+    "role": "Developer",
+    "period": "Learning",
     "description": "Modern agency site with a sleek UI and contact form integration.",
-    "image": "/p2.png",
+    "image": "/uploads/work/719c7fb0-84fd-49fb-b9e2-363cbdb7f1af.webp",
     "link": "https://digitaloctagon.netlify.app",
-    "tags": ["React", "Tailwind"],
-    "category": "work",
+    "tags": [
+      "React",
+      "Tailwind"
+    ],
+    "category": "learning",
     "order": 7
   },
   {
     "id": "dietmate",
     "title": "DietMate UI",
-    "role": "Creator & Developer",
-    "period": "Freelance",
+    "role": "Developer",
+    "period": "Learning",
     "description": "A clean, responsive landing page concept for a nutrition and diet platform.",
-    "image": "/p3.png",
+    "image": "/uploads/work/2592d88e-46bc-4a8f-a31a-3e555df7b0c3.webp",
     "link": "https://dietmateui.netlify.app",
-    "tags": ["UI/UX", "Landing Page"],
-    "category": "work",
+    "tags": [
+      "UI/UX",
+      "Landing Page"
+    ],
+    "category": "learning",
     "order": 8
-  },
-  {
-    "id": "e6602bd5-b539-4e60-aefa-d2837aae1e4a",
-    "title": "asdsa",
-    "role": "sadasd",
-    "period": "sdadsa",
-    "description": "asdasasd",
-    "image": "/asd.png",
-    "link": "sadsad",
-    "tags": ["a.a", "a", "a", "a", "a", "a"],
-    "category": "work",
-    "order": 9
   }
 ]

@@ -1,9 +1,9 @@
 import { readSiteSettings } from "@/lib/contentStore";
 
 const stats = [
-  { value: "2021", label: "Writing code since" },
-  { value: "1+ yr", label: "Internship & freelance experience" },
-  { value: "Web + Mobile", label: "Full-stack MERN focus" },
+  { value: "2021", label: "Started coding" },
+  { value: "1.5+ yrs", label: "Professional experience" },
+  { value: "Web + Mobile + AI + Cloud", label: "Areas of focus" },
 ];
 
 const About = async () => {

@@ -1,84 +1,90 @@
 [
   {
-    "id": "niche",
-    "title": "Niche",
+    "id": "frontend",
+    "title": "Frontend & Frameworks",
     "tags": [
-      "Mapbox",
-      "BabylonJS",
-      "Unity 3D",
-      "3D Web (legacy)"
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "React Native",
+      "Tailwind CSS",
+      "Redux Toolkit"
     ],
     "order": 0
   },
   {
-    "id": "past-life",
-    "title": "A past life",
+    "id": "backend",
+    "title": "Backend & APIs",
     "tags": [
-      "Ruby",
-      "PHP",
-      "Rust",
-      "C++",
-      "C#",
-      "Bash",
-      "Inno Setup"
+      "Node.js",
+      "Express.js",
+      "Python",
+      "FastAPI",
+      "REST APIs",
+      "Prisma",
+      "Mongoose"
     ],
     "order": 1
   },
   {
-    "id": "languages",
-    "title": "Languages & Frameworks",
+    "id": "database",
+    "title": "Databases & Storage",
     "tags": [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "React Native",
-      "Python"
+      "PostgreSQL",
+      "MongoDB",
+      "Supabase",
+      "Redis",
+      "MongoDB Atlas",
+      "Pinecone",
+      "FAISS"
     ],
     "order": 2
   },
   {
-    "id": "backend",
-    "title": "Backend & Auth",
+    "id": "ai",
+    "title": "AI & LLM Engineering",
     "tags": [
-      "PostgreSQL",
-      "Supabase",
-      "Auth0",
-      "Azure Functions",
-      "Stripe"
+      "OpenAI",
+      "Gemini",
+      "OpenRouter",
+      "LangChain",
+      "RAG",
+      "LLM APIs",
+      "AI Integrations"
     ],
     "order": 3
   },
   {
-    "id": "platform-ai",
-    "title": "Platform & AI",
+    "id": "cloud",
+    "title": "Cloud & DevOps",
     "tags": [
-      "Monorepos",
-      "MCP",
-      "TanStack",
-      "Expo",
-      "OpenAI"
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "EKS",
+      "EC2",
+      "ECR",
+      "S3",
+      "CI/CD",
+      "Nginx",
+      "PM2"
     ],
     "order": 4
   },
   {
-    "id": "leadership",
-    "title": "Leading",
+    "id": "engineering",
+    "title": "Engineering & Architecture",
     "tags": [
-      "Leadership",
-      "Mentorship",
-      "Problem Solving",
-      "Communication"
+      "Microservices",
+      "Modular Architecture",
+      "Monorepos",
+      "BullMQ",
+      "Kafka",
+      "WebSockets",
+      "Socket.IO",
+      "Git"
     ],
     "order": 5
-  },
-  {
-    "id": "cec61669-1d14-4a5b-84e4-cfb7743750f3",
-    "title": "asdasd",
-    "tags": [
-      "asd",
-      "fgh",
-      "f f"
-    ],
-    "order": 6
   }
 ]
