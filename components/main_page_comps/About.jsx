@@ -1,13 +1,14 @@
 import { readSiteSettings } from "@/lib/contentStore";
 
-const stats = [
-  { value: "2021", label: "Started coding" },
-  { value: "1.5+ yrs", label: "Professional experience" },
-  { value: "Web + Mobile + AI + Cloud", label: "Areas of focus" },
-];
-
 const About = async () => {
-  const { aboutTitle, aboutParagraphs } = await readSiteSettings();
+  const { aboutTitle, aboutParagraphs, aboutStats } = await readSiteSettings();
+  const stats = aboutStats?.length
+    ? aboutStats
+    : [
+        { value: "2021", label: "Started coding" },
+        { value: "1.5+ yrs", label: "Professional experience" },
+        { value: "Web + Mobile + AI + Cloud", label: "Areas of focus" },
+      ];
 
   return (
     <section

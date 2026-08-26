@@ -1,16 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const TransitionProvider = ({ children }) => {
   const pathname = usePathname();
-  const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setIsLoading(true);
     setProgress(0);
 
     // Simulate loading progress
@@ -28,39 +25,25 @@ const TransitionProvider = ({ children }) => {
   }, [pathname]);
 
   useEffect(() => {
-    if (progress >= 95 && !isLoading) {
-      // Complete the animation when page is ready
-      setProgress(100);
-      const timer = setTimeout(() => setProgress(0), 300);
-      return () => clearTimeout(timer);
+    if (progress >= 95) {
+      const done = setTimeout(() => setProgress(100), 400);
+      const reset = setTimeout(() => setProgress(0), 750);
+      return () => {
+        clearTimeout(done);
+        clearTimeout(reset);
+      };
     }
-  }, [progress, isLoading]);
-
-  // Call this when your page content is loaded
-  const handleLoadComplete = () => {
-    setIsLoading(false);
-  };
-
-  // Simulate page load completion (replace with actual load detection)
-  useEffect(() => {
-    const timer = setTimeout(handleLoadComplete, 1000);
-    return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [progress]);
 
   return (
     <div className="relative">
       {/* Browser-style loading bar */}
-      <AnimatePresence>
-        {progress > 0 && (
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "tween", ease: "easeOut" }}
-            className="fixed top-0 left-0 h-1 bg-amber-400 z-50 shadow-lg"
-          />
-        )}
-      </AnimatePresence>
+      {progress > 0 && (
+        <div
+          className="fixed top-0 left-0 h-1 bg-secondary z-50 shadow-lg transition-[width] duration-200 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      )}
 
       {/* Page content */}
       {children}

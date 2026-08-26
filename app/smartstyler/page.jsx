@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const ProjectPanels = () => {
   const techStack = {
@@ -27,13 +25,18 @@ const ProjectPanels = () => {
       id: 1,
       title: "User Web App",
       description:
-        "The shopping side for customers with AI-powered chatbot and secure chat systems.",
+        "The primary shopping interface for customers with AI-powered chatbot, secure chat system and seamless purchasing",
       features: [
-        "Product browsing,categories & wishlist",
-        "Authentication, profiles & order management",
-        "Seller chat & AI customer support",
+        "Product browsing with filters",
+        "Real time chat with sellers",
+        "Easy to navigate product categories",
+        "AI chatbot customer support",
+        "User authentication and profiles",
+        "Browsing History",
+        "Order history and management",
         "Real-time order tracking",
-        "Secure Stripe & COD checkout",
+        "Wishlist management",
+        "Secure checkout (Stripe/COD)",
       ],
       image: "/buyer.png",
       link: "https://smartstyler.netlify.app",
@@ -84,7 +87,7 @@ const ProjectPanels = () => {
         "JWT Auth",
         "Netlify",
         "Cloudinary",
-        "CI/CD",
+        "CI/CD", // intentionally preserved from source
         "Render",
       ],
     },
@@ -127,40 +130,11 @@ const ProjectPanels = () => {
     );
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <div className="min-h-screen bg-primary bg-dotted py-12 px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="max-w-7xl mx-auto space-y-12"
-      >
+      <div className="max-w-7xl mx-auto space-y-12">
         {/* Title and Download Button */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
-        >
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-heading leading-tight">
               SmartStyler
@@ -170,9 +144,7 @@ const ProjectPanels = () => {
               smart chatbot and ML based recommendation
             </p>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={downloadThesis}
             className="bg-heading text-primary border-2 border-heading rounded-md font-bold py-3 px-6 inline-flex items-center gap-2 shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-150 ease-out"
           >
@@ -192,22 +164,17 @@ const ProjectPanels = () => {
               Download Complete Thesis (PDF)
             </span>
             <span className="sm:hidden">Download Thesis</span>
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
 
         {/* Panels Grid */}
-        <motion.div
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {panels.map((panel) => (
-            <motion.div
+            <div
               key={panel.id}
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="bg-primary rounded-2xl shadow-[6px_6px_0_0_#111827] overflow-hidden border-2 border-heading transition-all"
+              className="bg-primary rounded-2xl shadow-[6px_6px_0_0_#111827] overflow-hidden border-2 border-heading transition-all hover:-translate-y-1"
             >
-              <div className="h-48 relative overflow-hidden bg-gray-100">
+              <div className="h-64 sm:h-72 relative overflow-hidden bg-gray-100">
                 <Image
                   src={panel.image}
                   alt={panel.title}
@@ -306,9 +273,7 @@ const ProjectPanels = () => {
                   )}
                 </div>
 
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <a
                   target="_blank"
                   href={panel.link}
                   rel="noopener noreferrer"
@@ -328,17 +293,14 @@ const ProjectPanels = () => {
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
-                </motion.a>
+                </a>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Tech Stack and Project Summary */}
-        <motion.div
-          variants={itemVariants}
-          className="bg-primary rounded-2xl p-8 border-2 border-heading shadow-[6px_6px_0_0_#111827]"
-        >
+        <div className="bg-primary rounded-2xl p-8 border-2 border-heading shadow-[6px_6px_0_0_#111827]">
           <h2 className="text-2xl font-bold text-heading mb-6 flex items-center">
             <svg
               className="w-6 h-6 text-highlight mr-2"
@@ -420,9 +382,7 @@ const ProjectPanels = () => {
             </div>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+          <button
             onClick={downloadThesis}
             className="w-full md:w-auto bg-heading text-primary font-bold py-3 px-8 rounded-md inline-flex items-center justify-center gap-2 border-2 border-heading shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all duration-150 ease-out mt-6"
           >
@@ -439,9 +399,9 @@ const ProjectPanels = () => {
               />
             </svg>
             Download Full Thesis Document (PDF)
-          </motion.button>
-        </motion.div>
-      </motion.div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

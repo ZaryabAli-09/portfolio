@@ -1,17 +1,32 @@
 {
   "name": "Zaryab Khan",
   "role": "Full-stack Software Engineer",
+  "heroSince": "2022",
+  "heroDescription": "with 2+ years of professional experience, building production-ready web, mobile, AI, and cloud solutions since",
   "aboutTitle": "Full-stack engineer, curious by nature.",
   "aboutParagraphs": [
     "I started my software engineering journey and wrote my first line of code five years ago. During university, I focused on learning, building side projects, and completing internships across multiple software houses.",
     "After earning my BS in Software Engineering from Iqra National University, Peshawar, I joined Elexoft as a full-stack engineer. With 1.5+ years of professional experience, I enjoy building real-world products, solving problems, and continuously learning."
   ],
-
+  "aboutStats": [
+    {
+      "value": "2022",
+      "label": "Started coding"
+    },
+    {
+      "value": "2+ yrs",
+      "label": "Professional experience"
+    },
+    {
+      "value": "Web + Mobile + AI + Cloud",
+      "label": "Areas of focus"
+    }
+  ],
   "email": "zaryabkhan248@gmail.com",
   "socialLinks": [
     {
       "label": "GitHub",
-      "url": "https://github.com/ZaryabAli-09"
+      "url": "https://github.com/ZaryabAli-07"
     },
     {
       "label": "LinkedIn",

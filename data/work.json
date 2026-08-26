@@ -13,7 +13,7 @@
       "ML Based Recommendation",
       "Chatbot"
     ],
-    "category": "work",
+    "category": "fyp",
     "order": 0
   },
   {
@@ -30,7 +30,7 @@
       "Tailwind",
       "Maps API"
     ],
-    "category": "side",
+    "category": "learning",
     "order": 1
   },
   {
@@ -46,7 +46,7 @@
       "Tailwind",
       "GSAP"
     ],
-    "category": "work",
+    "category": "learning",
     "order": 2
   },
   {
@@ -95,7 +95,7 @@
       "MERN",
       "Full Stack"
     ],
-    "category": "work",
+    "category": "learning",
     "order": 5
   },
   {

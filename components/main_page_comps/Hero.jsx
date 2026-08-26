@@ -1,22 +1,28 @@
 import Image from "next/image";
-import { FiArrowUpRight, FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiArrowUpRight, FiMail, FiGithub, FiLinkedin, FiInstagram, FiFacebook, FiTwitter } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiClaudecode } from "react-icons/si";
 import Button from "@/components/common/Button";
 import { readSiteSettings } from "@/lib/contentStore";
 
-const socialLinks = [
-  { url: "https://github.com/ZaryabAli-09", icon: FiGithub, alt: "GitHub" },
-  {
-    url: "https://www.linkedin.com/in/zaryab-ali-softdev",
-    icon: FiLinkedin,
-    alt: "LinkedIn",
-  },
-];
+const SOCIAL_ICONS = {
+  github: FiGithub,
+  linkedin: FiLinkedin,
+  instagram: FiInstagram,
+  facebook: FiFacebook,
+  twitter: FiTwitter,
+  x: FaXTwitter,
+};
 
 const Hero = async () => {
   const siteSettings = await readSiteSettings();
   const name = siteSettings.name || "Zaryab Ali";
   const role = siteSettings.role || "full-stack MERN developer";
+  const heroDescription =
+    siteSettings.heroDescription ||
+    "with 1.5+ years of professional experience, building production-ready web, mobile, AI, and cloud solutions since";
+  const heroSince = siteSettings.heroSince || "2021";
+  const socialLinks = siteSettings.socialLinks || [];
 
   return (
     <section id="home" className="relative w-full bg-primary bg-dotted">
@@ -71,14 +77,13 @@ const Hero = async () => {
                   strokeLinecap="round"
                   pathLength="1"
                   className="draw-in stroke-highlight"
-                  style={{ animationDelay: "0.5" }}
+                  style={{ animationDelay: "0.5s" }}
                 />
               </svg>
             </span>{" "}
-            with 1.5+ years of professional experience, building
-            production-ready web, mobile, AI, and cloud solutions since{" "}
+            {heroDescription}{" "}
             <span className="relative inline-block px-2">
-              <span className="relative z-10">2021.</span>
+              <span className="relative z-10">{heroSince}.</span>
               <svg
                 className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] overflow-visible"
                 viewBox="0 0 100 50"
@@ -135,18 +140,22 @@ const Hero = async () => {
             </Button>
 
             <div className="flex items-center gap-4 ">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.alt}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.alt}
-                  className="text-heading p-3 border-2 border-transparent hover:border-heading hover:bg-primary rounded-full transition-all hover:scale-110"
-                >
-                  <social.icon className="w-6 h-6" />
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon =
+                  SOCIAL_ICONS[social.label?.toLowerCase()] || FiGithub;
+                return (
+                  <a
+                    key={social.label || social.url}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-heading p-3 border-2 border-transparent hover:border-heading hover:bg-primary rounded-full transition-all hover:scale-110"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -157,7 +166,7 @@ const Hero = async () => {
             {/* curly arrow pointing at the photo */}
             <svg
               viewBox="0 0 80 60"
-              className="hidden md:block absolute -left-16 bottom-10 w-16 h-12 text-blue-500"
+              className="hidden md:block absolute -left-16 bottom-10 w-16 h-12 text-secondary"
               fill="none"
               aria-hidden="true"
             >
@@ -195,7 +204,7 @@ const Hero = async () => {
               </div>
             </div>
 
-            <span className="absolute -bottom-3 -right-6 font-secondary text-orange-500 text-2xl rotate-[-6deg]">
+            <span className="absolute -bottom-3 -right-6 font-secondary text-secondary text-2xl rotate-[-6deg]">
               that&apos;s me 👋
             </span>
           </div>

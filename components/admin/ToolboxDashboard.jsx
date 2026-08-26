@@ -29,7 +29,7 @@ const ToolboxDashboard = ({ initialData = [] }) => {
   };
 
   const addItem = () => {
-    setItems((current) => [...current, emptyGroup()]);
+    setItems((current) => [emptyGroup(), ...current]);
   };
 
   const removeItem = (index) => {

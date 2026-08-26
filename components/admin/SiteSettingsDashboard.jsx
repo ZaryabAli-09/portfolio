@@ -4,14 +4,19 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const emptyLink = () => ({ label: "", url: "" });
+const emptyStat = () => ({ value: "", label: "" });
 
 const SiteSettingsDashboard = ({ initialData }) => {
   const [fields, setFields] = useState({
     name: initialData?.name || "",
     role: initialData?.role || "",
+    heroSince: initialData?.heroSince || "",
     heroDescription: initialData?.heroDescription || "",
     aboutTitle: initialData?.aboutTitle || "",
     aboutParagraphs: initialData?.aboutParagraphs?.join("\n\n") || "",
+    aboutStats: initialData?.aboutStats?.length
+      ? initialData.aboutStats
+      : [emptyStat()],
     email: initialData?.email || "",
     socialLinks: initialData?.socialLinks?.length
       ? initialData.socialLinks
@@ -44,15 +49,44 @@ const SiteSettingsDashboard = ({ initialData }) => {
     }));
   };
 
+  const updateStat = (index, field, value) => {
+    setFields((current) => ({
+      ...current,
+      aboutStats: current.aboutStats.map((stat, i) =>
+        i === index ? { ...stat, [field]: value } : stat,
+      ),
+    }));
+  };
+
+  const addStat = () =>
+    setFields((current) => ({
+      ...current,
+      aboutStats: [...current.aboutStats, emptyStat()],
+    }));
+
+  const removeStat = (index) => {
+    setFields((current) => ({
+      ...current,
+      aboutStats: current.aboutStats.filter((_, i) => i !== index),
+    }));
+  };
+
   const handleSave = async () => {
     setSaving(true);
     try {
       const payload = {
         ...fields,
+        heroSince: fields.heroSince.trim(),
         aboutParagraphs: fields.aboutParagraphs
           .split(/\n\s*\n/)
           .map((item) => item.trim())
           .filter(Boolean),
+        aboutStats: fields.aboutStats
+          .filter((stat) => stat.value.trim() || stat.label.trim())
+          .map((stat) => ({
+            value: stat.value.trim(),
+            label: stat.label.trim(),
+          })),
         socialLinks: fields.socialLinks.filter(
           (link) => link.label.trim() || link.url.trim(),
         ),
@@ -106,6 +140,15 @@ const SiteSettingsDashboard = ({ initialData }) => {
             className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
           />
         </label>
+        <label className="space-y-1.5">
+          <span className="text-sm font-bold text-heading">Hero since</span>
+          <input
+            value={fields.heroSince}
+            onChange={(e) => updateField("heroSince", e.target.value)}
+            placeholder="e.g. 2021"
+            className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+          />
+        </label>
         <label className="md:col-span-2 space-y-1.5">
           <span className="text-sm font-bold text-heading">
             Hero description
@@ -136,6 +179,44 @@ const SiteSettingsDashboard = ({ initialData }) => {
             className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none resize-none"
           />
         </label>
+
+        <div className="md:col-span-2 rounded-2xl border-2 border-heading bg-primary p-5 shadow-[4px_4px_0_0_#111827] space-y-4">
+          <h3 className="text-lg font-extrabold text-heading">About stats</h3>
+          {fields.aboutStats.map((stat, index) => (
+            <div
+              key={`${stat.label || "stat"}-${index}`}
+              className="grid md:grid-cols-[1fr_1.6fr_auto] gap-3 items-center"
+            >
+              <input
+                value={stat.value}
+                onChange={(e) => updateStat(index, "value", e.target.value)}
+                placeholder="Value (e.g. 2021)"
+                className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+              />
+              <input
+                value={stat.label}
+                onChange={(e) => updateStat(index, "label", e.target.value)}
+                placeholder="Label (e.g. Started coding)"
+                className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => removeStat(index)}
+                className="px-3 py-2 rounded-md border-2 border-heading text-accent"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={addStat}
+            className="px-4 py-2 rounded-md border-2 border-heading font-bold text-heading"
+          >
+            Add stat
+          </button>
+        </div>
+
         <label className="md:col-span-2 space-y-1.5">
           <span className="text-sm font-bold text-heading">Email</span>
           <input
