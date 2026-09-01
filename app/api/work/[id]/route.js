@@ -33,7 +33,9 @@ export async function PUT(req, { params }) {
       ? existing.detailSections
       : [];
     try {
-      detailSections = JSON.parse(form.get("detailSections")?.toString() || "[]");
+      detailSections = JSON.parse(
+        form.get("detailSections")?.toString() || "[]",
+      );
     } catch {
       detailSections = Array.isArray(existing.detailSections)
         ? existing.detailSections
@@ -54,18 +56,25 @@ export async function PUT(req, { params }) {
 
     const existingGallery = (() => {
       try {
-        return JSON.parse(form.get("existingGalleryImages")?.toString() || "[]");
+        return JSON.parse(
+          form.get("existingGalleryImages")?.toString() || "[]",
+        );
       } catch {
-        return Array.isArray(existing.galleryImages) ? existing.galleryImages : [];
+        return Array.isArray(existing.galleryImages)
+          ? existing.galleryImages
+          : [];
       }
     })();
 
-    const galleryFiles = form.getAll("galleryImages").filter(
-      (file) => file && typeof file === "object" && file.size > 0,
-    );
+    const galleryFiles = form
+      .getAll("galleryImages")
+      .filter((file) => file && typeof file === "object" && file.size > 0);
     const newGalleryImages = await saveImages(galleryFiles);
 
-    const galleryImages = [...(Array.isArray(existingGallery) ? existingGallery : []), ...newGalleryImages].slice(0, 6);
+    const galleryImages = [
+      ...(Array.isArray(existingGallery) ? existingGallery : []),
+      ...newGalleryImages,
+    ].slice(0, 6);
     if (form.get("clearGalleryImages") === "true") {
       for (const asset of existing.galleryImages || []) {
         await deleteImage(asset);

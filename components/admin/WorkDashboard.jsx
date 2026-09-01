@@ -128,8 +128,9 @@ const WorkDashboard = ({ initialData = [] }) => {
   const updateSection = (index, field, value) => {
     setFields((current) => ({
       ...current,
-      detailSections: (current.detailSections || []).map((section, sectionIndex) =>
-        sectionIndex === index ? { ...section, [field]: value } : section,
+      detailSections: (current.detailSections || []).map(
+        (section, sectionIndex) =>
+          sectionIndex === index ? { ...section, [field]: value } : section,
       ),
     }));
   };
@@ -137,7 +138,9 @@ const WorkDashboard = ({ initialData = [] }) => {
   const removeSection = (index) => {
     setFields((current) => ({
       ...current,
-      detailSections: (current.detailSections || []).filter((_, i) => i !== index),
+      detailSections: (current.detailSections || []).filter(
+        (_, i) => i !== index,
+      ),
     }));
   };
 
@@ -180,7 +183,9 @@ const WorkDashboard = ({ initialData = [] }) => {
       );
       formData.append(
         "existingGalleryImages",
-        JSON.stringify(Array.isArray(fields.galleryImages) ? fields.galleryImages : []),
+        JSON.stringify(
+          Array.isArray(fields.galleryImages) ? fields.galleryImages : [],
+        ),
       );
 
       if (imageFile) formData.append("image", imageFile);
@@ -288,7 +293,12 @@ const WorkDashboard = ({ initialData = [] }) => {
               <label className="inline-flex items-center gap-2 px-4 py-2 rounded-md border-2 border-heading bg-primary text-sm font-bold cursor-pointer hover:bg-heading/5 transition-colors">
                 <FiUpload className="w-4 h-4" />
                 Upload
-                <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
               </label>
 
               {imagePreview && (
@@ -309,12 +319,16 @@ const WorkDashboard = ({ initialData = [] }) => {
                 className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
                 placeholder="Title *"
                 value={fields.title}
-                onChange={(e) => setFields((f) => ({ ...f, title: e.target.value }))}
+                onChange={(e) =>
+                  setFields((f) => ({ ...f, title: e.target.value }))
+                }
               />
               <select
                 className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
                 value={fields.category}
-                onChange={(e) => setFields((f) => ({ ...f, category: e.target.value }))}
+                onChange={(e) =>
+                  setFields((f) => ({ ...f, category: e.target.value }))
+                }
               >
                 <option value="work">At work</option>
                 <option value="side">On the side</option>
@@ -325,13 +339,17 @@ const WorkDashboard = ({ initialData = [] }) => {
                 className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
                 placeholder="Role"
                 value={fields.role}
-                onChange={(e) => setFields((f) => ({ ...f, role: e.target.value }))}
+                onChange={(e) =>
+                  setFields((f) => ({ ...f, role: e.target.value }))
+                }
               />
               <input
                 className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
                 placeholder="Period"
                 value={fields.period}
-                onChange={(e) => setFields((f) => ({ ...f, period: e.target.value }))}
+                onChange={(e) =>
+                  setFields((f) => ({ ...f, period: e.target.value }))
+                }
               />
             </div>
 
@@ -339,14 +357,18 @@ const WorkDashboard = ({ initialData = [] }) => {
               className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
               placeholder="Project link"
               value={fields.link}
-              onChange={(e) => setFields((f) => ({ ...f, link: e.target.value }))}
+              onChange={(e) =>
+                setFields((f) => ({ ...f, link: e.target.value }))
+              }
             />
 
             <input
               className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading"
               placeholder="Tags separated by commas"
               value={fields.tags}
-              onChange={(e) => setFields((f) => ({ ...f, tags: e.target.value }))}
+              onChange={(e) =>
+                setFields((f) => ({ ...f, tags: e.target.value }))
+              }
             />
 
             <textarea
@@ -354,13 +376,17 @@ const WorkDashboard = ({ initialData = [] }) => {
               rows={4}
               placeholder="Description"
               value={fields.description}
-              onChange={(e) => setFields((f) => ({ ...f, description: e.target.value }))}
+              onChange={(e) =>
+                setFields((f) => ({ ...f, description: e.target.value }))
+              }
             />
           </div>
 
           <div className="space-y-3 rounded-xl border-2 border-heading bg-primary p-3">
             <div className="flex items-center justify-between gap-3">
-              <label className="block text-sm font-bold text-heading">More project images</label>
+              <label className="block text-sm font-bold text-heading">
+                More project images
+              </label>
               <label className="inline-flex items-center gap-2 px-3 py-2 rounded-md border-2 border-heading bg-primary text-sm font-bold cursor-pointer">
                 <FiUpload className="w-4 h-4" /> Add up to 6
                 <input
@@ -376,7 +402,11 @@ const WorkDashboard = ({ initialData = [] }) => {
             <div className="grid grid-cols-3 gap-3">
               {(fields.galleryImages || []).map((src, index) => (
                 <div key={`stored-${src}-${index}`} className="relative">
-                  <img src={src} alt={`Gallery ${index + 1}`} className="h-24 w-full rounded-lg object-cover border-2 border-heading" />
+                  <img
+                    src={src}
+                    alt={`Gallery ${index + 1}`}
+                    className="h-24 w-full rounded-lg object-cover border-2 border-heading"
+                  />
                   <button
                     type="button"
                     onClick={() => removeStoredGalleryImage(index)}
@@ -410,22 +440,37 @@ const WorkDashboard = ({ initialData = [] }) => {
 
           <div className="space-y-3 rounded-xl border-2 border-heading bg-primary p-3">
             <div className="flex items-center justify-between gap-3">
-              <label className="block text-sm font-bold text-heading">Detail sections</label>
-              <button type="button" onClick={addSection} className="px-3 py-2 rounded-md border-2 border-heading font-bold text-sm">
+              <label className="block text-sm font-bold text-heading">
+                Detail sections
+              </label>
+              <button
+                type="button"
+                onClick={addSection}
+                className="px-3 py-2 rounded-md border-2 border-heading font-bold text-sm"
+              >
                 + Add section
               </button>
             </div>
 
             {(fields.detailSections || []).map((section, index) => (
-              <div key={section.id || index} className="rounded-xl border-2 border-heading bg-primary p-3 space-y-3">
+              <div
+                key={section.id || index}
+                className="rounded-xl border-2 border-heading bg-primary p-3 space-y-3"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <input
                     className="w-full px-3 py-2 rounded-md border-2 border-heading bg-primary text-heading"
                     placeholder="Section heading"
                     value={section.heading || ""}
-                    onChange={(e) => updateSection(index, "heading", e.target.value)}
+                    onChange={(e) =>
+                      updateSection(index, "heading", e.target.value)
+                    }
                   />
-                  <button type="button" onClick={() => removeSection(index)} className="text-accent font-bold">
+                  <button
+                    type="button"
+                    onClick={() => removeSection(index)}
+                    className="text-accent font-bold"
+                  >
                     Remove
                   </button>
                 </div>
@@ -433,7 +478,9 @@ const WorkDashboard = ({ initialData = [] }) => {
                 <div className="grid md:grid-cols-[1fr_auto] gap-3 items-center">
                   <select
                     value={section.type || "text"}
-                    onChange={(e) => updateSection(index, "type", e.target.value)}
+                    onChange={(e) =>
+                      updateSection(index, "type", e.target.value)
+                    }
                     className="w-full px-3 py-2 rounded-md border-2 border-heading bg-primary text-heading"
                   >
                     <option value="text">Plain text</option>
@@ -444,9 +491,15 @@ const WorkDashboard = ({ initialData = [] }) => {
                 <textarea
                   className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading resize-none"
                   rows={5}
-                  placeholder={section.type === "bullets" ? "Add one bullet per line" : "Add section description"}
+                  placeholder={
+                    section.type === "bullets"
+                      ? "Add one bullet per line"
+                      : "Add section description"
+                  }
                   value={section.content || ""}
-                  onChange={(e) => updateSection(index, "content", e.target.value)}
+                  onChange={(e) =>
+                    updateSection(index, "content", e.target.value)
+                  }
                 />
               </div>
             ))}
@@ -459,7 +512,11 @@ const WorkDashboard = ({ initialData = [] }) => {
               disabled={saving}
               className="px-5 py-2.5 rounded-md font-bold bg-heading text-primary border-2 border-heading shadow-[4px_4px_0_0_#111827] disabled:opacity-60"
             >
-              {saving ? "Saving..." : mode === "add" ? "Add project" : "Save changes"}
+              {saving
+                ? "Saving..."
+                : mode === "add"
+                  ? "Add project"
+                  : "Save changes"}
             </button>
             <button
               type="button"

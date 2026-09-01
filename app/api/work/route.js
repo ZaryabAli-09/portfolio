@@ -30,7 +30,9 @@ export async function POST(req) {
 
     let detailSections = [];
     try {
-      detailSections = JSON.parse(form.get("detailSections")?.toString() || "[]");
+      detailSections = JSON.parse(
+        form.get("detailSections")?.toString() || "[]",
+      );
     } catch {
       detailSections = [];
     }
@@ -41,9 +43,9 @@ export async function POST(req) {
       image = await saveImage(file);
     }
 
-    const galleryFiles = form.getAll("galleryImages").filter(
-      (file) => file && typeof file === "object" && file.size > 0,
-    );
+    const galleryFiles = form
+      .getAll("galleryImages")
+      .filter((file) => file && typeof file === "object" && file.size > 0);
     const galleryImages = await saveImages(galleryFiles);
 
     const created = await createProject({

@@ -46,17 +46,26 @@ const ProjectCard = ({ project, rotation }) => {
     >
       <div className="relative h-48 w-full border-b-2 border-heading bg-gray-100">
         {project.image ? (
-          <Image src={project.image} alt={project.title} fill className="object-cover" />
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-highlight/20 to-secondary/20">
-            <span className="font-secondary text-highlight text-lg">{project.title}</span>
+            <span className="font-secondary text-highlight text-lg">
+              {project.title}
+            </span>
           </div>
         )}
       </div>
 
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-1">
-          <h3 className="text-lg font-bold text-heading leading-snug">{project.title}</h3>
+          <h3 className="text-lg font-bold text-heading leading-snug">
+            {project.title}
+          </h3>
         </div>
 
         <p className="font-secondary text-highlight text-lg mb-3">
@@ -125,7 +134,9 @@ const Work = ({ initialData = [], githubUrl = "" }) => {
       className="w-full bg-primary bg-dotted border-b-2 border-dashed border-gray-300"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
-        <p className="font-secondary text-highlight text-xl mb-2">selected work</p>
+        <p className="font-secondary text-highlight text-xl mb-2">
+          selected work
+        </p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-heading mb-10 leading-tight">
           Things I&apos;ve built
         </h2>
