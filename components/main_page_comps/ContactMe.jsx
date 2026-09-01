@@ -30,7 +30,7 @@ const Contact = ({ siteSettings }) => {
   return (
     <section
       id="contact"
-      className="w-full bg-dotted border-b-2 border-dashed border-gray-300"
+      className="w-full bg-dotted border-b-2 border-dashed bg-primary border-gray-300"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 text-center">
         <p className="font-secondary text-highlight text-xl mb-2">say hello</p>

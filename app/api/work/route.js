@@ -1,6 +1,11 @@
 import { revalidatePath } from "next/cache";
 import { isAuthenticated } from "@/lib/auth";
-import { readProjects, createProject, saveImage } from "@/lib/workStore";
+import {
+  readProjects,
+  createProject,
+  saveImage,
+  saveImages,
+} from "@/lib/workStore";
 
 export async function GET() {
   const projects = await readProjects();
@@ -23,11 +28,23 @@ export async function POST(req) {
     const tagsRaw = form.get("tags")?.toString() || "[]";
     const tags = JSON.parse(tagsRaw).filter((t) => t?.trim());
 
+    let detailSections = [];
+    try {
+      detailSections = JSON.parse(form.get("detailSections")?.toString() || "[]");
+    } catch {
+      detailSections = [];
+    }
+
     let image = "";
     const file = form.get("image");
     if (file && typeof file === "object" && file.size > 0) {
       image = await saveImage(file);
     }
+
+    const galleryFiles = form.getAll("galleryImages").filter(
+      (file) => file && typeof file === "object" && file.size > 0,
+    );
+    const galleryImages = await saveImages(galleryFiles);
 
     const created = await createProject({
       title,
@@ -38,6 +55,8 @@ export async function POST(req) {
       category: form.get("category")?.toString() || "work",
       tags,
       image,
+      galleryImages,
+      detailSections,
     });
 
     revalidatePath("/");

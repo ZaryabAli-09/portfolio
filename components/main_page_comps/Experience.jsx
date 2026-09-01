@@ -74,7 +74,7 @@ const Experience = async () => {
   return (
     <section
       id="experience"
-      className="w-full bg-primary bg-dotted border-b-2 border-dashed border-gray-300"
+      className="w-full bg-[#EDEAE1] border-t-2 border-dashed border-gray-300"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
         <p className="font-secondary text-highlight text-xl mb-2">

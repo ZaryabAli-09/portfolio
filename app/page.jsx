@@ -18,8 +18,8 @@ const Main = async () => {
     <main>
       <Hero />
       <About />
-      <Experience />
       <Toolbox />
+      <Experience />
       <Work initialData={projects} githubUrl={githubUrl} />
       <Contact siteSettings={siteSettings} />
     </main>

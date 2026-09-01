@@ -13,6 +13,27 @@
       "ML Based Recommendation",
       "Chatbot"
     ],
+    "galleryImages": [],
+    "detailSections": [
+      {
+        "id": "section-1788278339562",
+        "heading": "Why we built it",
+        "type": "text",
+        "content": "Every app we tried either assumed a single person, ignored how couples actually share money, or made bill tracking feel like a second job. We wanted something that worked for us at the core: enter a bill once, get one notification, and nothing catches us off guard. Mortgage paydown projections so we could see the long game, not just this month. And reviews that feel like stories, not spreadsheets — because I'm very data-oriented and Erica is more visual and wants the gist. The app bleeds those two modes together.\n\nAt its heart it's built for couples and families — shared household view, rollover budgets that match real life, and month-in-review / year-in-review narratives worth actually watching."
+      },
+      {
+        "id": "section-1788278393322",
+        "heading": "What it does",
+        "type": "bullets",
+        "content": "Unified bill notifications — recurring bills and income in one place; one alert, not five.\nRollover budgeting — unspent budget rolls into next month the way we actually manage money.\nMortgage & net-worth tracking — offset, mortgage, and account snapshots with paydown projections.\nStory-like reviews — month-in-review and year-in-review experiences (not just charts).\nPocket CFO — an AI assistant (OpenAI Agents SDK) for questions and planning when you want a conversation, not a pivot table."
+      },
+      {
+        "id": "section-1788278414706",
+        "heading": "Tech & architecture",
+        "type": "bullets",
+        "content": "Monorepo with pnpm workspaces + Turborepo (apps/web, apps/mobile, shared packages).\nWeb: Next.js 15, React 19, Tailwind and Radix UI.\nMobile: native React Native with Expo (Expo Go in dev), shared types/logic via packages, Firebase push.\nData: Prisma over PostgreSQL, Supabase in the mix.\nPayments: Stripe subscriptions."
+      }
+    ],
     "category": "fyp",
     "order": 0
   },
@@ -30,6 +51,8 @@
       "Tailwind",
       "Maps API"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 1
   },
@@ -46,6 +69,8 @@
       "Tailwind",
       "GSAP"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 2
   },
@@ -62,6 +87,8 @@
       "Tailwind",
       "UI/UX"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 3
   },
@@ -80,6 +107,8 @@
       "IMGLY API self hosted",
       "Oracle VPS"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "side",
     "order": 4
   },
@@ -95,6 +124,8 @@
       "MERN",
       "Full Stack"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 5
   },
@@ -111,6 +142,8 @@
       "React",
       "Node"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 6
   },
@@ -126,6 +159,8 @@
       "React",
       "Tailwind"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 7
   },
@@ -141,6 +176,8 @@
       "UI/UX",
       "Landing Page"
     ],
+    "galleryImages": [],
+    "detailSections": [],
     "category": "learning",
     "order": 8
   }

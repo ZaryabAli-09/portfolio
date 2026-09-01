@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { FiArrowUpRight, FiMail, FiGithub, FiLinkedin, FiInstagram, FiFacebook, FiTwitter } from "react-icons/fi";
+import {
+  FiArrowUpRight,
+  FiMail,
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+  FiFacebook,
+  FiTwitter,
+} from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiClaudecode } from "react-icons/si";
 import Button from "@/components/common/Button";
