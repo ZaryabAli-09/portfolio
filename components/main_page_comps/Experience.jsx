@@ -14,7 +14,27 @@ const ExperienceCard = ({ entry, isLast }) => (
     {/* Timeline rail */}
     <div className="flex flex-col items-center">
       <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden shadow-[3px_3px_0_0_#111827]">
-        {entry.logo ? (
+        {entry.companyLink ? (
+          <a
+            href={entry.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${entry.company}`}
+          >
+            {entry.logo ? (
+              <Image
+                src={entry.logo}
+                alt={entry.company}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center font-secondary text-xl text-highlight">
+                {initials(entry.company)}
+              </div>
+            )}
+          </a>
+        ) : entry.logo ? (
           <Image
             src={entry.logo}
             alt={entry.company}
@@ -35,7 +55,18 @@ const ExperienceCard = ({ entry, isLast }) => (
     {/* Content */}
     <div className={isLast ? "pb-0" : "pb-12"}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
-        <h3 className="text-xl font-bold text-heading">{entry.company}</h3>
+        {entry.companyLink ? (
+          <a
+            href={entry.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl font-bold text-heading hover:text-highlight transition-colors"
+          >
+            {entry.company}
+          </a>
+        ) : (
+          <h3 className="text-xl font-bold text-heading">{entry.company}</h3>
+        )}
         {entry.employmentType && (
           <span className="font-mono text-xs text-heading border-2 border-heading rounded-full px-3 py-0.5">
             {entry.employmentType}

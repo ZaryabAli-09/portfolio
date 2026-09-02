@@ -39,6 +39,7 @@ export async function POST(req) {
 
     const entry = await createExperience({
       company,
+      companyLink: form.get("companyLink")?.toString().trim() || "",
       role,
       employmentType: form.get("employmentType")?.toString() || "",
       location: form.get("location")?.toString() || "",

@@ -45,19 +45,19 @@ const ProjectDetail = ({ project }) => {
           Back to work
         </Link>
 
-        <article className="rounded-[28px] border-2 border-heading bg-primary p-4 shadow-[8px_8px_0_0_#111827] sm:p-6 lg:p-8">
+        <article>
           <div className="mb-6">
             <p className="font-secondary text-highlight text-lg">
               {project.role || "Project"}
             </p>
             <h1 className="mt-2 text-4xl font-black tracking-[-0.04em] text-heading sm:text-5xl">
               {project.title}
-            </h1>
-            {project.period && (
-              <p className="mt-3 text-sm font-medium uppercase tracking-[0.16em] text-description">
-                {project.period}
+            </h1>{" "}
+            {project.description ? (
+              <p className="text-base my-4 leading-relaxed text-description whitespace-pre-line">
+                {project.description}
               </p>
-            )}
+            ) : null}
           </div>
 
           <div className="overflow-hidden rounded-[22px] border-2 border-heading bg-gray-100">
@@ -99,24 +99,22 @@ const ProjectDetail = ({ project }) => {
               ))}
             </div>
           )}
-
+          {project.link && (
+            <Link
+              href={project.link}
+              target={project.link.startsWith("http") ? "_blank" : undefined}
+              rel={
+                project.link.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              className="flex items-center gap-2 text-highlight hover:underline font-bold my-2"
+            >
+              See in action
+              <FiExternalLink className="w-4 h-4" />
+            </Link>
+          )}
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            {project.link && (
-              <Link
-                href={project.link}
-                target={project.link.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  project.link.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="inline-flex items-center gap-2 rounded-md border-2 border-heading bg-heading px-4 py-2.5 text-sm font-bold text-primary shadow-[4px_4px_0_0_#111827] transition-transform hover:-translate-y-0.5"
-              >
-                See in action
-                <FiExternalLink className="w-4 h-4" />
-              </Link>
-            )}
-
             {Array.isArray(project.tags) && project.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -129,15 +127,6 @@ const ProjectDetail = ({ project }) => {
                 ))}
               </div>
             )}
-          </div>
-
-          <div className="mt-8 rounded-[22px] border-2 border-heading bg-primary/60 p-4 sm:p-5 lg:p-6">
-            <h2 className="mb-4 text-2xl font-black text-heading">Overview</h2>
-            {project.description ? (
-              <p className="text-base leading-relaxed text-description whitespace-pre-line">
-                {project.description}
-              </p>
-            ) : null}
           </div>
 
           {Array.isArray(project.detailSections) &&

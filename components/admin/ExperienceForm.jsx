@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const EMPTY = {
   company: "",
+  companyLink: "",
   role: "",
   employmentType: "",
   location: "",
@@ -25,6 +26,7 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
     entry
       ? {
           company: entry.company || "",
+          companyLink: entry.companyLink || "",
           role: entry.role || "",
           employmentType: entry.employmentType || "",
           location: entry.location || "",
@@ -78,6 +80,7 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
     try {
       const formData = new FormData();
       formData.append("company", fields.company.trim());
+      formData.append("companyLink", fields.companyLink.trim());
       formData.append("role", fields.role.trim());
       formData.append("employmentType", fields.employmentType.trim());
       formData.append("location", fields.location.trim());
@@ -188,6 +191,19 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
             onChange={(e) => update("role", e.target.value)}
             required
             className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+          />
+        </div>
+
+        <div className="sm:col-span-2">
+          <label className="block text-sm font-bold text-heading mb-1.5">
+            Company link
+          </label>
+          <input
+            type="url"
+            value={fields.companyLink}
+            onChange={(e) => update("companyLink", e.target.value)}
+            placeholder="https://company.com"
+            className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading placeholder:text-description/60 focus:outline-none"
           />
         </div>
 

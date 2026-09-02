@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#work", label: "Work" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Work" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const Navbar = ({ siteSettings = {} }) => {
@@ -32,7 +32,7 @@ const Navbar = ({ siteSettings = {} }) => {
     <nav className="sticky top-0 z-50 w-full bg-primary border-b-2 border-black opacity-95">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="#home" className="flex items-center gap-3 shrink-0">
+        <Link href="/#home" className="flex items-center gap-3 shrink-0">
           <div className="relative w-11 h-11 rounded-lg overflow-hidden border font-bold border-gray-900 shrink-0">
             <Image
               src="/zaryab.png"

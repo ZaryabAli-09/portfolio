@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +11,9 @@ const ROTATIONS = ["-rotate-[0.5deg]", "rotate-[0.5deg]", "-rotate-[0.3deg]"];
 
 const FILTERS = [
   { key: "work", label: "At work" },
-  { key: "side", label: "On the side" },
-  { key: "learning", label: "Initial Learning" },
   { key: "fyp", label: "FYP Research" },
+  { key: "side", label: "On the side" },
+  { key: "learning", label: "Learning" },
 ];
 
 const CATEGORY_LABELS = {
@@ -23,9 +23,15 @@ const CATEGORY_LABELS = {
   fyp: "FYP Research",
 };
 
+const DESCRIPTION_LIMIT = 150;
+
+const excerpt = (description = "") =>
+  description.length > DESCRIPTION_LIMIT
+    ? `${description.slice(0, DESCRIPTION_LIMIT).trimEnd()}...`
+    : description;
+
 const ProjectCard = ({ project, rotation }) => {
   const router = useRouter();
-  const isExternal = project.link?.startsWith("http");
   const hasLiveLink = Boolean(project.link?.trim());
 
   return (
@@ -71,12 +77,9 @@ const ProjectCard = ({ project, rotation }) => {
         <p className="font-secondary text-highlight text-lg mb-3">
           {project.role} · {project.period}
         </p>
-        <p className="text-description text-sm mb-3">
-          {CATEGORY_LABELS[project.category] || "At work"}
-        </p>
 
         <p className="text-description text-sm leading-relaxed mb-5">
-          {project.description}
+          {excerpt(project.description)}
         </p>
 
         <div className="flex flex-wrap gap-2 mt-auto">
@@ -90,20 +93,6 @@ const ProjectCard = ({ project, rotation }) => {
               </span>
             ))}
         </div>
-
-        {hasLiveLink && (
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              window.open(project.link, "_blank", "noopener,noreferrer");
-            }}
-            className="mt-5 inline-flex w-fit items-center gap-2 self-start border-2 border-heading rounded-md bg-primary px-3 py-2 text-sm font-bold text-heading"
-          >
-            See in action
-            <FiArrowUpRight className="w-4 h-4" />
-          </button>
-        )}
       </div>
     </div>
   );
@@ -111,6 +100,7 @@ const ProjectCard = ({ project, rotation }) => {
 
 const Work = ({ initialData = [], githubUrl = "" }) => {
   const [active, setActive] = useState("work");
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const visibleProjects = initialData.filter(
     (project) => Array.isArray(project.tags) && project.tags.length > 0,
@@ -127,6 +117,12 @@ const Work = ({ initialData = [], githubUrl = "" }) => {
     active === "all"
       ? visibleProjects
       : visibleProjects.filter((p) => p.category === active);
+
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [active]);
+
+  const displayedProjects = filtered.slice(0, visibleCount);
 
   return (
     <section
@@ -160,7 +156,7 @@ const Work = ({ initialData = [], githubUrl = "" }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((project, i) => (
+          {displayedProjects.map((project, i) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -169,27 +165,24 @@ const Work = ({ initialData = [], githubUrl = "" }) => {
           ))}
         </div>
 
-        {filtered.length === 0 && (
-          <div className="rounded-2xl border-2 border-dashed border-heading bg-primary p-8 text-center text-description">
-            No projects found in this section yet.
+        {visibleCount < filtered.length && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + 6)}
+              className="inline-flex items-center gap-2 rounded-md border-2 border-heading bg-primary px-5 py-2.5 text-sm font-bold text-heading shadow-[4px_4px_0_0_#111827] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#111827]"
+            >
+              See all projects
+              <span aria-hidden="true">
+                ({filtered.length - visibleCount} more)
+              </span>
+            </button>
           </div>
         )}
 
-        {githubUrl && (
-          <div className="flex justify-center mt-14">
-            <Link
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-base font-bold bg-primary border-2 border-heading
-                shadow-[4px_4px_0_0_#111827] hover:shadow-[2px_2px_0_0_#111827]
-                hover:translate-x-[2px] hover:translate-y-[2px]
-                active:shadow-none active:translate-x-[4px] active:translate-y-[4px]
-                transition-all duration-150 ease-out"
-            >
-              See all {visibleProjects.length} projects
-              <FiArrowUpRight className="w-4 h-4" />
-            </Link>
+        {filtered.length === 0 && (
+          <div className="rounded-2xl border-2 border-dashed border-heading bg-primary p-8 text-center text-description">
+            No projects found in this section yet.
           </div>
         )}
       </div>

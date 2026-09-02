@@ -49,6 +49,7 @@ export async function PUT(req, { params }) {
 
     const updated = await updateExperience(id, {
       company,
+      companyLink: form.get("companyLink")?.toString().trim() || "",
       role,
       employmentType: form.get("employmentType")?.toString() || "",
       location: form.get("location")?.toString() || "",

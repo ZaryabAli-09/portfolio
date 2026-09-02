@@ -1,11 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiArrowLeft, FiLogOut } from "react-icons/fi";
 
 const AdminLayout = ({ children }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
@@ -18,7 +19,7 @@ const AdminLayout = ({ children }) => {
       <header className="sticky top-0 z-50 w-full bg-primary border-b-2 border-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <Link
-            href="/"
+            href={pathname === "/admin" ? "/" : "/admin"}
             className="inline-flex items-center gap-2 font-bold text-heading hover:text-highlight transition-colors"
           >
             <FiArrowLeft className="w-5 h-5" /> Back
