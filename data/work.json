@@ -42,12 +42,12 @@
     "title": "Easy Rent Now - Vacation Rental Platform",
     "role": "Developer",
     "period": "Learning Project",
-    "description": "An Airbnb-like vacation rental platform with interactive maps, a booking calendar, property filters, and a host management system.",
+    "description": "A full-stack vacation rental platform featuring interactive property maps, booking calendars, advanced property filtering, and host management. Built as a learning project to strengthen authentication workflows with Auth.js and deepen my experience building full-stack applications with Next.js.",
     "image": "/uploads/work/8ae89867-6b1b-4ffa-9f96-60681157b8c3.webp",
     "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
     "tags": [
       "Next.js",
-      "React",
+      "Auth.js",
       "Tailwind",
       "Maps API"
     ],
@@ -60,14 +60,15 @@
     "id": "sync-vibes",
     "title": "Sync Vibes - GSAP Animated Landing Page",
     "role": "Developer",
-    "period": "Learning",
-    "description": "GSAP-animated landing page with immersive visuals, smooth transitions, and an engaging interactive experience.",
+    "period": "Learning Project",
+    "description": "An immersive landing page built with GSAP to explore advanced web animations and interactive experiences. Features smooth transitions, scroll-based animations, and dynamic visual effects designed to create a polished and engaging user experience.",
     "image": "/uploads/work/ef374d75-56f0-41c3-ae4f-61d21e7baf51.webp",
     "link": "https://sync-vibes.vercel.app",
     "tags": [
       "Next.js",
       "Tailwind",
-      "GSAP"
+      "GSAP",
+      "UI/UX"
     ],
     "galleryImages": [],
     "detailSections": [],
@@ -78,7 +79,7 @@
     "id": "caffio",
     "title": "Caffio - Modern Coffee Shop Landing Page",
     "role": "Developer",
-    "period": "Learning",
+    "period": "Learning Project",
     "description": "Modern coffee shop landing page with a warm aesthetic, smooth animations, and an engaging user experience.",
     "image": "/uploads/work/c5533634-d123-4c32-bc04-2ff69155f425.webp",
     "link": "https://caffio1x.vercel.app",
@@ -94,21 +95,45 @@
   },
   {
     "id": "bg-remover",
-    "title": "QuickBG - AI Background Remover & Image Editor",
+    "title": "QuickBgRemove - AI Background Remover & Image Editor",
     "role": "Creator & Developer",
-    "period": "Personal Project",
-    "description": "AI-powered full-stack app for fast, accurate background removal and seamless image editing.AI-powered full-stack app for fast, accurate background removal and seamless image editing.AI-powered full-stack app for fast, accurate background removal and seamless image editing.AI-powered full-stack app for fast, accurate background removal and seamless image editing.AI-powered full-stack app for fast, accurate background removal and seamless image editing.AI-powered full-stack app for fast, accurate background removal and seamless image editing.",
+    "period": "Side Project",
+    "description": "An AI-powered full-stack image processing application built for fast, high-quality background removal and seamless image editing. QuickBG combines AI background-removal models with image-processing capabilities to let users remove backgrounds in seconds, replace them with custom or generated backgrounds, resize images, and enhance image quality through an intuitive web interface.",
     "image": "/uploads/work/f1986b5a-2c03-43cb-bd55-7cde60e6382f.webp",
     "link": "https://quickbgremove.netlify.app",
     "tags": [
       "React",
-      "Tailwind",
-      "Node",
-      "IMGLY API self hosted",
-      "Oracle VPS"
+      "Tailwind CSS",
+      "Node.js",
+      "Hugging Face",
+      "AI/ML",
+      "Image Generation",
+      "Sharp",
+      "Unsplash API",
+      "REST API",
+      "Full Stack"
     ],
     "galleryImages": [],
-    "detailSections": [],
+    "detailSections": [
+      {
+        "id": "section-1788466788735",
+        "heading": "Why i built it",
+        "type": "text",
+        "content": "I built QuickBgRemove to solve a simple, recurring problem removing image backgrounds quickly without sacrificing quality or relying on paid or complex editing software. What started as an experiment with AI-based background removal evolved into a practical image editing tool that I and my family members actively use. I expanded the project beyond background removal by adding background replacement, AI-generated backgrounds, image resizing, Unsplash-powered background discovery, and image enhancement, turning it into a more complete image editing workflow."
+      },
+      {
+        "id": "section-1788466854006",
+        "heading": "What it does",
+        "type": "bullets",
+        "content": "AI Background Removal - Removes image backgrounds within seconds while maintaining high-quality subject edges.\nBackground Replacement - Replace removed backgrounds with custom images or discover backgrounds through the Unsplash API.\nAI Background Generation - Generate new backgrounds to create completely different visual compositions.\nImage Resizing - Resize processed images to custom dimensions.\nImage Enhancement - Improve image quality using server-side Sharp processing.\nFast Image Processing - Handles AI inference and image transformations through a dedicated backend processing workflow.\nSimple Editing Workflow - Upload, remove the background, customize the result, and export the edited image from one interface."
+      },
+      {
+        "id": "section-1788466926813",
+        "heading": "Tech & Architecture",
+        "type": "bullets",
+        "content": "Frontend: React + Tailwind CSS for a responsive image-editing interface.\nBackend: Node.js API responsible for image processing, model integration, and application logic.\nAI: Integrated Hugging Face models for AI-powered background removal and image generation capabilities.\nImage Processing: Sharp for server-side resizing, optimization, format conversion, and image enhancement.\nExternal API: Unsplash API integration for sourcing background images.\nArchitecture: Full-stack client/server architecture separating the interactive editing experience from AI inference and image-processing operations.\nProcessing Pipeline: Images are uploaded → processed through AI background removal → optionally transformed with a generated or selected background → resized/enhanced → prepared for final output."
+      }
+    ],
     "category": "side",
     "order": 4
   },
@@ -116,13 +141,15 @@
     "id": "notes-app",
     "title": "Full Stack Notes App",
     "role": "Developer",
-    "period": "Learning",
-    "description": "MERN stack app to save, manage, and organize your notes and todos efficiently.",
+    "period": "Learning Project",
+    "description": "A full-stack MERN notes and task management application for creating, organizing, and managing notes and todos. Built to strengthen my full-stack development skills through RESTful APIs, data management, media uploads with Cloudinary, and deploying a production-ready frontend and backend using Netlify and Render with MongoDB.",
     "image": "/uploads/work/392becca-0963-4e73-a27c-64851f497a50.webp",
     "link": "https://keepnotesandtodos.netlify.app",
     "tags": [
       "MERN",
-      "Full Stack"
+      "Cloudinary",
+      "Render",
+      "Netlify"
     ],
     "galleryImages": [],
     "detailSections": [],
@@ -133,14 +160,16 @@
     "id": "blog-admin",
     "title": "Mern Stack Blog with Admin Panel",
     "role": "Developer",
-    "period": "Personal Project",
-    "description": "Full-stack blog platform with an admin panel for content management.",
+    "period": "Learning Project",
+    "description": "A full-stack blog platform built with the MERN stack, featuring an admin panel for creating, managing, and organizing blog content. Built to strengthen my experience with RESTful APIs, database-driven applications, authentication, and building complete full-stack workflows.",
     "image": "/uploads/work/0bacb740-cd94-476f-ba38-cc3ab37477a5.webp",
     "link": "https://techscrolls.netlify.app",
     "tags": [
-      "CMS",
-      "React",
-      "Node"
+      "Nodejs",
+      "Expressjs",
+      "MongoDB",
+      "Cloudinary",
+      "JWT Auth"
     ],
     "galleryImages": [],
     "detailSections": [],
@@ -151,8 +180,8 @@
     "id": "digital-agency",
     "title": "Digital Agency Website",
     "role": "Developer",
-    "period": "Learning",
-    "description": "Modern agency site with a sleek UI and contact form integration.",
+    "period": "Learning Project",
+    "description": "A modern agency landing page built with React and Tailwind CSS, featuring a sleek responsive interface and integrated contact form. Built as a learning project to strengthen my frontend development skills, component-based UI design, and responsive web development.",
     "image": "/uploads/work/719c7fb0-84fd-49fb-b9e2-363cbdb7f1af.webp",
     "link": "https://digitaloctagon.netlify.app",
     "tags": [
@@ -168,8 +197,8 @@
     "id": "dietmate",
     "title": "DietMate UI",
     "role": "Developer",
-    "period": "Learning",
-    "description": "A clean, responsive landing page concept for a nutrition and diet platform.",
+    "period": "Learning Project",
+    "description": "A clean and responsive landing page concept for a nutrition and diet platform, designed with a focus on modern UI, visual hierarchy, and responsive layouts. Built as a learning project to strengthen frontend development and translate a product concept into a polished web experience.",
     "image": "/uploads/work/2592d88e-46bc-4a8f-a31a-3e555df7b0c3.webp",
     "link": "https://dietmateui.netlify.app",
     "tags": [

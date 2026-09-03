@@ -5,7 +5,7 @@
     "role": "Backend Development Intern",
     "employmentType": "Internship",
     "location": "Saddar Bazar, Peshawar",
-    "duration": "3 months",
+    "duration": "4 months",
     "logo": null,
     "bullets": [
       "Learned backend development from the ground up using Node.js / Express.js",
@@ -13,25 +13,45 @@
       "Gained exposure to game development workflows, since the software house's primary focus was game development"
     ],
     "order": 0,
-    "companyLink": ""
+    "companyLink": "",
+    "startDate": "2024-05-01",
+    "endDate": "2024-08-01"
+  },
+  {
+    "id": "apricoica",
+    "company": "Apricocia",
+    "role": "Web & SEO Consultant",
+    "employmentType": "Part-time",
+    "location": "Remote",
+    "duration": "2 months",
+    "logo": "/uploads/experience/a0ef04f0-a8b1-417c-b569-b9d4e8b6a96c.webp",
+    "bullets": [
+      "Consulted and helped a leading western wear eCommerce brand enhance their website",
+      "Defined and implemented an SEO strategy to improve online visibility"
+    ],
+    "order": 1,
+    "companyLink": "https://apricocia.com/",
+    "startDate": "2025-01-01",
+    "endDate": "2025-05-01"
   },
   {
     "id": "elexoft",
-    "company": "Elexoft",
+    "company": "Elexoft Technologies",
     "role": "Full Stack Software Engineer",
     "employmentType": "Full-time",
     "location": "New City Phase 2, Wah Cantt City Center",
     "duration": "1+ years",
     "logo": "/uploads/experience/a9b69414-8223-4878-8ae7-06a30cac059c.webp",
     "bullets": [
-      "Developed on WIZBAY.com, a multivendor marketplace built for a client operating across Europe, for about a month",
-      "Shifted to building CONN-1, a middleware engine written from scratch that lists products from third-party dropshipping APIs into the marketplace",
-      "Gained exposure to advanced technologies including BullMQ, Kafka, microservices architecture, and EKS deployment",
-      "Owned the project end-to-end — from development to DevOps — delivering it solo in about 6 months",
-      "Later rebuilt the Elexoft company website with an advanced custom-built CMS"
+      "Joined Elexoft and completed an intensive onboarding and training phase covering HRM, CRM, internal workflows, development practices, and team collaboration processes.",
+      "After the initial training week, I was assigned to WizBay, a large-scale multi-vendor fashion marketplace being developed for a client targeting the European market. Worked across the application stack, contributing to feature development, API integration, business logic, database operations, and frontend development while collaborating within a cross-functional engineering team.",
+      "After approximately 2 months on WizBay, I was moved to Conn1, a new and technically challenging system designed to integrate external product APIs with WizBay. Led a 5-engineer team as technical lead on Conn1, owning the full lifecycle from architecture through deployment, designed a microservices-based system with scalable service boundaries, backend integrations, and cloud-native infrastructure on AWS EKS, while driving development, code reviews, debugging, and key technical decisions throughout.",
+      "Architected and built Conn1 to integrate 150K+ products across multiple external APIs, enabling automated bulk product listing on WizBay."
     ],
-    "order": 1,
-    "companyLink": ""
+    "order": 2,
+    "companyLink": "https://elexoft.com",
+    "startDate": "2025-10-01",
+    "endDate": "2026-09-30"
   },
   {
     "id": "smile-lounge",
@@ -47,24 +67,9 @@
       "Managed Meta Ads campaigns",
       "Consulted on ads strategy"
     ],
-    "order": 2,
+    "order": 3,
     "companyLink": "https://thesmilelounge.org",
-    "startDate": "",
-    "endDate": ""
-  },
-  {
-    "id": "apricoica",
-    "company": "Apricocia",
-    "role": "Web & SEO Consultant",
-    "employmentType": "Freelance",
-    "location": "Remote",
-    "duration": "Ongoing",
-    "logo": "/uploads/experience/a0ef04f0-a8b1-417c-b569-b9d4e8b6a96c.webp",
-    "bullets": [
-      "Consulted and helped a leading western wear eCommerce brand enhance their website",
-      "Defined and implemented an SEO strategy to improve online visibility"
-    ],
-    "order": 4,
-    "companyLink": "https://apricocia.com/"
+    "startDate": "2026-04-01",
+    "endDate": "2026-07-01"
   }
 ]
