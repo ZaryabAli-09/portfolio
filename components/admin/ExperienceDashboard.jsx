@@ -130,13 +130,13 @@ const ExperienceDashboard = ({ initialData }) => {
               key={entry.id}
               className="flex items-start gap-4 bg-primary border-2 border-heading rounded-2xl p-5 shadow-[4px_4px_0_0_#111827]"
             >
-              <div className="relative w-14 h-14 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden">
+              <div className="relative w-14 h-14 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden flex items-center justify-center p-1.5">
                 {entry.logo ? (
                   <Image
                     src={entry.logo}
                     alt={entry.company}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center font-secondary text-lg text-highlight">

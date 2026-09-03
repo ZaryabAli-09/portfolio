@@ -9,24 +9,77 @@ const initials = (name = "") =>
     .map((w) => w[0]?.toUpperCase())
     .join("");
 
+const formatMonthYear = (value) => {
+  if (!value) return "";
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(date);
+};
+
+const formatTimeSpent = (startDate, endDate) => {
+  if (!startDate) return "";
+
+  const start = new Date(`${startDate}T00:00:00`);
+  const end = endDate ? new Date(`${endDate}T00:00:00`) : new Date();
+  if (
+    Number.isNaN(start.getTime()) ||
+    Number.isNaN(end.getTime()) ||
+    end < start
+  ) {
+    return "";
+  }
+
+  let months =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    end.getMonth() -
+    start.getMonth();
+  if (end.getDate() < start.getDate()) months -= 1;
+  months = Math.max(1, months);
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+  const parts = [];
+  if (years) parts.push(`${years} year${years === 1 ? "" : "s"}`);
+  if (remainingMonths) {
+    parts.push(`${remainingMonths} month${remainingMonths === 1 ? "" : "s"}`);
+  }
+
+  return parts.join(" ") || "1 month";
+};
+
+const experienceDateLabel = (entry) => {
+  if (!entry.startDate) return entry.duration || "";
+
+  const start = formatMonthYear(entry.startDate);
+  const end = entry.endDate ? formatMonthYear(entry.endDate) : "Present";
+  const timeSpent = formatTimeSpent(entry.startDate, entry.endDate);
+  return [start && `${start} - ${end}`, timeSpent && `(${timeSpent})`]
+    .filter(Boolean)
+    .join(" ");
+};
+
 const ExperienceCard = ({ entry, isLast }) => (
   <div className="relative flex gap-5 sm:gap-6">
     {/* Timeline rail */}
     <div className="flex flex-col items-center">
-      <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden shadow-[3px_3px_0_0_#111827]">
+      <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden shadow-[3px_3px_0_0_#111827] flex items-center justify-center p-1.5">
         {entry.companyLink ? (
           <a
             href={entry.companyLink}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Visit ${entry.company}`}
+            className="relative w-full h-full flex items-center justify-center"
           >
             {entry.logo ? (
               <Image
                 src={entry.logo}
                 alt={entry.company}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center font-secondary text-xl text-highlight">
@@ -39,7 +92,7 @@ const ExperienceCard = ({ entry, isLast }) => (
             src={entry.logo}
             alt={entry.company}
             fill
-            className="object-cover"
+            className="object-contain"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center font-secondary text-xl text-highlight">
@@ -77,7 +130,9 @@ const ExperienceCard = ({ entry, isLast }) => (
       <p className="font-secondary text-highlight text-lg mb-1">{entry.role}</p>
 
       <p className="text-description text-sm mb-4">
-        {[entry.location, entry.duration].filter(Boolean).join(" · ")}
+        {[entry.location, experienceDateLabel(entry)]
+          .filter(Boolean)
+          .join(" · ")}
       </p>
 
       {entry.bullets?.length > 0 && (

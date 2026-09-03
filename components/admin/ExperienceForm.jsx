@@ -11,6 +11,8 @@ const EMPTY = {
   role: "",
   employmentType: "",
   location: "",
+  startDate: "",
+  endDate: "",
   duration: "",
   bullets: [""],
 };
@@ -30,6 +32,8 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
           role: entry.role || "",
           employmentType: entry.employmentType || "",
           location: entry.location || "",
+          startDate: entry.startDate || "",
+          endDate: entry.endDate || "",
           duration: entry.duration || "",
           bullets: entry.bullets?.length ? entry.bullets : [""],
         }
@@ -84,6 +88,8 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
       formData.append("role", fields.role.trim());
       formData.append("employmentType", fields.employmentType.trim());
       formData.append("location", fields.location.trim());
+      formData.append("startDate", fields.startDate);
+      formData.append("endDate", fields.endDate);
       formData.append("duration", fields.duration.trim());
       formData.append(
         "bullets",
@@ -128,13 +134,13 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
           Company logo
         </label>
         <div className="flex items-center gap-4">
-          <div className="relative w-16 h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden">
+          <div className="relative w-16 h-16 shrink-0 rounded-xl border-2 border-heading bg-primary overflow-hidden flex items-center justify-center p-1.5">
             {logoPreview ? (
               <Image
                 src={logoPreview}
                 alt="Logo preview"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-description text-xs">
@@ -243,6 +249,34 @@ const ExperienceForm = ({ entry, onDone, onCancel }) => {
             onChange={(e) => update("location", e.target.value)}
             className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold text-heading mb-1.5">
+            Start date
+          </label>
+          <input
+            type="date"
+            value={fields.startDate}
+            onChange={(e) => update("startDate", e.target.value)}
+            className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold text-heading mb-1.5">
+            End date
+          </label>
+          <input
+            type="date"
+            value={fields.endDate}
+            min={fields.startDate || undefined}
+            onChange={(e) => update("endDate", e.target.value)}
+            className="w-full px-3 py-2.5 rounded-md border-2 border-heading bg-primary text-heading focus:outline-none"
+          />
+          <p className="mt-1 text-xs text-description">
+            Leave empty if this role is ongoing.
+          </p>
         </div>
       </div>
 

@@ -31,13 +31,10 @@
     "id": "database",
     "title": "Databases & Storage",
     "tags": [
-      "PostgreSQL",
       "MongoDB",
-      "Supabase",
       "Redis",
-      "MongoDB Atlas",
-      "Pinecone",
-      "FAISS"
+      "PostgreSQL",
+      "Supabase"
     ],
     "order": 2
   },
@@ -48,10 +45,8 @@
       "OpenAI",
       "Gemini",
       "OpenRouter",
-      "LangChain",
-      "RAG",
-      "LLM APIs",
-      "AI Integrations"
+      "Chatbots Integrations",
+      "AI Services Integrations"
     ],
     "order": 3
   },
@@ -78,7 +73,6 @@
     "tags": [
       "Microservices",
       "Modular Architecture",
-      "Monorepos",
       "BullMQ",
       "Kafka",
       "WebSockets",

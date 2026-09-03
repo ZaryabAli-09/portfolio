@@ -8,11 +8,12 @@
     "duration": "3 months",
     "logo": null,
     "bullets": [
-      "Learned backend development from the ground up using Node.js",
+      "Learned backend development from the ground up using Node.js / Express.js",
       "Worked on a course platform and LMS website",
       "Gained exposure to game development workflows, since the software house's primary focus was game development"
     ],
-    "order": 0
+    "order": 0,
+    "companyLink": ""
   },
   {
     "id": "elexoft",
@@ -21,7 +22,7 @@
     "employmentType": "Full-time",
     "location": "New City Phase 2, Wah Cantt City Center",
     "duration": "1+ years",
-    "logo": null,
+    "logo": "/uploads/experience/a9b69414-8223-4878-8ae7-06a30cac059c.webp",
     "bullets": [
       "Developed on WIZBAY.com, a multivendor marketplace built for a client operating across Europe, for about a month",
       "Shifted to building CONN-1, a middleware engine written from scratch that lists products from third-party dropshipping APIs into the marketplace",
@@ -29,7 +30,8 @@
       "Owned the project end-to-end — from development to DevOps — delivering it solo in about 6 months",
       "Later rebuilt the Elexoft company website with an advanced custom-built CMS"
     ],
-    "order": 1
+    "order": 1,
+    "companyLink": ""
   },
   {
     "id": "smile-lounge",
@@ -37,28 +39,32 @@
     "role": "Web Developer & Marketing Consultant",
     "employmentType": "Part-time",
     "location": "Remote",
-    "duration": "2 months",
-    "logo": null,
+    "duration": "3 months",
+    "logo": "/uploads/experience/ab8bcb82-67c9-429b-b759-7d8f33300bf3.webp",
     "bullets": [
       "Built and launched their website",
       "Set up and managed their Linktree",
       "Managed Meta Ads campaigns",
       "Consulted on ads strategy"
     ],
-    "order": 2
+    "order": 2,
+    "companyLink": "https://thesmilelounge.org",
+    "startDate": "",
+    "endDate": ""
   },
   {
     "id": "apricoica",
-    "company": "Apricoica",
+    "company": "Apricocia",
     "role": "Web & SEO Consultant",
     "employmentType": "Freelance",
     "location": "Remote",
     "duration": "Ongoing",
-    "logo": null,
+    "logo": "/uploads/experience/a0ef04f0-a8b1-417c-b569-b9d4e8b6a96c.webp",
     "bullets": [
-      "Helped a leading western wear eCommerce business enhance their website UI",
+      "Consulted and helped a leading western wear eCommerce brand enhance their website",
       "Defined and implemented an SEO strategy to improve online visibility"
     ],
-    "order": 4
+    "order": 4,
+    "companyLink": "https://apricocia.com/"
   }
 ]

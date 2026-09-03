@@ -53,6 +53,8 @@ export async function PUT(req, { params }) {
       role,
       employmentType: form.get("employmentType")?.toString() || "",
       location: form.get("location")?.toString() || "",
+      startDate: form.get("startDate")?.toString() || "",
+      endDate: form.get("endDate")?.toString() || "",
       duration: form.get("duration")?.toString() || "",
       bullets,
       logo,
