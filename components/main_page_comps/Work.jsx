@@ -102,9 +102,7 @@ const Work = ({ initialData = [], githubUrl = "" }) => {
   const [active, setActive] = useState("work");
   const [visibleCount, setVisibleCount] = useState(6);
 
-  const visibleProjects = initialData.filter(
-    (project) => Array.isArray(project.tags) && project.tags.length > 0,
-  );
+  const visibleProjects = initialData;
 
   const counts = {
     work: visibleProjects.filter((p) => p.category === "work").length,
