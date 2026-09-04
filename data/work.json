@@ -80,7 +80,12 @@
     "description": "A full-stack vacation rental platform featuring interactive property maps, booking calendars, advanced property filtering, and host management. Built as a learning project to strengthen authentication workflows with Auth.js and deepen my experience building full-stack applications with Next.js.",
     "image": "/uploads/work/8ae89867-6b1b-4ffa-9f96-60681157b8c3.webp",
     "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
-    "tags": ["Next.js", "Auth.js", "Tailwind", "Maps API"],
+    "tags": [
+      "Next.js",
+      "Auth.js",
+      "Tailwind",
+      "Maps API"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -94,7 +99,12 @@
     "description": "An immersive landing page built with GSAP to explore advanced web animations and interactive experiences. Features smooth transitions, scroll-based animations, and dynamic visual effects designed to create a polished and engaging user experience.",
     "image": "/uploads/work/ef374d75-56f0-41c3-ae4f-61d21e7baf51.webp",
     "link": "https://sync-vibes.vercel.app",
-    "tags": ["Next.js", "Tailwind", "GSAP", "UI/UX"],
+    "tags": [
+      "Next.js",
+      "Tailwind",
+      "GSAP",
+      "UI/UX"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -108,7 +118,11 @@
     "description": "Modern coffee shop landing page with a warm aesthetic, smooth animations, and an engaging user experience.",
     "image": "/uploads/work/c5533634-d123-4c32-bc04-2ff69155f425.webp",
     "link": "https://caffio1x.vercel.app",
-    "tags": ["Next.js", "Tailwind", "UI/UX"],
+    "tags": [
+      "Next.js",
+      "Tailwind",
+      "UI/UX"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -166,7 +180,12 @@
     "description": "A full-stack MERN notes and task management application for creating, organizing, and managing notes and todos. Built to strengthen my full-stack development skills through RESTful APIs, data management, media uploads with Cloudinary, and deploying a production-ready frontend and backend using Netlify and Render with MongoDB.",
     "image": "/uploads/work/392becca-0963-4e73-a27c-64851f497a50.webp",
     "link": "https://keepnotesandtodos.netlify.app",
-    "tags": ["MERN", "Cloudinary", "Render", "Netlify"],
+    "tags": [
+      "MERN",
+      "Cloudinary",
+      "Render",
+      "Netlify"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -180,7 +199,13 @@
     "description": "A full-stack blog platform built with the MERN stack, featuring an admin panel for creating, managing, and organizing blog content. Built to strengthen my experience with RESTful APIs, database-driven applications, authentication, and building complete full-stack workflows.",
     "image": "/uploads/work/0bacb740-cd94-476f-ba38-cc3ab37477a5.webp",
     "link": "https://techscrolls.netlify.app",
-    "tags": ["Nodejs", "Expressjs", "MongoDB", "Cloudinary", "JWT Auth"],
+    "tags": [
+      "Nodejs",
+      "Expressjs",
+      "MongoDB",
+      "Cloudinary",
+      "JWT Auth"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -194,7 +219,10 @@
     "description": "A modern agency landing page built with React and Tailwind CSS, featuring a sleek responsive interface and integrated contact form. Built as a learning project to strengthen my frontend development skills, component-based UI design, and responsive web development.",
     "image": "/uploads/work/719c7fb0-84fd-49fb-b9e2-363cbdb7f1af.webp",
     "link": "https://digitaloctagon.netlify.app",
-    "tags": ["React", "Tailwind"],
+    "tags": [
+      "React",
+      "Tailwind"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -208,7 +236,10 @@
     "description": "A clean and responsive landing page concept for a nutrition and diet platform, designed with a focus on modern UI, visual hierarchy, and responsive layouts. Built as a learning project to strengthen frontend development and translate a product concept into a polished web experience.",
     "image": "/uploads/work/2592d88e-46bc-4a8f-a31a-3e555df7b0c3.webp",
     "link": "https://dietmateui.netlify.app",
-    "tags": ["UI/UX", "Landing Page"],
+    "tags": [
+      "UI/UX",
+      "Landing Page"
+    ],
     "galleryImages": [],
     "detailSections": [],
     "category": "learning",
@@ -267,7 +298,7 @@
     "role": "Contributer as Elexoft Employee",
     "period": "Full Time",
     "description": "Wizbay is a large-scale multivendor e-commerce marketplace built by Elexoft for a client in Greece a complex, production system serving multiple sellers, brands, and product categories. This was the first project I worked on at Elexoft, where I contributed to both backend logic and UI/frontend changes on an existing, actively-developed platform rather than building it from scratch.",
-    "image": "",
+    "image": "/uploads/work/0204dd1e-ead5-4559-a215-110db6098cc3.webp",
     "link": "",
     "tags": [],
     "galleryImages": [],
