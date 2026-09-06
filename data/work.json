@@ -308,15 +308,47 @@
   },
   {
     "id": "296b099f-be34-4993-befa-46d5803d04bd",
-    "title": "Conn-1 (ERPConn1)",
-    "role": "Lead Enginner",
+    "title": "Conn-1",
+    "role": "Lead Engineer as Elexoft Employee",
     "period": "Full Time",
-    "description": "Once Wizbay launched, the client needed a way to populate it with inventory at scale without manual product entry — sourcing products from a third-party dropshipping API, transforming them into Wizbay's format, and keeping everything (products, inventory, orders) in sync automatically. I led the design and build of Conn-1, a microservices-based ERP/middleware engine that ingests products from external dropshipping APIs, normalizes them into a flexible internal schema, and publishes them to Wizbay under a defined seller — running as a recurring sync every 3 hours and currently handling 150,000+ products. I led the project with a team of 5 engineers, personally owned most of the backend, and handled the entire cloud deployment (Kubernetes/AWS) end to end.",
-    "image": "",
+    "description": "Conn-1 is a scalable middleware platform built at Elexoft to integrate third-party fashion dropshipping APIs with WizBay, a multi-vendor marketplace.\r\n\r\nThe system imports, transforms, and publishes products from external suppliers and continuously keeps products, inventory, prices, variants, and other product data synchronized with WizBay.\r\n\r\nWe successfully scaled the platform to 150,000+ products on WizBay. Product imports and publishing jobs run every 3 hours, ensuring the marketplace stays regularly updated with the latest supplier data.\r\n\r\nConn-1 also handles order synchronization, product updates, availability changes, deletions, and other integration workflows between external providers and WizBay.",
+    "image": "/uploads/work/7d5a5926-f6a9-429d-b243-ec5af0a068b2.webp",
     "link": "",
     "tags": [],
-    "galleryImages": [],
-    "detailSections": [],
+    "galleryImages": [
+      "/uploads/work/88fa2222-e1b1-409b-ad88-94f53e1b5442.webp",
+      "/uploads/work/ba511890-6692-4dff-82ab-073f2b96429b.webp",
+      "/uploads/work/ae2dacb7-81aa-4cfd-a85f-f557dcc7692a.webp",
+      "/uploads/work/2c4fc269-cdda-463f-b62e-a0d4c05253c5.webp",
+      "/uploads/work/02cbfc26-6b04-47dd-b376-cb42b258619e.webp",
+      "/uploads/work/9c9516a7-5550-4d1e-a46b-3c78d81b3159.webp"
+    ],
+    "detailSections": [
+      {
+        "id": "section-1788722166494",
+        "heading": "My Role In Conn1 Project",
+        "type": "bullets",
+        "content": "I led the Conn-1 project with a cross-functional team of five, including QA, UI/UX, and frontend developers.\nArchitecting the overall microservices system\nDesigning product and order synchronization workflows\nDeveloping the backend services and API integrations\nImplementing asynchronous processing using queues and background workers\nDesigning data mapping and transformation between supplier APIs and WizBay\nDeploying and managing microservices on AWS/Kubernetes\nConfiguring HPA-based horizontal scaling\nSupporting frontend development and API integration\nCoordinating technical work across the development and QA teams"
+      },
+      {
+        "id": "section-1788722296569",
+        "heading": "Why We Built Conn-1",
+        "type": "bullets",
+        "content": "WizBay was approaching launch, but the marketplace needed a larger product catalog and there were not yet enough sellers.\n\nThe client wanted to integrate fashion dropshipping APIs containing products from major brands such as Balenciaga, Gucci, and other premium brands.\n\nInstead of tightly coupling these external APIs with WizBay, we built Conn-1 as a dedicated integration layer e.g Supplier APIs → Conn-1 → WizBay. This allowed us to automatically import and publish a large catalog while keeping product information synchronized every three hours. It also made it easier to support additional suppliers and integrations without changing the core WizBay marketplace."
+      },
+      {
+        "id": "section-1788722335675",
+        "heading": "Key Achievement",
+        "type": "bullets",
+        "content": "Successfully integrated and synchronized 150,000+ products with WizBay.\nAutomated product import and publishing every 3 hours, keeping the marketplace catalog continuously updated.\nDesigned the system to be capable of handling millions of products through distributed, queue-based processing.\nBuilt the core synchronization workflow around background workers and asynchronous queues, allowing large-scale operations to run reliably without blocking the main application.\nDeployed the architecture as scalable microservices on AWS/Kubernetes with HPA, enabling the system to scale with increasing workloads."
+      },
+      {
+        "id": "section-1788722348336",
+        "heading": "Technologies Used Accross Project",
+        "type": "bullets",
+        "content": "Node.js\nExpress.js\nMongoDB & Mongoose\nRedis & BullMQ\nREST APIs & Webhooks\nDocker\nKubernetes & Amazon EKS\nKubernetes HPA\nMicroservices Architecture\nBackground Jobs & Queue-Based Processing\nThird-Party API Integration(confidential to mention)\nAutomated Data Synchronization"
+      }
+    ],
     "category": "work",
     "order": 11
   }
