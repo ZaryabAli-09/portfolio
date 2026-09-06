@@ -68,7 +68,7 @@ const ProjectDetail = ({ project }) => {
                   alt={project.title}
                   fill
                   priority
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             ) : (
@@ -92,7 +92,7 @@ const ProjectDetail = ({ project }) => {
                       src={image}
                       alt={`${project.title} gallery ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 </div>

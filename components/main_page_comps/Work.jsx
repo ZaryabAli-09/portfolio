@@ -33,6 +33,9 @@ const excerpt = (description = "") =>
 const ProjectCard = ({ project, rotation }) => {
   const router = useRouter();
   const hasLiveLink = Boolean(project.link?.trim());
+  const tags = Array.isArray(project.tags) ? project.tags : [];
+  const visibleTags = tags.slice(0, 5);
+  const remainingTagCount = tags.length - visibleTags.length;
 
   return (
     <div
@@ -56,7 +59,7 @@ const ProjectCard = ({ project, rotation }) => {
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-contain"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-highlight/20 to-secondary/20">
@@ -83,15 +86,19 @@ const ProjectCard = ({ project, rotation }) => {
         </p>
 
         <div className="flex flex-wrap gap-2 mt-auto">
-          {Array.isArray(project.tags) &&
-            project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-xs text-heading border-2 border-heading rounded-full px-3 py-1"
-              >
-                {tag}
-              </span>
-            ))}
+          {visibleTags.map((tag) => (
+            <span
+              key={tag}
+              className="font-mono text-xs text-heading border-2 border-heading rounded-full px-3 py-1"
+            >
+              {tag}
+            </span>
+          ))}
+          {remainingTagCount > 0 && (
+            <span className="font-mono text-xs text-heading border-2 border-heading rounded-full px-3 py-1">
+              +{remainingTagCount} more
+            </span>
+          )}
         </div>
       </div>
     </div>

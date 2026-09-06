@@ -5,7 +5,7 @@
     "role": "Researcher & CoreEngineer",
     "period": "Final Year Project",
     "description": "SmartStyler is a full-stack, fashion-focused multivendor e-commerce marketplace built as my Final Year Project, and one of the most technically complex systems I've built during my university phase. It connects buyers, sellers, and platform administrators through three separate, independently deployed applications sharing one backend and database a real-world microservice-style separation of concerns rather than a single monolithic dashboard. The platform differentiates itself from a standard e-commerce clone through three research-driven features: TikTok-style reel-based product discovery, an ML-based \"Find Similar Products\" visual/semantic recommendation engine, and an integrated AI chatbot for customer support combined with real-time chat, Stripe payments, and a full seller-onboarding and dispute-resolution workflow.",
-    "image": "/uploads/work/8f1ea70c-a59f-4030-8e2d-71c211aa0277.webp",
+    "image": "/uploads/work/f299dd45-81b6-4d99-8890-269dd8d2e4c3.webp",
     "link": "/smartstyler",
     "tags": [
       "React",
@@ -78,7 +78,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "A full-stack vacation rental platform featuring interactive property maps, booking calendars, advanced property filtering, and host management. Built as a learning project to strengthen authentication workflows with Auth.js and deepen my experience building full-stack applications with Next.js.",
-    "image": "/uploads/work/8ae89867-6b1b-4ffa-9f96-60681157b8c3.webp",
+    "image": "/uploads/work/593db4d9-ec20-4478-a823-1a799184645f.webp",
     "link": "https://easy-rent-now-vacation-rental-platf.vercel.app",
     "tags": [
       "Next.js",
@@ -97,7 +97,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "An immersive landing page built with GSAP to explore advanced web animations and interactive experiences. Features smooth transitions, scroll-based animations, and dynamic visual effects designed to create a polished and engaging user experience.",
-    "image": "/uploads/work/ef374d75-56f0-41c3-ae4f-61d21e7baf51.webp",
+    "image": "/uploads/work/03085041-f2f8-4fed-ab8a-560c99d37f54.webp",
     "link": "https://sync-vibes.vercel.app",
     "tags": [
       "Next.js",
@@ -116,7 +116,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "Modern coffee shop landing page with a warm aesthetic, smooth animations, and an engaging user experience.",
-    "image": "/uploads/work/c5533634-d123-4c32-bc04-2ff69155f425.webp",
+    "image": "/uploads/work/df9feb02-dc12-47d5-85b8-410631dae199.webp",
     "link": "https://caffio1x.vercel.app",
     "tags": [
       "Next.js",
@@ -134,7 +134,7 @@
     "role": "Creator & Developer",
     "period": "Side Project",
     "description": "An AI-powered full-stack image processing application built for fast, high-quality background removal and seamless image editing. QuickBG combines AI background-removal models with image-processing capabilities to let users remove backgrounds in seconds, replace them with custom or generated backgrounds, resize images, and enhance image quality through an intuitive web interface.",
-    "image": "/uploads/work/7a6e05df-6b8b-4819-ba96-d02f3164d109.webp",
+    "image": "/uploads/work/7f88f6e4-746d-4e73-90d9-c67516694535.webp",
     "link": "https://quickbgremove.netlify.app",
     "tags": [
       "React",
@@ -178,7 +178,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "A full-stack MERN notes and task management application for creating, organizing, and managing notes and todos. Built to strengthen my full-stack development skills through RESTful APIs, data management, media uploads with Cloudinary, and deploying a production-ready frontend and backend using Netlify and Render with MongoDB.",
-    "image": "/uploads/work/392becca-0963-4e73-a27c-64851f497a50.webp",
+    "image": "/uploads/work/bd089c51-3946-4712-babc-845749754714.webp",
     "link": "https://keepnotesandtodos.netlify.app",
     "tags": [
       "MERN",
@@ -197,7 +197,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "A full-stack blog platform built with the MERN stack, featuring an admin panel for creating, managing, and organizing blog content. Built to strengthen my experience with RESTful APIs, database-driven applications, authentication, and building complete full-stack workflows.",
-    "image": "/uploads/work/0bacb740-cd94-476f-ba38-cc3ab37477a5.webp",
+    "image": "/uploads/work/db2c793c-7687-4dc3-911f-6afd07408717.webp",
     "link": "https://techscrolls.netlify.app",
     "tags": [
       "Nodejs",
@@ -217,7 +217,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "A modern agency landing page built with React and Tailwind CSS, featuring a sleek responsive interface and integrated contact form. Built as a learning project to strengthen my frontend development skills, component-based UI design, and responsive web development.",
-    "image": "/uploads/work/719c7fb0-84fd-49fb-b9e2-363cbdb7f1af.webp",
+    "image": "/uploads/work/d86a7da0-bb95-461d-9590-bfe7fbf20236.webp",
     "link": "https://digitaloctagon.netlify.app",
     "tags": [
       "React",
@@ -234,7 +234,7 @@
     "role": "Developer",
     "period": "Learning Project",
     "description": "A clean and responsive landing page concept for a nutrition and diet platform, designed with a focus on modern UI, visual hierarchy, and responsive layouts. Built as a learning project to strengthen frontend development and translate a product concept into a polished web experience.",
-    "image": "/uploads/work/2592d88e-46bc-4a8f-a31a-3e555df7b0c3.webp",
+    "image": "/uploads/work/c6b73ade-6810-47b8-8350-dc3beed6fc59.webp",
     "link": "https://dietmateui.netlify.app",
     "tags": [
       "UI/UX",
@@ -251,7 +251,7 @@
     "role": "Creator & Developer",
     "period": "Side Project",
     "description": "An AI-powered full-stack travel planning app built with Next.js that turns a few trip preferences into a complete, day-by-day itinerary. SafarAI generates structured travel plans - destinations, daily activities, budget breakdowns, weather forecasts, and location images by combining an LLM-driven planning engine with several free public APIs for geocoding, weather, and imagery, all wrapped in a full authentication and trip-management system.",
-    "image": "",
+    "image": "/uploads/work/c16d3277-7abf-46bf-9ca6-fd4f870f02a8.webp",
     "link": "https://safarai1x.vercel.app/",
     "tags": [
       "Next.js",
@@ -298,7 +298,7 @@
     "role": "Contributer as Elexoft Employee",
     "period": "Full Time",
     "description": "Wizbay is a large-scale multivendor e-commerce marketplace built by Elexoft for a client in Greece a complex, production system serving multiple sellers, brands, and product categories. This was the first project I worked on at Elexoft, where I contributed to both backend logic and UI/frontend changes on an existing, actively-developed platform rather than building it from scratch.",
-    "image": "/uploads/work/0204dd1e-ead5-4559-a215-110db6098cc3.webp",
+    "image": "/uploads/work/af899cae-b9c9-4b19-83c2-33901f58a5df.webp",
     "link": "",
     "tags": [],
     "galleryImages": [],

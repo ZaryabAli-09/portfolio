@@ -281,7 +281,7 @@ const WorkDashboard = ({ initialData = [] }) => {
                   <img
                     src={imagePreview}
                     alt="Image preview"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-description text-xs">
@@ -405,7 +405,7 @@ const WorkDashboard = ({ initialData = [] }) => {
                   <img
                     src={src}
                     alt={`Gallery ${index + 1}`}
-                    className="h-24 w-full rounded-lg object-cover border-2 border-heading"
+                    className="h-24 w-full rounded-lg object-contain border-2 border-heading"
                   />
                   <button
                     type="button"
@@ -423,7 +423,7 @@ const WorkDashboard = ({ initialData = [] }) => {
                   <img
                     src={URL.createObjectURL(file)}
                     alt={`New gallery ${index + 1}`}
-                    className="h-24 w-full rounded-lg object-cover border-2 border-heading"
+                    className="h-24 w-full rounded-lg object-contain border-2 border-heading"
                   />
                   <button
                     type="button"
