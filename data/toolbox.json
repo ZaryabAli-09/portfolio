@@ -57,6 +57,7 @@
       "AWS",
       "Kubernetes",
       "Docker",
+      "Elastic Search",
       "EKS",
       "EC2",
       "ECR",
@@ -77,7 +78,8 @@
       "Kafka",
       "WebSockets",
       "Socket.IO",
-      "Git"
+      "Git",
+      "Bitbucket"
     ],
     "order": 5
   }
