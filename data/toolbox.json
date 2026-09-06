@@ -64,7 +64,8 @@
       "S3",
       "CI/CD",
       "Nginx",
-      "PM2"
+      "PM2",
+      "AWS Code Build"
     ],
     "order": 4
   },
