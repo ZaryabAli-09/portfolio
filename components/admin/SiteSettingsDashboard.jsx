@@ -9,6 +9,9 @@ const emptyStat = () => ({ value: "", label: "" });
 const SiteSettingsDashboard = ({ initialData }) => {
   const [fields, setFields] = useState({
     name: initialData?.name || "",
+    profileImage: initialData?.profileImage || "/zaryab.png",
+    favicon: initialData?.favicon || "/favicon.png",
+    cvUrl: initialData?.cvUrl || "",
     role: initialData?.role || "",
     heroSince: initialData?.heroSince || "",
     heroDescription: initialData?.heroDescription || "",
@@ -23,6 +26,11 @@ const SiteSettingsDashboard = ({ initialData }) => {
       : [emptyLink()],
   });
   const [saving, setSaving] = useState(false);
+  const [files, setFiles] = useState({
+    profileImage: null,
+    favicon: null,
+    cv: null,
+  });
 
   const updateField = (key, value) =>
     setFields((current) => ({ ...current, [key]: value }));
@@ -92,10 +100,15 @@ const SiteSettingsDashboard = ({ initialData }) => {
         ),
       };
 
+      const form = new FormData();
+      form.append("settings", JSON.stringify(payload));
+      Object.entries(files).forEach(([key, file]) => {
+        if (file) form.append(key, file);
+      });
+
       const res = await fetch("/api/site-settings", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: form,
       });
 
       const data = await res.json();
@@ -105,6 +118,7 @@ const SiteSettingsDashboard = ({ initialData }) => {
       }
 
       toast.success("Site settings updated.");
+      setFiles({ profileImage: null, favicon: null, cv: null });
     } catch {
       toast.error("Failed to save settings.");
     } finally {
@@ -124,6 +138,35 @@ const SiteSettingsDashboard = ({ initialData }) => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-4 rounded-2xl border-2 border-heading bg-primary p-5 shadow-[4px_4px_0_0_#111827]">
+        <div className="md:col-span-2 grid md:grid-cols-3 gap-4">
+          {[
+            [
+              "profileImage",
+              "Profile image",
+              "image/png,image/jpeg,image/webp",
+            ],
+            ["favicon", "Favicon", "image/png,image/x-icon"],
+            ["cv", "CV", "application/pdf"],
+          ].map(([key, label, accept]) => (
+            <label key={key} className="space-y-1.5">
+              <span className="text-sm font-bold text-heading">{label}</span>
+              <input
+                type="file"
+                accept={accept}
+                onChange={(e) =>
+                  setFiles((current) => ({
+                    ...current,
+                    [key]: e.target.files?.[0] || null,
+                  }))
+                }
+                className="w-full text-sm text-heading"
+              />
+              <span className="block text-xs text-gray-600 truncate">
+                Current: {key === "cv" ? fields.cvUrl : fields[key]}
+              </span>
+            </label>
+          ))}
+        </div>
         <label className="space-y-1.5">
           <span className="text-sm font-bold text-heading">Name</span>
           <input

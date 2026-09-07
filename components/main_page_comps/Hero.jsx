@@ -7,6 +7,7 @@ import {
   FiInstagram,
   FiFacebook,
   FiTwitter,
+  FiDownload,
 } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiClaudecode } from "react-icons/si";
@@ -146,6 +147,17 @@ const Hero = async () => {
             >
               Get in touch
             </Button>
+            {siteSettings.cvUrl && (
+              <Button
+                variant="outline"
+                href={siteSettings.cvUrl}
+                icon={FiDownload}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download CV
+              </Button>
+            )}
 
             <div className="flex items-center gap-4 ">
               {socialLinks.map((social) => {
@@ -203,7 +215,7 @@ const Hero = async () => {
               {/* inner photo, separated from border by the parent's padding */}
               <div className="relative w-full h-full rounded-xl overflow-hidden">
                 <Image
-                  src="/zaryab.png"
+                  src={siteSettings.profileImage || "/zaryab.png"}
                   alt="Zaryab Ali"
                   fill
                   priority

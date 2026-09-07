@@ -35,7 +35,7 @@ const Navbar = ({ siteSettings = {} }) => {
         <Link href="/#home" className="flex items-center gap-3 shrink-0">
           <div className="relative w-11 h-11 rounded-lg overflow-hidden border font-bold border-gray-900 shrink-0">
             <Image
-              src="/zaryab.png"
+              src={siteSettings.profileImage || "/zaryab.png"}
               alt="Zaryab Ali"
               fill
               className="object-cover"

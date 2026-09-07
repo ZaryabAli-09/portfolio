@@ -1,5 +1,8 @@
 {
   "name": "Zaryab Ali",
+  "profileImage": "/zaryab.png",
+  "favicon": "/favicon.png",
+  "cvUrl": "/Zaryab's CV (Software Engineer).pdf",
   "role": "Full-stack Software Engineer",
   "heroSince": "2021",
   "heroDescription": "with 1.5+ years of professional experience, building production-ready web, mobile, AI, and cloud solutions since",
