@@ -155,7 +155,7 @@ const Hero = async () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download CV
+                Resume
               </Button>
             )}
 
